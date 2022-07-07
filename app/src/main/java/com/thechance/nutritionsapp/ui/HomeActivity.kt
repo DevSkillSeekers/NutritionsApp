@@ -9,11 +9,13 @@ import com.thechance.nutritionsapp.utilities.Constant
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import javax.sql.DataSource
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(requireNotNull(binding).root)
