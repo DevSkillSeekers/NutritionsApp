@@ -14,12 +14,4 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    /*
-    read from csv
-    private fun setup() {
-        val dataSource = CSVDataSource(applicationContext)
-        val data = dataSource.getAllApps()
-        binding.tvText.text = data.take(10).toString()
-    }*/
-
 }

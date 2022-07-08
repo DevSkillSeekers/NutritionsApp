@@ -33,12 +33,6 @@ android {
         dataBinding = true
         viewBinding = true
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-alpha08"
-    }
 }
 
 dependencies {
