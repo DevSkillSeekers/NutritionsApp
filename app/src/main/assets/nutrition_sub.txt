@@ -1,0 +1,6 @@
+name,serving_size,calories,cholesterol,vitamin_c,calcium,iron,protein,carbs,fiber,sugars,fat
+Egg-fresh-raw-yolk,100g,322,1085mg,0.0mg,129.00mg,2.73mg,15.86g,3.59g,0.0g,0.56g,26.54g
+Eggplant-raw,100g,25,0,2.2mg,9.00mg,0.23mg,0.98g,5.88g,3.0g,3.53g,0.18g
+Sherbet-orange,100 g,144,1mg,2.3mg,54.00mg,0.14mg,1.10g,30.40g,1.3g,24.32g,2.00g
+Chicken-boiled-feet,100g,215,84mg,0.0mg,88.00mg,0.91mg,19.40g,0.20g,0.0g,0.00g,14.60g
+Cheese-camembert,100g,300,72mg,0.0mg,388.00mg,0.33mg,19.80g,0.46g,0.0g,0.46g,24.26g
