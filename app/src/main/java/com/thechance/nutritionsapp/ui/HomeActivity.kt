@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.data.datasource.CSVDataSource
+import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
 
 class HomeActivity : AppCompatActivity() {
@@ -48,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
                     changeFragment(BMIFragment(), Constants.REPLACE_FRAGMENT)
                 }
                 R.id.search_menu -> {
-                    binding.toolbar.visibility = View.VISIBLE
+                    binding.toolbar.visibility = View.GONE
                     binding.toolbar.title = resources.getString(R.string.search)
                     changeFragment(SearchFragment(), Constants.REPLACE_FRAGMENT)
                 }

@@ -1,56 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/meal_shape">
+    android:paddingVertical="@dimen/small_padding">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/meal_shape">
 
         <ImageView
             android:id="@+id/imgMeal"
             android:layout_width="@dimen/size_card_of_meal"
             android:layout_height="@dimen/size_card_of_meal"
-            android:padding="@dimen/large_margin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/shape_img"
             android:layout_gravity="center"
-            android:src="@drawable/ic_pizza"/>
+            android:background="@drawable/shape_img"
+            android:padding="@dimen/large_margin"
+            android:src="@drawable/ic_pizza"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageButton
-        android:id="@+id/addIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_outline_add_circle_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="23dp"
-        android:background="@color/white"
-        />
+        <ImageButton
+            android:id="@+id/addIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_outline_add_circle_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="@dimen/large_margin"
-        android:text="Pizza"
-        android:textSize="@dimen/size_title_meal"
-        app:layout_constraintStart_toEndOf="@id/imgMeal"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/title_color"/>
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/large_margin"
+            android:text="Pizza"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/size_title_meal"
+            app:layout_constraintStart_toEndOf="@id/imgMeal"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvCal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="200 Cal"
-        app:layout_constraintStart_toEndOf="@+id/imgMeal"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        android:layout_marginStart="@dimen/large_margin"
-        android:layout_marginTop="@dimen/small_margin"
-        android:textColor="@color/title_color"/>
+        <TextView
+            android:id="@+id/tvCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="200 Cal"
+            android:textColor="@color/title_color"
+            app:layout_constraintStart_toEndOf="@+id/imgMeal"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

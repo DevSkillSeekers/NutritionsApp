@@ -6,5 +6,6 @@
     <dimen name="size_meal_img_width_height">36dp</dimen>
     <dimen name="size_title_meal">16sp</dimen>
     <dimen name="small_margin">4dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
     <dimen name="radius_size_shape">12dp</dimen>
 </resources>

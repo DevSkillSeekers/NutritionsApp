@@ -5,5 +5,6 @@
     <string name="search_hint">Search Here</string>
     <string name="home">Home</string>
     <string name="bmi">BMI</string>
+    <string name="calories_tv">%s calories</string>
 
 </resources>
