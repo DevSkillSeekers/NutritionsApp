@@ -1,4 +1,4 @@
-package com.thechance.nutritionsapp.data
+package com.thechance.nutritionsapp.data.domain
 data class NutritionItem(
     val id:Int,
     val name: String,

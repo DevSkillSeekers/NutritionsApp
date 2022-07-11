@@ -1,13 +1,13 @@
-package com.thechance.nutritionsapp.datasource
+package com.thechance.nutritionsapp.data.datasource
 
 import android.content.Context
-import com.thechance.nutritionsapp.data.NutritionItem
-import com.thechance.nutritionsapp.utilities.Constant
-import com.thechance.nutritionsapp.utilities.FileReader
+import com.thechance.nutritionsapp.data.domain.NutritionItem
+import com.thechance.nutritionsapp.util.Constants
+import com.thechance.nutritionsapp.util.FileReader
 
 class CSVDataSource(
     private var context: Context,
-    private var fileName: String = Constant.FILE_NAME
+    private var fileName: String = Constants.FILE_NAME
 ) {
     private val fileReader by lazy { FileReader(context, fileName) }
 
@@ -27,10 +27,10 @@ class CSVDataSource(
         return if (appStr.isNotEmpty() && appStr.isNotBlank()) {
             val appFields = appStr.split(",")
             NutritionItem(
-                appFields[Constant.ColumnIndex.Item_ID].toInt(),
-                appFields[Constant.ColumnIndex.NAME],
-                appFields[Constant.ColumnIndex.SERVING_SIZE],
-                appFields[Constant.ColumnIndex.CALORIES].toInt(),
+                appFields[Constants.ColumnIndex.Item_ID].toInt(),
+                appFields[Constants.ColumnIndex.NAME],
+                appFields[Constants.ColumnIndex.SERVING_SIZE],
+                appFields[Constants.ColumnIndex.CALORIES].toInt(),
             )
         } else {
             null
