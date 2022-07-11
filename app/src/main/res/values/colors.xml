@@ -10,4 +10,8 @@
     <color name="splash_bg">#13D56A</color>
     <color name="primaryBlack">#191c1c</color>
     <color name="primaryGrey">#F0F0F0</color>
+    <color name="lightGreenTheme">#FAFDFC</color>
+    <color name="mealItemStrokeColor">#DAE4E5</color>
+    <color name="darkGreenTheme11">#1C00696E</color>
+    <color name="darkGreenTheme">#00696E</color>
 </resources>
