@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -51,5 +52,6 @@ dependencies {
     //Splash screen
     implementation 'androidx.core:core-splashscreen:1.0.0-rc01'
 
-
+//    CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

@@ -3,5 +3,8 @@
     <string name="home">Home</string>
     <string name="bmi">BMI</string>
     <string name="search">Search</string>
-
+    <string name="carbs">Carbs</string>
+    <string name="protein">Protein</string>
+    <string name="fat">Fat</string>
+    <string name="ingredients">Ingredients</string>
 </resources>
