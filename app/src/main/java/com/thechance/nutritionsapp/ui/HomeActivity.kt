@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setData() {
         val dataSource = CSVDataSource(this)
-        dataSource.getAllApps().forEach { nutritionItem ->
+        dataSource.getAllNutrition().forEach { nutritionItem ->
             DataManger.addNutritionItem(nutritionItem)
         }
     }

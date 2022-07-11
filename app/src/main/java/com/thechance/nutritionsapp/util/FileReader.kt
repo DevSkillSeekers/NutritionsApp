@@ -6,15 +6,11 @@ import java.io.InputStreamReader
 
 class FileReader(private var context: Context, private var fileName: String) {
 
-    fun getListOFLinesInFile(): List<String>? {
-
+    fun getLinesFromFile(): List<String> {
         val lines = mutableListOf<String>()
-        val inputStream = InputStreamReader(context.assets.open(fileName))
+        val inputStream = InputStreamReader(context.assets.open(fileName ))
         val buffer = BufferedReader(inputStream)
-
-        buffer.apply {
-            buffer.forEachLine { line -> lines.add(line) }
-        }
+        buffer.forEachLine { line -> lines.add(line) }
         return lines
     }
 

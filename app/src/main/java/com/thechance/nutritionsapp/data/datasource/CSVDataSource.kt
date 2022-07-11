@@ -11,26 +11,29 @@ class CSVDataSource(
 ) {
     private val fileReader by lazy { FileReader(context, fileName) }
 
-    fun getAllApps(): List<NutritionItem> {
-        val apps = mutableListOf<NutritionItem>()
-        fileReader.getListOFLinesInFile()?.let {
-            it.forEach { line ->
-                val app = parseStringToApp(line)
-                if (app != null)
-                    apps.add(app)
-            }
+    fun getAllNutrition(): List<NutritionItem> {
+        val nutritionList = mutableListOf<NutritionItem>()
+        fileReader.getLinesFromFile().forEach { line ->
+            val nutritionItem = parseStringToNutrition(line)
+            if (nutritionItem != null)
+                nutritionList.add(nutritionItem)
         }
-        return apps.distinctBy { app -> Pair(app.id, app.name) }
+        return nutritionList.distinctBy { nutritionItem ->
+            Pair(
+                nutritionItem.id,
+                nutritionItem.name
+            )
+        }
     }
 
-    private fun parseStringToApp(appStr: String): NutritionItem? {
-        return if (appStr.isNotEmpty() && appStr.isNotBlank()) {
-            val appFields = appStr.split(",")
+    private fun parseStringToNutrition(nutritionStr: String): NutritionItem? {
+        return if (nutritionStr.isNotEmpty() && nutritionStr.isNotBlank()) {
+            val fields = nutritionStr.split(",")
             NutritionItem(
-                appFields[Constants.ColumnIndex.Item_ID].toInt(),
-                appFields[Constants.ColumnIndex.NAME],
-                appFields[Constants.ColumnIndex.SERVING_SIZE],
-                appFields[Constants.ColumnIndex.CALORIES].toInt(),
+                fields[Constants.ColumnIndex.Item_ID].toInt(),
+                fields[Constants.ColumnIndex.NAME],
+                fields[Constants.ColumnIndex.SERVING_SIZE],
+                fields[Constants.ColumnIndex.CALORIES].toInt(),
             )
         } else {
             null

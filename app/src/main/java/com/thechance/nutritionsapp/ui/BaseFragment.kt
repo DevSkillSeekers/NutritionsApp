@@ -11,7 +11,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: ViewBinding? = null
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
 
-//    @Suppress("UNCHECKED_CAST")
     protected val binding: VB
         get() = _binding as VB
 
