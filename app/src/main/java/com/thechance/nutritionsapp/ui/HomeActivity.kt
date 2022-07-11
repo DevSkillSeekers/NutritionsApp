@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.DataManger
 import com.thechance.nutritionsapp.data.datasource.CSVDataSource
+import com.thechance.nutritionsapp.data.datasource.HealthyFoodDataSource
+import com.thechance.nutritionsapp.data.datasource.NutritionDataSource
 import com.thechance.nutritionsapp.util.Constants
 
 class HomeActivity : AppCompatActivity() {
@@ -20,18 +22,14 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //toolbar
-        binding.toolbar.title = resources.getString(R.string.app_name)
-        binding.toolbar.visibility = View.GONE
-        ////////////////
         setData()
         setListeners()
     }
 
     private fun setData() {
-        val dataSource = CSVDataSource(this)
-        dataSource.getAllNutrition().forEach { nutritionItem ->
-            DataManger.addNutritionItem(nutritionItem)
+        val dataSource = HealthyFoodDataSource(this)
+        dataSource.getAllItems().forEach { nutritionItem ->
+            DataManger.addHealthyFood(nutritionItem)
         }
     }
 

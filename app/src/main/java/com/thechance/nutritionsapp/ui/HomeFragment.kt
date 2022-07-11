@@ -12,7 +12,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         FragmentHomeBinding::inflate
 
     override fun setup() {
-        binding.ivText.text = DataManger.getNutrition(10).toString()
+        binding.ivText.text = DataManger.getBreakfast().toString()
     }
 
 
