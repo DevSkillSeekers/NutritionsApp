@@ -51,5 +51,9 @@ dependencies {
     //Splash screen
     implementation 'androidx.core:core-splashscreen:1.0.0-rc01'
 
+    //progress bar
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+
+
 
 }
