@@ -18,7 +18,4 @@ class FirstFragment() : BaseFragment<FragmentFirstBinding>() {
             binding.ivText.text = data.take(10).toString()
         }
     }
-
-
-
 }
