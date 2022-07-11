@@ -6,13 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.databinding.FragmentHomeBinding
+import com.thechance.nutritionsapp.databinding.FragmentMealBinding
 
-class MealFragment:Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_meal,container,false)
+class MealFragment : BaseFragment<FragmentMealBinding>() {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMealBinding =
+        FragmentMealBinding::inflate
+
+    override fun setup() {
+        TODO("Not yet implemented")
     }
+
 }
