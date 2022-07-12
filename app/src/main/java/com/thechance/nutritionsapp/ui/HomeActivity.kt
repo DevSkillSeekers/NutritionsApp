@@ -7,9 +7,10 @@ import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.thechance.nutritionsapp.R
-import com.thechance.nutritionsapp.data.DataManager
+import com.thechance.nutritionsapp.data.DataManger
 import com.thechance.nutritionsapp.data.datasource.CSVDataSource
-import com.thechance.nutritionsapp.ui.search.SearchFragment
+import com.thechance.nutritionsapp.data.datasource.HealthyFoodDataSource
+import com.thechance.nutritionsapp.data.datasource.NutritionDataSource
 import com.thechance.nutritionsapp.util.Constants
 
 class HomeActivity : AppCompatActivity() {
@@ -21,18 +22,14 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //toolbar
-        binding.toolbar.title = resources.getString(R.string.app_name)
-        binding.toolbar.visibility = View.GONE
-        ////////////////
         setData()
         setListeners()
     }
 
     private fun setData() {
-        val dataSource = CSVDataSource(this)
-        dataSource.getAllNutrition().forEach { nutritionItem ->
-            DataManager.addNutritionItem(nutritionItem)
+        val dataSource = HealthyFoodDataSource(this)
+        dataSource.getAllItems().forEach { nutritionItem ->
+            DataManger.addHealthyFood(nutritionItem)
         }
     }
 
@@ -42,19 +39,24 @@ class HomeActivity : AppCompatActivity() {
                 R.id.home_menu -> {
                     binding.toolbar.visibility = View.GONE
                     changeFragment(HomeFragment(), Constants.REPLACE_FRAGMENT)
+                    true
                 }
                 R.id.bmi_calculator_menu -> {
                     binding.toolbar.visibility = View.VISIBLE
                     binding.toolbar.title = resources.getString(R.string.bmi)
                     changeFragment(BMIFragment(), Constants.REPLACE_FRAGMENT)
+                    true
                 }
                 R.id.search_menu -> {
-                    binding.toolbar.visibility = View.GONE
+                    binding.toolbar.visibility = View.VISIBLE
                     binding.toolbar.title = resources.getString(R.string.search)
                     changeFragment(SearchFragment(), Constants.REPLACE_FRAGMENT)
+                    true
+                }
+                else ->{
+                    false
                 }
             }
-            true
         }
     }
 
