@@ -6,19 +6,25 @@
     android:layout_marginStart="@dimen/large_margin"
     android:layout_marginEnd="@dimen/large_margin">
 
-    <SearchView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchViewInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large_margin"
-        android:background="@drawable/meal_shape"
-        android:closeIcon="@drawable/ic_outline_cancel_24"
-        android:iconifiedByDefault="false"
-        android:queryHint="@string/search_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_outline_search_24" />
+        android:layout_marginTop="@dimen/large_margin"
+        android:hint="@string/search_hint">
+
+        <!--this is the actual edit text which takes the input-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTxtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_outline_search_24" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mealRecyclerView"

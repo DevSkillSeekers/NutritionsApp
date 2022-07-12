@@ -14,6 +14,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
         binding.ivText.text = DataManger.getBreakfast().toString()
     }
-
-
 }
