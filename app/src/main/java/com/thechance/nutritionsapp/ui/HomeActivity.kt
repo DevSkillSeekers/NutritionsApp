@@ -39,19 +39,24 @@ class HomeActivity : AppCompatActivity() {
                 R.id.home_menu -> {
                     binding.toolbar.visibility = View.GONE
                     changeFragment(HomeFragment(), Constants.REPLACE_FRAGMENT)
+                    true
                 }
                 R.id.bmi_calculator_menu -> {
                     binding.toolbar.visibility = View.VISIBLE
                     binding.toolbar.title = resources.getString(R.string.bmi)
                     changeFragment(BMIFragment(), Constants.REPLACE_FRAGMENT)
+                    true
                 }
                 R.id.search_menu -> {
                     binding.toolbar.visibility = View.VISIBLE
                     binding.toolbar.title = resources.getString(R.string.search)
                     changeFragment(SearchFragment(), Constants.REPLACE_FRAGMENT)
+                    true
+                }
+                else ->{
+                    false
                 }
             }
-            true
         }
     }
 
