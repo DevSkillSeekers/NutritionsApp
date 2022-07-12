@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.thechance.nutritionsapp.R
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: ViewBinding? = null
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
 
-    @Suppress("UNCHECKED_CAST")
     protected val binding: VB
         get() = _binding as VB
 
@@ -34,5 +36,20 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    /**
+     * A function for actionBar Setup.
+     */
+    fun setupActionBar(toolbar : Toolbar, title: String) {
+        (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
+
+        val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.title = title
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        }
+        toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
     }
 }
