@@ -21,5 +21,11 @@
     <string name="fat">Fat</string>
     <string name="ingredients">Ingredients</string>
     <string name="calories_tv">%s calories</string>
+    <string name="calories">Cals</string>
 
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="healthy_recipes">Healthy Recipes</string>
+    <string name="see_all">see all</string>
 </resources>

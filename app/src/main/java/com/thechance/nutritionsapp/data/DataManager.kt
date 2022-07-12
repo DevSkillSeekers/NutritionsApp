@@ -1,9 +1,11 @@
 package com.thechance.nutritionsapp.data
 
+import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 
 object DataManager {
     private val nutritionList = mutableListOf<NutritionItem>()
+    private val healthyFoodList = mutableListOf<HealthyFood>()
     private val breakfastItems = mutableListOf<NutritionItem>()
     private val lunchItems = mutableListOf<NutritionItem>()
     private val dinnerItems = mutableListOf<NutritionItem>()
@@ -11,6 +13,10 @@ object DataManager {
 
     fun addNutritionItem(nutritionItem: NutritionItem) {
         nutritionList.add(nutritionItem)
+    }
+
+    fun addHealthyFood(food: HealthyFood) {
+        healthyFoodList.add(food)
     }
 
     fun getNutrition(size: Int): List<NutritionItem> {
