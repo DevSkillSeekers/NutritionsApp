@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splash_bg">#13D56A</color>
+    <color name="dark_teal">#00696E</color>
     <color name="icons_color_search_input">#3F4949</color>
     <color name="ic_arrow_color">#191C1C</color>
     <color name="ic_add_color">#686B6F</color>
