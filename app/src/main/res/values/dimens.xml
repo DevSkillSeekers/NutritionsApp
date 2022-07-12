@@ -7,4 +7,11 @@
     <dimen name="small_margin">8dp</dimen>
     <dimen name="default_margin">16dp</dimen>
     <dimen name="view_height">1dp</dimen>
+    <dimen name="large_margin">16dp</dimen>
+    <dimen name="title_size">22sp</dimen>
+    <dimen name="size_card_of_meal">80dp</dimen>
+    <dimen name="size_meal_img_width_height">36dp</dimen>
+    <dimen name="size_title_meal">16sp</dimen>
+    <dimen name="small_padding">4dp</dimen>
+    <dimen name="radius_size_shape">12dp</dimen>
 </resources>

@@ -7,8 +7,9 @@ import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.thechance.nutritionsapp.R
-import com.thechance.nutritionsapp.data.DataManger
+import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.data.datasource.CSVDataSource
+import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
 
 class HomeActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
     private fun setData() {
         val dataSource = CSVDataSource(this)
         dataSource.getAllNutrition().forEach { nutritionItem ->
-            DataManger.addNutritionItem(nutritionItem)
+            DataManager.addNutritionItem(nutritionItem)
         }
     }
 
@@ -48,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
                     changeFragment(BMIFragment(), Constants.REPLACE_FRAGMENT)
                 }
                 R.id.search_menu -> {
-                    binding.toolbar.visibility = View.VISIBLE
+                    binding.toolbar.visibility = View.GONE
                     binding.toolbar.title = resources.getString(R.string.search)
                     changeFragment(SearchFragment(), Constants.REPLACE_FRAGMENT)
                 }
