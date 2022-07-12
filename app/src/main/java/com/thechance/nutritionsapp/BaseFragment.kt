@@ -1,4 +1,4 @@
-package com.thechance.nutritionsapp.ui
+package com.thechance.nutritionsapp
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.thechance.nutritionsapp.R
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: ViewBinding? = null

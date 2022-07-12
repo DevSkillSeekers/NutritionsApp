@@ -1,12 +1,11 @@
 package com.thechance.nutritionsapp.ui.search
 
-import android.R
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
-import com.thechance.nutritionsapp.ui.BaseFragment
+import com.thechance.nutritionsapp.BaseFragment
 
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {

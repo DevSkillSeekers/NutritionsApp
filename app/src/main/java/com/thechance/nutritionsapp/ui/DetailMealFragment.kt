@@ -2,6 +2,7 @@ package com.thechance.nutritionsapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.data.domain.Meal
 import com.thechance.nutritionsapp.databinding.FragmentDetailMealBinding
 import com.thechance.nutritionsapp.util.Constants
