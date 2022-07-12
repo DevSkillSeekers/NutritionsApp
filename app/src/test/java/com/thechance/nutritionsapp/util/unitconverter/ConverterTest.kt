@@ -1,4 +1,5 @@
-package com.thechance.nutritionsapp.utilities
+package com.thechance.nutritionsapp.util.unitconverter
+import com.thechance.nutritionsapp.util.unitconverter.Converter
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test

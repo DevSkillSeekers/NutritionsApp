@@ -1,4 +1,4 @@
-package com.thechance.nutritionsapp.utilities
+package com.thechance.nutritionsapp.util.unitconverter
 
 class Converter {
     private val weight = mapOf(
