@@ -18,10 +18,11 @@ object Constants {
         const val PROTEIN = 5
         const val INGREDIENTS = 6
         const val PREPARATION = 7
+        const val IMAGE = 8
     }
 
     const val FILE_NUTRITION = "nutrition.csv"
-    const val FILE_HEALTHY_FOOD = "healthyfood.csv"
+    const val FILE_HEALTHY_FOOD = "healthyFood.csv"
     const val REPLACE_FRAGMENT = 0
     const val ADD_FRAGMENT = 1
     const val EXTRA_MEAL_DETAILS = "meal"
