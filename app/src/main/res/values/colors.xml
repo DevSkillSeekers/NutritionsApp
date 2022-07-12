@@ -8,4 +8,22 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splash_bg">#13D56A</color>
+    <color name="blue">#41cdf9</color>
+    <color name="light_gray">#dae4e5</color>
+    <color name="text_color">#191C1C</color>
+    <color name="color_yellow">#f9c541</color>
+    <color name="color_red">#ba1a1a</color>
+    <color name="dark_teal">#00696E</color>
+    <color name="icons_color_search_input">#3F4949</color>
+    <color name="ic_arrow_color">#191C1C</color>
+    <color name="ic_add_color">#686B6F</color>
+    <color name="stroke_color_shape">#DAE4E5</color>
+    <color name="meal_shape_color">#FAFDFC</color>
+    <color name="title_color">#191C1C</color>
+    <color name="primaryBlack">#191c1c</color>
+    <color name="primaryGrey">#F0F0F0</color>
+    <color name="lightGreenTheme">#FAFDFC</color>
+    <color name="mealItemStrokeColor">#DAE4E5</color>
+    <color name="darkGreenTheme11">#1C00696E</color>
+    <color name="darkGreenTheme">#00696E</color>
 </resources>

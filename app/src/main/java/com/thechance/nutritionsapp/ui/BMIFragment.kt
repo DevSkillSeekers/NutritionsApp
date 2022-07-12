@@ -9,7 +9,6 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         FragmentBMIBinding::inflate
 
     override fun setup() {
-        binding.bmiTx.text = "Hello BMI!!"
     }
 
 

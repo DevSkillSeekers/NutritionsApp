@@ -24,4 +24,5 @@ object Constants {
     const val FILE_HEALTHY_FOOD = "healthyfood.csv"
     const val REPLACE_FRAGMENT = 0
     const val ADD_FRAGMENT = 1
+    const val EXTRA_MEAL_DETAILS = "meal"
 }
