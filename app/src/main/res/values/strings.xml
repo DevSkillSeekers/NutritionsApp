@@ -5,6 +5,17 @@
     <string name="search_hint">Search Here</string>
     <string name="home">Home</string>
     <string name="bmi">BMI</string>
+    <string name="tips">Get more active Being active is key to losing weight and keeping it off. As well as providing lots of health benefits, exercise can help burn off the excess calories you cannot lose through diet alone.</string>
+    <string name="bmi_calculator">BMI Calculator</string>
+    <string name="overweight_text">Overweight</string>
+    <string name="normal_text">Normal</string>
+    <string name="underweight_text">Underweight</string>
+    <string name="calculate_text">CALCULATE</string>
+    <string name="result_text">Result</string>
+    <string name="text_type_in_result">Overweight</string>
+    <string name="tips_text">Tips</string>
+    <string name="kg_text">kg</string>
+    <string name="cm_text">cm</string>
     <string name="carbs">Carbs</string>
     <string name="protein">Protein</string>
     <string name="fat">Fat</string>
