@@ -1,11 +1,12 @@
-package com.thechance.nutritionsapp.utilities
-import org.junit.Assert.assertEquals
+package com.thechance.nutritionsapp
+import com.thechance.nutritionsapp.util.BMI
 import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
 
 
 internal class BMITest {
 
-    private lateinit var obj:BMI
+    private lateinit var obj: BMI
 
     @Test
     fun should_Return_CorrectBMI_When_AttributeHasCorrectValue() {

@@ -1,4 +1,4 @@
-package com.thechance.nutritionsapp.utilities
+package com.thechance.nutritionsapp.util
 
 import kotlin.math.abs
 
