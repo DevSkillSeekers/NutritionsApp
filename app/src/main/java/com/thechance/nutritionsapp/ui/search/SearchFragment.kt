@@ -14,10 +14,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         FragmentSearchBinding::inflate
 
     override fun setup() {
-        binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
+        /*binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
         val customAdapter =
             SearchAdapter(binding.mealRecyclerView.context, DataManager.getNutrition(10))
-        binding.mealRecyclerView.adapter = customAdapter
+        binding.mealRecyclerView.adapter = customAdapter*/
 
         /* binding.mealRecyclerView.setHasFixedSize(true)
          val layoutManager = LinearLayoutManager(context)
