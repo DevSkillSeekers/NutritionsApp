@@ -13,14 +13,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     private var keyword : String ?= null
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
+    private lateinit var dataManager: DataManager
 
     override fun setup() {
+        dataManager = DataManager(requireContext())
+
         binding.edtTxtSearch.addTextChangedListener {
             keyword = it.toString()
         }
         binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
         val customAdapter =
-            SearchAdapter(binding.mealRecyclerView.context, DataManager.getSpecificNutrition(keyword.toString()))
+            SearchAdapter(binding.mealRecyclerView.context, dataManager.getSpecificNutrition(keyword.toString()))
         binding.mealRecyclerView.adapter = customAdapter
 
         /* binding.mealRecyclerView.setHasFixedSize(true)
