@@ -1,241 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#fff">
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/arrow_back"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ic_baseline_arrow_back_24"
-        app:layout_constraintStart_toEndOf="@id/lVGL"
-        app:layout_constraintTop_toTopOf="@id/tHGL"/>
+    <include
+        android:id="@+id/mealToolbar"
+        layout="@layout/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mealRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/large_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mealToolbar" />
+
 
     <TextView
-        android:id="@+id/mealTitle"
+        android:id="@+id/emptyTv"
+        style="@style/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Breakfast"
-        android:textColor="@color/primaryBlack"
-        android:textSize="22sp"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintStart_toEndOf="@id/arrow_back"
-        app:layout_constraintTop_toTopOf="@id/tHGL"/>
+        android:text="@string/empty_meal_list"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--///////////////////// First Item ///////////////////// -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/mealItem1Box"
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:background="@color/lightGreenTheme"
-        android:layout_marginTop="34dp"
-        app:strokeWidth="1dp" app:strokeColor="@color/mealItemStrokeColor"
-        app:shapeAppearanceOverlay="@style/itemRounded"
-        app:layout_constraintStart_toStartOf="@id/lVGL"
-        app:layout_constraintEnd_toEndOf="@id/rVGL"
-        app:layout_constraintTop_toBottomOf="@id/mealTitle"/>
-
-    <TextView
-        android:id="@+id/mealItem1"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addToMealBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="🥚"
-        android:textColor="@color/primaryBlack"
-        android:textSize="28sp"
-        android:background="@drawable/item_style"
-        android:padding="21dp"
-        app:layout_constraintStart_toStartOf="@id/mealItem1Box"
-        app:layout_constraintTop_toTopOf="@id/mealItem1Box"/>
-
-    <TextView
-        android:id="@+id/mealItem1Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eggs"
-        android:textColor="@color/primaryBlack"
-        android:textSize="16sp"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="20dp"
-        android:padding="2dp"
-        app:layout_constraintStart_toEndOf="@id/mealItem1"
-        app:layout_constraintTop_toTopOf="@id/mealItem1Box"/>
-
-    <TextView
-        android:id="@+id/mealItem1Calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="200 cal" android:textSize="14sp"
-        android:textColor="@color/primaryBlack"
-        android:layout_marginTop="24dp" android:padding="2dp"
-        app:layout_constraintStart_toStartOf="@id/mealItem1Name"
-        app:layout_constraintTop_toTopOf="@id/mealItem1Name"/>
-
-    <Button
-        android:id="@+id/btnDeleteItem1"
-        android:layout_width="25dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/ic_baseline_delete_24"
-        app:layout_constraintEnd_toEndOf="@id/mealItem1Box"
-        app:layout_constraintTop_toTopOf="@id/mealItem1Name"/>
-
-    <!--///////////////////// Second Item ///////////////////// -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/mealItem2Box"
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:background="@color/lightGreenTheme"
-        android:layout_marginTop="12dp"
-        app:strokeWidth="1dp" app:strokeColor="@color/mealItemStrokeColor"
-        app:shapeAppearanceOverlay="@style/itemRounded"
-        app:layout_constraintStart_toStartOf="@id/lVGL"
-        app:layout_constraintEnd_toEndOf="@id/rVGL"
-        app:layout_constraintTop_toBottomOf="@id/mealItem1Box"/>
-
-    <TextView
-        android:id="@+id/mealItem2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🍆"
-        android:textColor="@color/primaryBlack"
-        android:textSize="28sp"
-        android:background="@drawable/item_style"
-        android:padding="21dp"
-        app:layout_constraintStart_toStartOf="@id/mealItem2Box"
-        app:layout_constraintTop_toTopOf="@id/mealItem2Box"/>
-
-    <TextView
-        android:id="@+id/mealItem2Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eggplant"
-        android:textColor="@color/primaryBlack"
-        android:textSize="16sp"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="20dp"
-        android:padding="2dp"
-        app:layout_constraintStart_toEndOf="@id/mealItem2"
-        app:layout_constraintTop_toTopOf="@id/mealItem2Box"/>
-
-    <TextView
-        android:id="@+id/mealItem2Calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="700 cal" android:textSize="14sp"
-        android:textColor="@color/primaryBlack"
-        android:layout_marginTop="24dp" android:padding="2dp"
-        app:layout_constraintStart_toStartOf="@id/mealItem2Name"
-        app:layout_constraintTop_toTopOf="@id/mealItem2Name"/>
-
-    <Button
-        android:id="@+id/btnDeleteItem2"
-        android:layout_width="25dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/ic_baseline_delete_24"
-        app:layout_constraintEnd_toEndOf="@id/mealItem2Box"
-        app:layout_constraintTop_toTopOf="@id/mealItem2Name"/>
-
-    <!--///////////////////// Third Item ///////////////////// -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/mealItem3Box"
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:background="@color/lightGreenTheme"
-        android:layout_marginTop="12dp"
-        app:strokeWidth="1dp" app:strokeColor="@color/mealItemStrokeColor"
-        app:shapeAppearanceOverlay="@style/itemRounded"
-        app:layout_constraintStart_toStartOf="@id/lVGL"
-        app:layout_constraintEnd_toEndOf="@id/rVGL"
-        app:layout_constraintTop_toBottomOf="@id/mealItem2Box"/>
-
-    <TextView
-        android:id="@+id/mealItem3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🍽"
-        android:textColor="@color/primaryBlack"
-        android:textSize="28sp"
-        android:background="@drawable/item_style"
-        android:padding="21dp"
-        app:layout_constraintStart_toStartOf="@id/mealItem3Box"
-        app:layout_constraintTop_toTopOf="@id/mealItem3Box"/>
-
-    <TextView
-        android:id="@+id/mealItem3Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ENDIVES"
-        android:textColor="@color/primaryBlack"
-        android:textSize="16sp"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="20dp"
-        android:padding="2dp"
-        app:layout_constraintStart_toEndOf="@id/mealItem3"
-        app:layout_constraintTop_toTopOf="@id/mealItem3Box"/>
-
-    <TextView
-        android:id="@+id/mealItem3Calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="150 cal" android:textSize="14sp"
-        android:textColor="@color/primaryBlack"
-        android:layout_marginTop="24dp" android:padding="2dp"
-        app:layout_constraintStart_toStartOf="@id/mealItem3Name"
-        app:layout_constraintTop_toTopOf="@id/mealItem3Name"/>
-
-    <Button
-        android:id="@+id/btnAddItem"
-        android:layout_width="25dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/ic_baseline_add_circle_24"
-        app:layout_constraintEnd_toEndOf="@id/mealItem3Box"
-        app:layout_constraintTop_toTopOf="@id/mealItem3Name"/>
-
-    <!--///////////////////// Add Button ///////////////////// -->
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"  android:layout_marginBottom="110dp"
-        android:paddingTop="6dp" android:paddingLeft="20dp"
-        android:text="+" android:textSize="32dp" android:textColor="#99191C1C"
-        android:background="@drawable/button_add_style"
-        android:elevation="16dp"
-        app:layout_constraintEnd_toEndOf="@id/rVGL"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <!--///////////////////// Guideline Part ///////////////////// -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lVGL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rVGL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/tHGL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="38dp"/>
+        android:layout_gravity="bottom|end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/large_margin"
+        app:backgroundTint="@color/chip_teal"
+        android:contentDescription="@string/add_to_meal"
+        app:srcCompat="@drawable/ic_baseline_add_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
