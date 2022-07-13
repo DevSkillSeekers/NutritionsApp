@@ -14,8 +14,6 @@
     <string name="result_text">Result</string>
     <string name="text_type_in_result">Overweight</string>
     <string name="tips_text">Tips</string>
-    <string name="kg_text">kg</string>
-    <string name="cm_text">cm</string>
     <string name="carbs">Carbs</string>
     <string name="protein">Protein</string>
     <string name="fat">Fat</string>
@@ -38,4 +36,5 @@
     <string name="preparation">Preparation</string>
     <string name="meal_details">Meal Details</string>
     <string name="empty_meal_list">No item in meal yet!!</string>
+
 </resources>
