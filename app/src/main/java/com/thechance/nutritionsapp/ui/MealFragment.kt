@@ -10,7 +10,6 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         FragmentMealBinding::inflate
 
     override fun setup() {
-        TODO("Not yet implemented")
     }
 
 }

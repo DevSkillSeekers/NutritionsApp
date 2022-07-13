@@ -27,11 +27,6 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setData() {
         binding.toolbar.visibility = View.GONE
-
-        val dataSource = HealthyFoodDataSource(this)
-        dataSource.getAllItems().forEach { nutritionItem ->
-            DataManager.addHealthyFood(nutritionItem)
-        }
     }
 
     private fun setListeners() {

@@ -42,6 +42,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/totalCaloriesDayTv"
                 style="@style/bodyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,11 +58,11 @@
                 style="@style/bodyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:text="@string/carbs"
                 android:textColor="?attr/colorOnPrimary"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="@dimen/margin_8dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/carbProgressBar"
@@ -82,9 +83,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/protein"
                 android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/proteinsProgressBar"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
-                app:layout_constraintTop_toBottomOf="@+id/carbProgressBar"
-                app:layout_constraintBottom_toTopOf="@+id/proteinsProgressBar"/>
+                app:layout_constraintTop_toBottomOf="@+id/carbProgressBar" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/proteinsProgressBar"
@@ -93,10 +94,10 @@
                 android:layout_marginTop="@dimen/small_margin"
                 android:progress="10"
                 app:indicatorColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/fatTv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
                 app:layout_constraintTop_toBottomOf="@+id/proteinsTv"
-                app:layout_constraintBottom_toTopOf="@+id/fatTv"
                 app:trackColor="@color/chip_teal" />
 
             <TextView
@@ -106,8 +107,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fat"
                 android:textColor="?attr/colorOnPrimary"
-                app:layout_constraintStart_toEndOf="@+id/centerGuide"
                 app:layout_constraintBottom_toTopOf="@+id/fatProgressBar"
+                app:layout_constraintStart_toEndOf="@+id/centerGuide"
                 app:layout_constraintTop_toBottomOf="@+id/proteinsProgressBar" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -210,6 +211,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recipes" />
 
     <TextView
+        android:id="@+id/seeAllTv"
         style="@style/subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -242,6 +244,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/large_margin"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -252,9 +255,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/large_margin"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/meal1" />
+
+            <TextView
+                android:id="@+id/noItemTv"
+                style="@style/subTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large_margin"
+                android:gravity="center"
+                android:text="@string/empty_meal_list"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/totalCaloriesTv"
@@ -263,14 +281,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/padding_8dp"
                 android:text="@string/total_calories"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/meal2" />
 
             <TextView
+                android:id="@+id/totalCaloriesAmountTv"
                 style="@style/bodyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="400 cals"
                 app:layout_constraintBaseline_toBaselineOf="@+id/totalCaloriesTv"
                 app:layout_constraintEnd_toEndOf="parent" />
 
