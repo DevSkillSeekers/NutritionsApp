@@ -8,9 +8,8 @@ import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.FragmentItemDetailsBinding
 
 class ItemFragment: BaseFragment<FragmentItemDetailsBinding>() {
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentItemDetailsBinding =
-        FragmentItemDetailsBinding::inflate
-        get() = TODO("Not yet implemented")
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentItemDetailsBinding
+         get() = TODO("Not yet implemented")
 
     override fun setup() {
         TODO("Not yet implemented")
