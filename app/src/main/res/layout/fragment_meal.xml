@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#fff">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
 
-    <ImageView
-        android:id="@+id/arrow_back"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="390dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="@id/lVGL"
+            app:layout_constraintEnd_toEndOf="@id/rVGL">
+
+    <Button
+        android:id="@+id/backButton"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:onClick="backToHome"
         android:layout_marginTop="4dp"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:background="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toEndOf="@id/lVGL"
         app:layout_constraintTop_toTopOf="@id/tHGL"/>
 
@@ -22,23 +29,23 @@
         android:textColor="@color/primaryBlack"
         android:textSize="22sp"
         android:layout_marginLeft="10dp"
-        app:layout_constraintStart_toEndOf="@id/arrow_back"
+        app:layout_constraintStart_toEndOf="@id/backButton"
         app:layout_constraintTop_toTopOf="@id/tHGL"/>
 
     <!--///////////////////// First Item ///////////////////// -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/mealItem1Box"
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:background="@color/lightGreenTheme"
-        android:layout_marginTop="34dp"
-        app:strokeWidth="1dp" app:strokeColor="@color/mealItemStrokeColor"
-        app:shapeAppearanceOverlay="@style/itemRounded"
-        app:layout_constraintStart_toStartOf="@id/lVGL"
-        app:layout_constraintEnd_toEndOf="@id/rVGL"
-        app:layout_constraintTop_toBottomOf="@id/mealTitle"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mealItem1Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_item_style"
+            app:strokeWidth="1dp" app:strokeColor="#DAE4E5"
+            android:layout_marginTop="34dp" android:layout_marginLeft="24dp"
+            app:shapeAppearanceOverlay="@style/itemRounded"
+            app:layout_constraintStart_toStartOf="@id/lVGL"
+            app:layout_constraintEnd_toEndOf="@id/rVGL"
+            app:layout_constraintTop_toBottomOf="@id/mealTitle" >
 
-    <TextView
+        <TextView
         android:id="@+id/mealItem1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,24 +85,27 @@
         android:id="@+id/btnDeleteItem1"
         android:layout_width="25dp"
         android:layout_height="30dp"
+        android:onClick="deleteItem"
         android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ic_baseline_delete_24"
         app:layout_constraintEnd_toEndOf="@id/mealItem1Box"
         app:layout_constraintTop_toTopOf="@id/mealItem1Name"/>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     <!--///////////////////// Second Item ///////////////////// -->
-    <com.google.android.material.imageview.ShapeableImageView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mealItem2Box"
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:background="@color/lightGreenTheme"
-        android:layout_marginTop="12dp"
-        app:strokeWidth="1dp" app:strokeColor="@color/mealItemStrokeColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box_item_style"
+        app:strokeWidth="1dp" app:strokeColor="#DAE4E5"
+        android:layout_marginTop="16dp" android:layout_marginLeft="24dp"
         app:shapeAppearanceOverlay="@style/itemRounded"
         app:layout_constraintStart_toStartOf="@id/lVGL"
         app:layout_constraintEnd_toEndOf="@id/rVGL"
-        app:layout_constraintTop_toBottomOf="@id/mealItem1Box"/>
+        app:layout_constraintTop_toBottomOf="@id/mealItem1Box" >
 
     <TextView
         android:id="@+id/mealItem2"
@@ -137,24 +147,27 @@
         android:id="@+id/btnDeleteItem2"
         android:layout_width="25dp"
         android:layout_height="30dp"
+        android:onClick="deleteItem"
         android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ic_baseline_delete_24"
         app:layout_constraintEnd_toEndOf="@id/mealItem2Box"
         app:layout_constraintTop_toTopOf="@id/mealItem2Name"/>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <!--///////////////////// Third Item ///////////////////// -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/mealItem3Box"
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:background="@color/lightGreenTheme"
-        android:layout_marginTop="12dp"
-        app:strokeWidth="1dp" app:strokeColor="@color/mealItemStrokeColor"
-        app:shapeAppearanceOverlay="@style/itemRounded"
-        app:layout_constraintStart_toStartOf="@id/lVGL"
-        app:layout_constraintEnd_toEndOf="@id/rVGL"
-        app:layout_constraintTop_toBottomOf="@id/mealItem2Box"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mealItem3Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_item_style"
+            app:strokeWidth="1dp" app:strokeColor="#DAE4E5"
+            android:layout_marginTop="16dp" android:layout_marginLeft="24dp"
+            app:shapeAppearanceOverlay="@style/itemRounded"
+            app:layout_constraintStart_toStartOf="@id/lVGL"
+            app:layout_constraintEnd_toEndOf="@id/rVGL"
+            app:layout_constraintTop_toBottomOf="@id/mealItem2Box" >
 
     <TextView
         android:id="@+id/mealItem3"
@@ -193,28 +206,45 @@
         app:layout_constraintTop_toTopOf="@id/mealItem3Name"/>
 
     <Button
-        android:id="@+id/btnAddItem"
+        android:id="@+id/btnDeleteItem3"
         android:layout_width="25dp"
         android:layout_height="30dp"
+        android:onClick="deleteItem"
         android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/ic_baseline_add_circle_24"
+        android:background="@drawable/ic_baseline_delete_24"
         app:layout_constraintEnd_toEndOf="@id/mealItem3Box"
         app:layout_constraintTop_toTopOf="@id/mealItem3Name"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--///////////////////// Add Button ///////////////////// -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/rVGL"
+        app:layout_constraintBottom_toBottomOf="parent" >
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"  android:layout_marginBottom="110dp"
-        android:paddingTop="6dp" android:paddingLeft="20dp"
-        android:text="+" android:textSize="32dp" android:textColor="#99191C1C"
+        android:layout_marginRight="0dp"  android:layout_marginBottom="110dp"
         android:background="@drawable/button_add_style"
         android:elevation="16dp"
-        app:layout_constraintEnd_toEndOf="@id/rVGL"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/addIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:onClick="goToSearch"
+        android:background="@drawable/ic_baseline_add_24"
+        app:layout_constraintStart_toStartOf="@id/btnAdd"
+        app:layout_constraintEnd_toEndOf="@id/btnAdd"
+        app:layout_constraintTop_toTopOf="@id/btnAdd"
+        app:layout_constraintBottom_toBottomOf="@id/btnAdd"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--///////////////////// Guideline Part ///////////////////// -->
     <androidx.constraintlayout.widget.Guideline
@@ -222,14 +252,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp"/>
+        app:layout_constraintGuide_begin="24dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/rVGL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp"/>
+        app:layout_constraintGuide_end="0dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/tHGL"
@@ -238,4 +268,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="38dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
