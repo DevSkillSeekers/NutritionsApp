@@ -26,14 +26,14 @@ class DataManager(context: Context) {
     }
 
     //Just for test need to delete it.
-    fun setBreakfastItemsTest() {
-        breakfastItems.add(nutritionList[0])
-        breakfastItems.add(nutritionList[1])
-        breakfastItems.add(nutritionList[2])
-        breakfastItems.add(nutritionList[3])
-        breakfastItems.add(nutritionList[4])
-
-    }
+//    fun setBreakfastItemsTest() {
+//        breakfastItems.add(nutritionList[0])
+//        breakfastItems.add(nutritionList[1])
+//        breakfastItems.add(nutritionList[2])
+//        breakfastItems.add(nutritionList[3])
+//        breakfastItems.add(nutritionList[4])
+//
+//    }
 
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
         return when (mealType) {
