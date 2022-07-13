@@ -2,16 +2,17 @@ package com.thechance.nutritionsapp.data
 
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 
-object DataManager {
-    private val nutritionList = mutableListOf<NutritionItem>()
-    private val breakfastItems = mutableListOf<NutritionItem>()
-    private val lunchItems = mutableListOf<NutritionItem>()
-    private val dinnerItems = mutableListOf<NutritionItem>()
-    private val meals = mutableListOf<String>()
-
-    fun addNutritionItem(nutritionItem: NutritionItem) {
-        nutritionList.add(nutritionItem)
-    }
+class DataManager {
+    var nutritionList = mutableListOf<NutritionItem>()
+        private set
+    var breakfastItems = mutableListOf<NutritionItem>()
+        private set
+    var lunchItems = mutableListOf<NutritionItem>()
+        private set
+    var dinnerItems = mutableListOf<NutritionItem>()
+        private set
+    var meals = mutableListOf<String>()
+        private set
 
     fun getNutrition(size: Int): List<NutritionItem> {
         return nutritionList.take(size)
@@ -64,16 +65,8 @@ object DataManager {
         return dinnerItems.sumOf { it.calories }
     }
 
-    fun getAllItems(): MutableList<NutritionItem> {
+    fun getAllItems(): MutableList<NutritionItem>? {
+        if(nutritionList.isEmpty()) return null
         return nutritionList
     }
-
-    fun getBreakfastItems(): MutableList<NutritionItem> {
-        return breakfastItems
-    }
-
-    fun getLunchItems(): MutableList<NutritionItem> {
-        return lunchItems
-    }
-
 }
