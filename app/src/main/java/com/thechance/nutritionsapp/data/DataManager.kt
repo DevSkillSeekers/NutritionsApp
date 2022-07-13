@@ -93,6 +93,16 @@ class DataManager(context: Context) {
 
     fun getProgressFat(): Int = 40
 
+    //Just for test need to delete it.
+    fun setBreakfastItemsTest(){
+        breakfastItems.add(nutritionList[0])
+        breakfastItems.add(nutritionList[1])
+        breakfastItems.add(nutritionList[2])
+        breakfastItems.add(nutritionList[3])
+        breakfastItems.add(nutritionList[4])
+
+    }
+
 
     fun getNutrition(size: Int): List<NutritionItem> {
         return nutritionList.take(size)

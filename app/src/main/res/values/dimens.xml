@@ -22,7 +22,7 @@
     <dimen name="size_title_meal">16sp</dimen>
     <dimen name="small_padding">4dp</dimen>
     <dimen name="radius_size_shape">12dp</dimen>
-    <dimen name="img_card_dimen">100dp</dimen>
+    <dimen name="img_card_dimen">65dp</dimen>
 
     <dimen name="card_radius">12dp</dimen>
     <dimen name="title_font">18sp</dimen>

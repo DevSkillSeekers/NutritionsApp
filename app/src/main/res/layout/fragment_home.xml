@@ -193,7 +193,7 @@
         android:id="@+id/recipes"
         layout="@layout/healthy_food"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_marginTop="@dimen/small_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -231,6 +231,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mealTv"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:strokeColor="@color/light_gray">
 
         <androidx.constraintlayout.widget.ConstraintLayout

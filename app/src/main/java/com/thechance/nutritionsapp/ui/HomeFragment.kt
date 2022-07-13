@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.android.material.chip.Chip
 import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentHomeBinding
+import com.thechance.nutritionsapp.ui.meal.MealFragment
 import com.thechance.nutritionsapp.util.Constants
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -24,10 +24,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var meal = Constants.BREAKFAST
     private var healthySuggestionMeal = listOf<HealthyFood>()
     private var totalCaloriesPerMeal = 0
-    private var listMealItem = listOf<NutritionItem>()
+    private var listMealItem = ArrayList<NutritionItem>()
 
     override fun setup() {
         dataManager = DataManager(requireContext())
+        //DETENTE THIS
+        dataManager.setBreakfastItemsTest()
+        ////////////
         binding.totalCaloriesDayTv.text = dataManager.getRemainderCaloriesPerDay().toString()
         binding.progressBar.progress = dataManager.getProgressCalories()
         binding.carbProgressBar.progress = dataManager.getProgressCarbs()
@@ -37,24 +40,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         setListeners()
     }
 
-    private fun updateView(){
-        setMeal(meal)
+    private fun updateView() {
+        setMeal()
         setSuggestionMeal()
-        setMealItems(meal)
+        setMealItems()
     }
 
     private fun setListeners() {
         binding.mealChipGroup.setOnCheckedChangeListener { group, checkedId ->
-            when(checkedId){
-               R.id.breakfastChip ->{
+            when (checkedId) {
+                R.id.breakfastChip -> {
                     meal = Constants.BREAKFAST
-                   updateView()
-               }
-                R.id.lunchChip->{
+                    updateView()
+                }
+                R.id.lunchChip -> {
                     meal = Constants.LUNCH
                     updateView()
                 }
-                R.id.dinnerChip->{
+                R.id.dinnerChip -> {
                     meal = Constants.DINNER
                     updateView()
                 }
@@ -75,7 +78,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    private fun setMeal(meal: Int) {
+    private fun setMeal() {
         when (meal) {
             Constants.BREAKFAST -> {
                 binding.mealTv.text = resources.getString(R.string.breakfast)
@@ -88,11 +91,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
         }
         healthySuggestionMeal = dataManager.getHealthyMeal(meal)
-        listMealItem = dataManager.getMeals(meal)
+        listMealItem = ArrayList(dataManager.getMeals(meal))
         totalCaloriesPerMeal = dataManager.getMealCalories(meal)
     }
 
-    private fun setMealItems(meal: Int) {
+    private fun setMealItems() {
         binding.totalCaloriesAmountTv.text = resources.getString(
             R.string.calories_number,
             totalCaloriesPerMeal.toString()
@@ -100,23 +103,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         if (listMealItem.isNotEmpty()) {
             binding.noItemTv.visibility = View.GONE
-            binding.totalCaloriesTv.visibility= View.VISIBLE
-            binding.totalCaloriesAmountTv.visibility=View.VISIBLE
+            binding.totalCaloriesTv.visibility = View.VISIBLE
+            binding.totalCaloriesAmountTv.visibility = View.VISIBLE
             binding.meal1.root.visibility = View.VISIBLE
             binding.meal1.mealNameTv.text = listMealItem.first().name
             binding.meal1.amountTv.text = listMealItem.first().servingSize
-            binding.meal1.calsTv.text = listMealItem.first().calories.toString()
+            binding.meal1.calsAmountTv.text = listMealItem.first().calories.toString()
 
             if (listMealItem.count() > 1) {
                 binding.meal2.root.visibility = View.VISIBLE
                 binding.meal2.mealNameTv.text = listMealItem[1].name
                 binding.meal2.amountTv.text = listMealItem[1].servingSize
-                binding.meal2.calsTv.text = listMealItem[1].calories.toString()
+                binding.meal2.calsAmountTv.text = listMealItem[1].calories.toString()
             }
         } else {
             binding.noItemTv.visibility = View.VISIBLE
-            binding.totalCaloriesTv.visibility= View.GONE
-            binding.totalCaloriesAmountTv.visibility=View.GONE
+            binding.totalCaloriesTv.visibility = View.GONE
+            binding.totalCaloriesAmountTv.visibility = View.GONE
+            binding.meal1.root.visibility = View.GONE
+            binding.meal2.root.visibility = View.GONE
         }
     }
 
@@ -126,7 +131,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         data.putParcelable(Constants.EXTRA_MEAL_DETAILS, healthMeal)
         fragment.arguments = data
         changeFragment(
-            requireActivity() as AppCompatActivity,
+            requireActivity() as HomeActivity,
             fragment,
             Constants.ADD_FRAGMENT
         )
@@ -134,11 +139,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun goToMealItemsView() {
         val fragment = MealFragment()
-//        val data = Bundle()
-//        data.putParcelable(Constants.MEAL_ITEMS_DATA, meal)
-//        fragment.arguments = data
+        val data = Bundle()
+        data.putParcelableArrayList(Constants.MEAL_ITEMS_DATA, listMealItem)
+        fragment.arguments = data
         changeFragment(
-            requireActivity() as AppCompatActivity,
+            requireActivity() as HomeActivity,
             fragment,
             Constants.ADD_FRAGMENT
         )

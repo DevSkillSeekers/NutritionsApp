@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.thechance.nutritionsapp.ui.HomeActivity
 import com.thechance.nutritionsapp.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -39,7 +40,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         _binding = null
     }
 
-    fun changeFragment(activity: AppCompatActivity, fragment: Fragment, type: Int) {
+    fun changeFragment(activity: HomeActivity, fragment: Fragment, type: Int) {
         val transaction = activity.supportFragmentManager.beginTransaction()
 
         when (type) {

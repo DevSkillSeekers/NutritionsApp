@@ -23,6 +23,7 @@
     <string name="calories_tv">%s calories</string>
     <string name="calories">Cals</string>
 
+    <string name="add_to_meal">Add item to meal</string>
     <string name="breakfast">Breakfast</string>
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>

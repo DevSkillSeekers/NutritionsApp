@@ -20,13 +20,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setData()
-        setListeners()
-    }
-
-    private fun setData() {
         binding.toolbar.visibility = View.GONE
+
+        setListeners()
     }
 
     private fun setListeners() {
