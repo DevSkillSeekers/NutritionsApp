@@ -1,5 +1,6 @@
-package com.thechance.nutritionsapp.ui
+package com.thechance.nutritionsapp
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.ui.HomeActivity
+import com.thechance.nutritionsapp.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: ViewBinding? = null
@@ -38,10 +40,23 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         _binding = null
     }
 
+    fun changeFragment(activity: HomeActivity, fragment: Fragment, type: Int) {
+        val transaction = activity.supportFragmentManager.beginTransaction()
+        when (type) {
+            Constants.ADD_FRAGMENT -> {
+                transaction.add(R.id.nav_host_fragment, fragment)
+            }
+            Constants.REPLACE_FRAGMENT -> {
+                transaction.replace(R.id.nav_host_fragment, fragment)
+            }
+        }
+        transaction.commit()
+    }
+
     /**
      * A function for actionBar Setup.
      */
-    fun setupActionBar(toolbar : Toolbar, title: String) {
+    fun setupActionBar(toolbar: Toolbar, title: String) {
         (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
 
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar

@@ -2,42 +2,61 @@ package com.thechance.nutritionsapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.thechance.nutritionsapp.data.domain.Meal
+import com.thechance.nutritionsapp.BaseFragment
+import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.databinding.FragmentDetailMealBinding
 import com.thechance.nutritionsapp.util.Constants
+import kotlin.text.StringBuilder
 
 class DetailMealFragment : BaseFragment<FragmentDetailMealBinding>() {
-    private lateinit var mMealDetails: Meal
+    private lateinit var mMealDetails: HealthyFood
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailMealBinding =
         FragmentDetailMealBinding::inflate
 
     override fun setup() {
-        TODO("set correct title")
-        this.setupActionBar(toolbar = binding.detailToolbar.toolbar, title = "Meal Details")
+        this.setupActionBar(
+            toolbar = binding.detailToolbar.toolbar,
+            title = getString(R.string.meal_details)
+        )
+        mMealDetails = arguments?.getParcelable(Constants.EXTRA_MEAL_DETAILS)!!
 
         setData()
     }
 
     private fun setData() {
-        // Retrieve the meal details from intent extra.
-        if (requireActivity().intent.hasExtra(Constants.EXTRA_MEAL_DETAILS)) {
-            mMealDetails =
-                requireActivity().intent.getParcelableExtra(Constants.EXTRA_MEAL_DETAILS)!!
+        binding.mealTitleTv.text = mMealDetails.name
+        binding.carbGramTv.text = resources.getString(R.string.carb_gram, mMealDetails.carbs)
+        binding.carbProgressBar.progress = mMealDetails.carbs.toInt()
+        binding.proteinGramTv.text =
+            resources.getString(R.string.protein_gram, mMealDetails.protein)
+        binding.proteinProgressBar.progress = mMealDetails.protein.toInt()
+        binding.fatGramTv.text = resources.getString(
+            R.string.fat_gram, mMealDetails.fat
+        )
+        binding.fatProgressBar.progress = mMealDetails.fat.toInt()
+        binding.servingsNumberTv.text = resources.getString(
+            R.string.servings_number,
+            mMealDetails.servings.toString()
+        )
+        binding.ingredientsTv.text = resources.getString(
+            R.string.ingredients,
+            mMealDetails.calorie.toString()
+        )
 
-            binding.mealTitleTv.text = mMealDetails.title
-            binding.carbGramTv.text = mMealDetails.carb
-            binding.carbProgressBar.progress = mMealDetails.carb.toInt()
-            binding.proteinGramTv.text = mMealDetails.protein
-            binding.proteinProgressBar.progress = mMealDetails.protein.toInt()
-            binding.fatGramTv.text = mMealDetails.fat
-            binding.fatProgressBar.progress = mMealDetails.fat.toInt()
-            binding.servingsNumberTv.text = mMealDetails.servingSize
-            binding.preparationStepTv.text = mMealDetails.preparationSteps
+        val ingredientStr = StringBuilder()
+        mMealDetails.ingredients.forEach {
+            ingredientStr.appendLine(it)
         }
-        TODO("set image")
-        TODO("handle gram keyword")
-        TODO("adjust ProgressBar color")
-        TODO("try %s with text")
+        binding.recipeTv.text = ingredientStr
+
+        val preparationStr = StringBuilder()
+        mMealDetails.preparation.forEach { preparationStr.appendLine(it) }
+        binding.preparationStepTv.text = preparationStr
+
+        val imageId =
+            resources.getIdentifier(mMealDetails.image, "drawable", requireActivity().packageName)
+        binding.mealIv.setImageResource(imageId)
     }
 }
