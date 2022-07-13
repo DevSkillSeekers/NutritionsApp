@@ -3,6 +3,7 @@ package com.thechance.nutritionsapp.ui.meal
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
@@ -17,6 +18,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         FragmentMealBinding::inflate
 
     private lateinit var listMealItem: ArrayList<NutritionItem>
+    private lateinit var mealAdapter: MealAdapter
 
     override fun setup() {
         this.setupActionBar(
@@ -27,7 +29,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         if (listMealItem != null && listMealItem.isNotEmpty()) {
             binding.emptyTv.visibility = View.GONE
             binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
-            val mealAdapter =
+            mealAdapter =
                 MealAdapter(binding.mealRecyclerView.context, listMealItem)
             binding.mealRecyclerView.adapter = mealAdapter
         } else {
@@ -37,6 +39,19 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
     }
 
     private fun setListeners() {
+        mealAdapter.setOnItemClickListener { item, actionType ->
+            when (actionType) {
+                Constants.ACTION_OPEN -> {
+                    Toast.makeText(context, "OPEN ${item.name}", Toast.LENGTH_LONG)
+                        .show()
+                }
+                Constants.ACTION_DELETE -> {
+                    val position = listMealItem.indexOf(item)
+                    listMealItem.remove(item)
+                    mealAdapter.notifyItemRemoved(position)
+                }
+            }
+        }
         binding.addToMealBtn.setOnClickListener {
             changeFragment(
                 requireActivity() as HomeActivity,

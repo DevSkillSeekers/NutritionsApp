@@ -32,4 +32,8 @@ object Constants {
     const val LUNCH = 1
     const val DINNER = 2
     const val MAX_CALORIES_PER_DAY = 2000
+
+    const val ACTION_OPEN = 11
+    const val ACTION_DELETE = 12
+
 }
