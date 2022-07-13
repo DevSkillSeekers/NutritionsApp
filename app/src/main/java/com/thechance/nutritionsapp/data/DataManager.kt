@@ -85,72 +85,69 @@ class DataManager(context: Context) {
 
     }
 
-    /*fun getMealCarbs(mealType: Int): Int {
+    fun getMealCarbs(mealType: Int): Double {
         return when (mealType) {
             Constants.BREAKFAST -> {
-                if (breakfastItems.isEmpty()) 0
+                if (breakfastItems.isEmpty()) 0.0
                 else breakfastItems.sumOf { it.carbs }
             }
             Constants.LUNCH -> {
-                if (lunchItems.isEmpty()) 0
+                if (lunchItems.isEmpty()) 0.0
                 else lunchItems.sumOf { it.carbs }
             }
             Constants.DINNER -> {
-                if (dinnerItems.isEmpty())
-                    0
+                if (dinnerItems.isEmpty()) 0.0
                 else dinnerItems.sumOf { it.carbs }
             }
             else -> {
-                0
+                0.0
             }
         }
 
     }
 
-    fun getMealProteins(mealType: Int): Int {
+    fun getMealProteins(mealType: Int): Double {
         return when (mealType) {
             Constants.BREAKFAST -> {
-                if (breakfastItems.isEmpty()) 0
+                if (breakfastItems.isEmpty()) 0.0
                 else breakfastItems.sumOf { it.proteins }
             }
             Constants.LUNCH -> {
-                if (lunchItems.isEmpty()) 0
+                if (lunchItems.isEmpty()) 0.0
                 else lunchItems.sumOf { it.proteins }
             }
             Constants.DINNER -> {
-                if (dinnerItems.isEmpty())
-                    0
+                if (dinnerItems.isEmpty()) 0.0
                 else dinnerItems.sumOf { it.proteins }
             }
             else -> {
-                0
+                0.0
             }
         }
 
     }
 
-    fun getMealFats(mealType: Int): Int {
+    fun getMealFats(mealType: Int): Double {
         return when (mealType) {
             Constants.BREAKFAST -> {
-                if (breakfastItems.isEmpty()) 0
+                if (breakfastItems.isEmpty()) 0.0
                 else breakfastItems.sumOf { it.fats }
             }
             Constants.LUNCH -> {
-                if (lunchItems.isEmpty()) 0
+                if (lunchItems.isEmpty()) 0.0
                 else lunchItems.sumOf { it.fats }
             }
             Constants.DINNER -> {
-                if (dinnerItems.isEmpty())
-                    0
+                if (dinnerItems.isEmpty()) 0.0
                 else dinnerItems.sumOf { it.fats }
             }
             else -> {
-                0
+                0.0
             }
         }
 
     }
-*/
+
     fun getRemainderCaloriesPerDay(): Int {
         var remainder = Constants.MAX_CALORIES_PER_DAY
         remainder -= getMealCalories(Constants.BREAKFAST)
@@ -162,14 +159,24 @@ class DataManager(context: Context) {
     fun getProgressCalories(): Int =
         Constants.MAX_CALORIES_PER_DAY.div(getRemainderCaloriesPerDay()).times(100)
 
-    fun getProgressCarbs(): Int = 20
-    //   getMealCarbs(Constants.BREAKFAST) + getMealCarbs(Constants.LUNCH) + getMealCarbs(Constants.DINNER)
+    fun getProgressCarbs(): Double =
+        getMealCarbs(Constants.BREAKFAST) + getMealCarbs(Constants.LUNCH) + getMealCarbs(Constants.DINNER)
 
-    fun getProgressProtein(): Int = 30
-    //  getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(Constants.DINNER)
+    fun getProgressProtein(): Double =
+        getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(Constants.DINNER)
 
-    fun getProgressFat(): Int = 70
-    //getMealFats(Constants.BREAKFAST) + getMealFats(Constants.LUNCH) + getMealFats(Constants.DINNER)
+    fun getProgressFat(): Double =
+        getMealFats(Constants.BREAKFAST) + getMealFats(Constants.LUNCH) + getMealFats(Constants.DINNER)
+
+    //Just for test need to delete it.
+    fun setBreakfastItemsTest() {
+        breakfastItems.add(nutritionList[0])
+        breakfastItems.add(nutritionList[1])
+        breakfastItems.add(nutritionList[2])
+        breakfastItems.add(nutritionList[3])
+        breakfastItems.add(nutritionList[4])
+
+    }
 
 
     fun getNutrition(size: Int): List<NutritionItem> {
@@ -215,8 +222,7 @@ class DataManager(context: Context) {
     fun getLunchItems(): MutableList<NutritionItem> {
         return lunchItems
     }
-
-    fun getDinnerItems(): MutableList<NutritionItem> {
+    fun getDinnerItems(): MutableList<NutritionItem>{
         return dinnerItems
     }
 }
