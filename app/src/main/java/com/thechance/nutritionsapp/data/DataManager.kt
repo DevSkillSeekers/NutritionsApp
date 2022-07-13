@@ -23,7 +23,6 @@ class DataManager(context: Context) {
         NutritionDataSource(context).getAllItems().forEach { nutritionItem ->
             nutritionList.add(nutritionItem)
         }
-
     }
 
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
@@ -87,14 +86,15 @@ class DataManager(context: Context) {
     fun getProgressCalories(): Int =
         Constants.MAX_CALORIES_PER_DAY.div(getRemainderCaloriesPerDay()).times(100)
 
-    fun getProgressCarbs(): Int = 70
+    fun getProgressCarbs(): Int = 30
 
     fun getProgressProtein(): Int = 20
 
     fun getProgressFat(): Int = 40
 
+
     //Just for test need to delete it.
-    fun setBreakfastItemsTest(){
+    fun setBreakfastItemsTest() {
         breakfastItems.add(nutritionList[0])
         breakfastItems.add(nutritionList[1])
         breakfastItems.add(nutritionList[2])
