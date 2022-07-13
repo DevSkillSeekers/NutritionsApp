@@ -26,4 +26,10 @@ object Constants {
     const val REPLACE_FRAGMENT = 0
     const val ADD_FRAGMENT = 1
     const val EXTRA_MEAL_DETAILS = "meal"
+    const val MEAL_ITEMS_DATA = "meal_item_data"
+
+    const val BREAKFAST = 0
+    const val LUNCH = 1
+    const val DINNER = 2
+    const val MAX_CALORIES_PER_DAY = 2000
 }
