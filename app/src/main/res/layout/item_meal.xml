@@ -15,6 +15,7 @@
 
     <TextView
         android:id="@+id/mealNameTv"
+        style="@style/subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
@@ -23,10 +24,10 @@
 
     <TextView
         android:id="@+id/amountTv"
+        style="@style/subBodyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test"
-        app:layout_constraintBottom_toBottomOf="@+id/mealIcon1"
+        android:text="1g"
         app:layout_constraintStart_toStartOf="@+id/mealNameTv"
         app:layout_constraintTop_toBottomOf="@+id/mealNameTv" />
 
@@ -36,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/calories"
+        style="@style/bodyText"
         app:layout_constraintBaseline_toBaselineOf="@id/mealNameTv"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -43,6 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
+        style="@style/subBodyText"
+        android:textColor="@color/color_red"
         app:layout_constraintBaseline_toBaselineOf="@+id/amountTv"
         app:layout_constraintEnd_toEndOf="@+id/calsTv" />
 

@@ -27,6 +27,7 @@
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
     <string name="healthy_recipes">Healthy Recipes</string>
+    <string name="total_calories">Total calories</string>
     <string name="see_all">see all</string>
     <string name="carb_gram">%s gram</string>
     <string name="protein_gram">%s gram</string>
