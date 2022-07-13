@@ -41,7 +41,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     fun changeFragment(activity: HomeActivity, fragment: Fragment, type: Int) {
-        val transaction = activity.supportFragmentManager.beginTransaction()
+        val transaction = activity.supportFragmentManager.beginTransaction().addToBackStack(null)
         when (type) {
             Constants.ADD_FRAGMENT -> {
                 transaction.add(R.id.nav_host_fragment, fragment)

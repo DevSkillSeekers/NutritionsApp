@@ -36,5 +36,7 @@
     <string name="preparation">Preparation</string>
     <string name="meal_details">Meal Details</string>
     <string name="empty_meal_list">No item in meal yet!!</string>
+    <string name="kg_text">kg</string>
+    <string name="cm_text">cm</string>
 
 </resources>

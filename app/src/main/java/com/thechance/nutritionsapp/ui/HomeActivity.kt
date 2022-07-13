@@ -1,16 +1,14 @@
 package com.thechance.nutritionsapp.ui
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.thechance.nutritionsapp.R
-import com.thechance.nutritionsapp.data.DataManager
-import com.thechance.nutritionsapp.data.datasource.HealthyFoodDataSource
+import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -20,7 +18,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.toolbar.visibility = View.GONE
 
         setListeners()
     }
@@ -28,20 +25,15 @@ class HomeActivity : AppCompatActivity() {
     private fun setListeners() {
         binding.bottomNav.setOnItemSelectedListener { bottomMenuItem ->
             when (bottomMenuItem.itemId) {
-                R.id.home_menu -> {
-                    binding.toolbar.visibility = View.GONE
+                com.thechance.nutritionsapp.R.id.home_menu -> {
                     changeFragment(HomeFragment(), Constants.REPLACE_FRAGMENT)
                     true
                 }
-                R.id.bmi_calculator_menu -> {
-                    binding.toolbar.visibility = View.VISIBLE
-                    binding.toolbar.title = resources.getString(R.string.bmi)
+                com.thechance.nutritionsapp.R.id.bmi_calculator_menu -> {
                     changeFragment(BMIFragment(), Constants.REPLACE_FRAGMENT)
                     true
                 }
-                R.id.search_menu -> {
-                    binding.toolbar.visibility = View.VISIBLE
-                    binding.toolbar.title = resources.getString(R.string.search)
+                com.thechance.nutritionsapp.R.id.search_menu -> {
                     changeFragment(SearchFragment(), Constants.REPLACE_FRAGMENT)
                     true
                 }
@@ -53,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun changeFragment(fragment: Fragment, type: Int) {
-        val transaction = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction().addToBackStack(null)
         when (type) {
             Constants.ADD_FRAGMENT -> {
                 transaction.add(R.id.nav_host_fragment, fragment)
@@ -65,4 +57,9 @@ class HomeActivity : AppCompatActivity() {
         transaction.commit()
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        binding.bottomNav.selectedItemId = R.id.home_menu
+
+    }
 }
