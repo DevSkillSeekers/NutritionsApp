@@ -15,7 +15,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         FragmentSearchBinding::inflate
 
     override fun setup() {
-        binding.edtTxtSearch.doAfterTextChanged {
+        binding.edtTxtSearch.addTextChangedListener {
             keyword = it.toString()
         }
         binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
