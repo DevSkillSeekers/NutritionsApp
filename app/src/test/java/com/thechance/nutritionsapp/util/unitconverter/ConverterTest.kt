@@ -61,7 +61,7 @@ internal class ConverterTest {
         val convertFrom = "Kilogram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -76,7 +76,7 @@ internal class ConverterTest {
         val convertFrom = "Kilogram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -91,7 +91,7 @@ internal class ConverterTest {
         val convertFrom = "Kilogram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -105,7 +105,7 @@ internal class ConverterTest {
         val convertFrom = "Gram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -119,7 +119,7 @@ internal class ConverterTest {
         val convertFrom = "Gram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -134,7 +134,7 @@ internal class ConverterTest {
         val convertFrom = "Gram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -149,7 +149,7 @@ internal class ConverterTest {
         val convertFrom = "Pound"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -164,7 +164,7 @@ internal class ConverterTest {
         val convertFrom = "Pound"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -179,7 +179,7 @@ internal class ConverterTest {
         val convertFrom = "Pound"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -194,7 +194,7 @@ internal class ConverterTest {
         val convertFrom = "Milligram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -209,7 +209,7 @@ internal class ConverterTest {
         val convertFrom = "Milligram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
@@ -224,7 +224,7 @@ internal class ConverterTest {
         val convertFrom = "Milligram"
         val converterType = "Weight"
 
-        //When amount is zero
+        //When 
         val result = converter.convertFromTypeToOther(converterType,convertFrom,convertTo,amount)
 
         //then
