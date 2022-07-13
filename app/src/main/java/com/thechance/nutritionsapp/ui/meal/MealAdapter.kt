@@ -14,8 +14,7 @@ import kotlin.collections.ArrayList
 class MealAdapter(
     private val context: Context,
     private var nutritionList: ArrayList<NutritionItem>
-) :
-    RecyclerView.Adapter<MealAdapter.ConverterViewHolder>() {
+) : RecyclerView.Adapter<MealAdapter.ConverterViewHolder>() {
 
     private var listener: ((nutritionItem: NutritionItem, actionType: Int) -> Unit)? = null
 
