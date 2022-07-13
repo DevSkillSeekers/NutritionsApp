@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -29,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -38,6 +42,27 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+
+    //Test
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.8.2"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:5.8.2"
+
+    //material 3
+    implementation "androidx.compose.material3:material3:1.0.0-alpha14"
+    implementation "androidx.compose.material3:material3-window-size-class:1.0.0-alpha14"
+
+    //Splash screen
+    implementation 'androidx.core:core-splashscreen:1.0.0-rc01'
+
+    //progress bar
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

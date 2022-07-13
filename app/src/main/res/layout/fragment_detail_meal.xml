@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/default_margin"
+    tools:context=".ui.DetailMealFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/detailToolbar"
+            layout="@layout/custom_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/image_width"
+            android:layout_height="@dimen/image_width"
+            android:layout_marginTop="@dimen/big_margin"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailToolbar" />
+
+        <TextView
+            android:id="@+id/mealTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="Chicken Liver Salad"
+            android:textColor="@color/black"
+            android:textSize="@dimen/headline_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/statisticCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/big_margin"
+            app:cardBackgroundColor="@android:color/background_light"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mealTitleTv">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/carbTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:text="@string/carbs"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/carbGramTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:text="gram"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/carbProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:progress="10"
+                    app:indicatorColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@+id/carbGramTv"
+                    app:layout_constraintStart_toStartOf="@+id/carbTv"
+                    app:layout_constraintTop_toBottomOf="@+id/carbTv" />
+
+                <TextView
+                    android:id="@+id/proteinTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/protein"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/carbTv"
+                    app:layout_constraintTop_toBottomOf="@id/carbProgressBar" />
+
+                <TextView
+                    android:id="@+id/proteinGramTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gram"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@+id/carbGramTv"
+                    app:layout_constraintTop_toTopOf="@+id/proteinTv" />
+
+                <ProgressBar
+                    android:id="@+id/proteinProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:progress="44"
+                    app:layout_constraintEnd_toEndOf="@+id/carbGramTv"
+                    app:layout_constraintStart_toStartOf="@+id/proteinTv"
+                    app:layout_constraintTop_toBottomOf="@+id/proteinTv" />
+
+                <TextView
+                    android:id="@+id/fatTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/fat"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/carbTv"
+                    app:layout_constraintTop_toBottomOf="@id/proteinProgressBar" />
+
+                <TextView
+                    android:id="@+id/fatGramTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gram"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@+id/carbGramTv"
+                    app:layout_constraintTop_toTopOf="@+id/fatTv" />
+
+                <ProgressBar
+                    android:id="@+id/fatProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:progress="42"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/carbGramTv"
+                    app:layout_constraintStart_toStartOf="@+id/proteinTv"
+                    app:layout_constraintTop_toBottomOf="@+id/fatTv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginBottom="@dimen/default_margin"
+            app:cardBackgroundColor="@android:color/background_light"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statisticCardView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ingredientsTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:text="@string/ingredients"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/servingsNumberTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:text="4 Servings"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/recipeTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:lineHeight="22dp"
+                    android:text=" •	½ onion, diced \n
+•	4 slices of bacon cut in small strips \n
+•	Olive oil \n
+•	Chicken livers \n
+•	Balsamic vinegar \n
+•	Salt and pepper \n
+•	Romaine or Boston lettuce cut in small pieces"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/preparationTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:text="Preparation"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/preparationStepTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:lineHeight="22dp"
+                    android:text="1.	Sauté` the onion and the bacon with the olive oil in a large skillet, over medium high heat. \n
+2.	When the bacon is slightly crisp add the chicken livers. Stir well. \n
+3.	Add the balsamic vinegar and continue to cook slowly. Add more vinegar if necessary. \n
+4.	Serve warm over a bed of lettuce.
+"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
