@@ -9,7 +9,7 @@ data class NutritionItem(
     val name: String,
     val servingSize: String,
     val calories: Int,
-    val carbs: Int,
-    val proteins: Int,
-    val fats: Int
+    val carbs: Double,
+    val proteins: Double,
+    val fats: Double
 ) : Parcelable

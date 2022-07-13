@@ -33,9 +33,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         ////////////
         binding.totalCaloriesDayTv.text = dataManager.getRemainderCaloriesPerDay().toString()
         binding.progressBar.progress = dataManager.getProgressCalories()
-        binding.carbProgressBar.progress = dataManager.getProgressCarbs()
-        binding.proteinsProgressBar.progress = dataManager.getProgressProtein()
-        binding.fatProgressBar.progress = dataManager.getProgressFat()
+        binding.carbProgressBar.progress = dataManager.getProgressCarbs().toInt()
+        binding.proteinsProgressBar.progress = dataManager.getProgressProtein().toInt()
+        binding.fatProgressBar.progress = dataManager.getProgressFat().toInt()
         updateView()
         setListeners()
     }
