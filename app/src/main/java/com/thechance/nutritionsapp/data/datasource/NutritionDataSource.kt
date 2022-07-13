@@ -32,7 +32,7 @@ class NutritionDataSource(context: Context, fileName: String = Constants.FILE_NU
                 fields[Constants.NutritionColumnIndex.Item_ID].toInt(),
                 fields[Constants.NutritionColumnIndex.NAME],
                 fields[Constants.NutritionColumnIndex.SERVING_SIZE],
-                fields[Constants.NutritionColumnIndex.CALORIES].toInt(),
+                fields[Constants.NutritionColumnIndex.CALORIES].toInt()
             )
         } else {
             null
