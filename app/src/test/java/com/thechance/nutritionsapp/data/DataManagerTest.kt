@@ -3,8 +3,6 @@ package com.thechance.nutritionsapp.data
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

@@ -46,15 +46,15 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         mealAdapter.setOnItemClickListener { item, actionType ->
             when (actionType) {
                 Constants.ACTION_OPEN -> {
-//                    val fragment = ItemDetailsFragment()
-//                    val data = Bundle()
-//                    data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS, item)
-//                    fragment.arguments = data
-//                    changeFragment(
-//                        requireActivity() as HomeActivity,
-//                        fragment,
-//                        Constants.ADD_FRAGMENT
-//                    )
+                    val fragment = ItemDetailsFragment()
+                   val data = Bundle()
+                  data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS, item)
+                  fragment.arguments = data
+                  changeFragment(
+                        requireActivity() as HomeActivity,
+                       fragment,
+                      Constants.ADD_FRAGMENT
+                   )
                 }
                 Constants.ACTION_DELETE -> {
                     val position = listMealItem.indexOf(item)

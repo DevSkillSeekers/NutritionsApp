@@ -10,7 +10,15 @@ object Constants {
         const val FAT = 4
         const val PROTEIN = 39
         const val CARBS = 58
-//        const val FIPER = 59
+        const val FIBER = 4
+        const val IRON = 24
+        const val VITAMIN_C = 64
+        const val CHOLESTEROL = 33
+
+
+
+
+
     }
 
     object FoodColumnIndex {
