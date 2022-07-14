@@ -27,11 +27,12 @@ class HealthyFoodDataSource(context: Context, fileName: String = Constants.FILE_
                 fields[Constants.FoodColumnIndex.NAME],
                 fields[Constants.FoodColumnIndex.CALORIES].toInt(),
                 fields[Constants.FoodColumnIndex.SERVINGS].toInt(),
-                fields[Constants.FoodColumnIndex.CARBS],
-                fields[Constants.FoodColumnIndex.FAT],
-                fields[Constants.FoodColumnIndex.PROTEIN],
+                fields[Constants.FoodColumnIndex.CARBS].removeSuffix("g"),
+                fields[Constants.FoodColumnIndex.FAT].removeSuffix("g"),
+                fields[Constants.FoodColumnIndex.PROTEIN].removeSuffix("g"),
                 fields[Constants.FoodColumnIndex.INGREDIENTS].split("-"),
                 fields[Constants.FoodColumnIndex.PREPARATION].split("-"),
+                fields[Constants.FoodColumnIndex.IMAGE]
             )
         } else {
             null

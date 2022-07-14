@@ -2,6 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape
+<<<<<<< HEAD
             android:shape="ring"
             android:thicknessRatio="16"
             android:useLevel="false">
@@ -19,4 +20,15 @@
             </shape>
         </rotate>
     </item>
+=======
+            android:innerRadiusRatio="2.7"
+            android:shape="ring"
+            android:thicknessRatio="10.0"
+            android:useLevel="true">
+
+            <solid android:color="@color/white" />
+
+        </shape>
+    </item>
+>>>>>>> b0ab4dd7462d5fadfc3e132cac2aa74d96f4bfb7
 </layer-list>

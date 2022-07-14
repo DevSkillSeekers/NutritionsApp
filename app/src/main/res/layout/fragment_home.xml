@@ -4,15 +4,305 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/large_margin"
     tools:context=".ui.HomeFragment">
 
-    <TextView
-        android:id="@+id/iv_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/dark_teal"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardElevation="0dp"
+        app:contentPadding="@dimen/padding_8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardGuide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/circular_shape"
+                android:indeterminate="false"
+                android:max="100"
+                android:minHeight="50dp"
+                android:progress="20"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:rotation="-90"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/centerGuide"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/totalCaloriesDayTv"
+                style="@style/bodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2000"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                app:layout_constraintStart_toStartOf="@+id/progressBar"
+                app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+            <TextView
+                android:id="@+id/carbsTv"
+                style="@style/bodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:text="@string/carbs"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintStart_toEndOf="@+id/centerGuide"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/carbProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:progress="10"
+                app:indicatorColor="?attr/colorOnPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/centerGuide"
+                app:layout_constraintTop_toBottomOf="@+id/carbsTv"
+                app:trackColor="@color/chip_teal" />
+
+            <TextView
+                android:id="@+id/proteinsTv"
+                style="@style/bodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/protein"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/proteinsProgressBar"
+                app:layout_constraintStart_toEndOf="@+id/centerGuide"
+                app:layout_constraintTop_toBottomOf="@+id/carbProgressBar" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/proteinsProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:progress="10"
+                app:indicatorColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/fatTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/centerGuide"
+                app:layout_constraintTop_toBottomOf="@+id/proteinsTv"
+                app:trackColor="@color/chip_teal" />
+
+            <TextView
+                android:id="@+id/fatTv"
+                style="@style/bodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fat"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/fatProgressBar"
+                app:layout_constraintStart_toEndOf="@+id/centerGuide"
+                app:layout_constraintTop_toBottomOf="@+id/proteinsProgressBar" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/fatProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:progress="10"
+                app:indicatorColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/centerGuide"
+                app:layout_constraintTop_toBottomOf="@+id/fatTv"
+                app:trackColor="@color/chip_teal" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/centerGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/mealChipGroup"
+        style="@style/Widget.Material3.ChipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:chipSpacing="@dimen/padding_8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardGuide"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/breakfastChip"
+            style="@style/chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/breakfast"
+            app:layout_constraintEnd_toStartOf="@+id/lunchChip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardGuide"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/lunchChip"
+            style="@style/chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lunch"
+            app:layout_constraintEnd_toStartOf="@+id/dinnerChip"
+            app:layout_constraintStart_toEndOf="@+id/breakfastChip"
+            app:layout_constraintTop_toBottomOf="@+id/cardGuide" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/dinnerChip"
+            style="@style/chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lunchChip"
+            app:layout_constraintTop_toBottomOf="@+id/cardGuide" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/healthyRecipesTv"
+        style="@style/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/healthy_recipes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mealChipGroup" />
+
+    <include
+        android:id="@+id/recipes"
+        layout="@layout/healthy_food"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/healthyRecipesTv" />
+
+
+    <TextView
+        android:id="@+id/mealTv"
+        style="@style/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="@string/breakfast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipes" />
+
+    <TextView
+        android:id="@+id/seeAllTv"
+        style="@style/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/small_padding"
+        android:text="@string/see_all"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:layout_constraintBaseline_toBaselineOf="@+id/mealTv"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Material3.CardView.Outlined"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        app:cardBackgroundColor="@color/meal_shape_color"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mealTv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:strokeColor="@color/light_gray">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_8dp">
+
+            <include
+                android:id="@+id/meal1"
+                layout="@layout/item_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_margin"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/meal2"
+                layout="@layout/item_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large_margin"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/meal1" />
+
+            <TextView
+                android:id="@+id/noItemTv"
+                style="@style/subTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large_margin"
+                android:gravity="center"
+                android:text="@string/empty_meal_list"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/totalCaloriesTv"
+                style="@style/subTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/padding_8dp"
+                android:text="@string/total_calories"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meal2" />
+
+            <TextView
+                android:id="@+id/totalCaloriesAmountTv"
+                style="@style/bodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@+id/totalCaloriesTv"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cardGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".30" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
