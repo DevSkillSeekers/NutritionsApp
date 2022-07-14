@@ -1,5 +1,6 @@
 package com.thechance.nutritionsapp.ui.meal
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,15 +19,31 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         FragmentMealBinding::inflate
 
     private lateinit var listMealItem: ArrayList<NutritionItem>
-    private lateinit var mealAdapter: MealAdapter
+    private var mealAdapter: MealAdapter? = null
 
     override fun setup() {
+        var title = ""
+        when (mealType) {
+            Constants.BREAKFAST -> {
+                listMealItem = breakfast
+                title = resources.getString(R.string.breakfast)
+            }
+            Constants.LUNCH -> {
+                listMealItem = lunch
+                title = resources.getString(R.string.lunch)
+            }
+            else -> {
+                listMealItem = dinner
+                title = resources.getString(R.string.dinner)
+            }
+        }
+
         this.setupActionBar(
             toolbar = binding.mealToolbar.toolbar,
-            title = getString(R.string.breakfast)
+            title = title
         )
-        listMealItem = arguments?.getParcelableArrayList(Constants.MEAL_ITEMS_DATA)!!
-        if (listMealItem != null && listMealItem.isNotEmpty()) {
+
+        if (listMealItem.isNotEmpty()) {
             binding.emptyTv.visibility = View.GONE
             binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
             mealAdapter =
@@ -39,7 +56,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
     }
 
     private fun setListeners() {
-        mealAdapter.setOnItemClickListener { item, actionType ->
+        mealAdapter?.setOnItemClickListener { item, actionType ->
             when (actionType) {
                 Constants.ACTION_OPEN -> {
                     Toast.makeText(context, "OPEN ${item.name}", Toast.LENGTH_LONG)
@@ -48,15 +65,16 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                 Constants.ACTION_DELETE -> {
                     val position = listMealItem.indexOf(item)
                     listMealItem.remove(item)
-                    mealAdapter.notifyItemRemoved(position)
+                    mealAdapter?.notifyItemRemoved(position)
                 }
             }
         }
         binding.addToMealBtn.setOnClickListener {
-            changeFragment(
+            changeFragmentWithData(
                 requireActivity() as HomeActivity,
                 SearchFragment(),
-                Constants.ADD_FRAGMENT
+                Constants.ADD_FRAGMENT,
+                Bundle()
             )
         }
     }

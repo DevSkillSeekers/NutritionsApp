@@ -25,16 +25,6 @@ class DataManager(context: Context) {
         }
     }
 
-    //Just for test need to delete it.
-//    fun setBreakfastItemsTest() {
-//        breakfastItems.add(nutritionList[0])
-//        breakfastItems.add(nutritionList[1])
-//        breakfastItems.add(nutritionList[2])
-//        breakfastItems.add(nutritionList[3])
-//        breakfastItems.add(nutritionList[4])
-//
-//    }
-
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
         return when (mealType) {
             Constants.BREAKFAST -> {
@@ -163,20 +153,12 @@ class DataManager(context: Context) {
         getMealCarbs(Constants.BREAKFAST) + getMealCarbs(Constants.LUNCH) + getMealCarbs(Constants.DINNER)
 
     fun getProgressProtein(): Double =
-        getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(Constants.DINNER)
+        getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(
+            Constants.DINNER
+        )
 
     fun getProgressFat(): Double =
         getMealFats(Constants.BREAKFAST) + getMealFats(Constants.LUNCH) + getMealFats(Constants.DINNER)
-
-    //Just for test need to delete it.
-    fun setBreakfastItemsTest() {
-        breakfastItems.add(nutritionList[0])
-        breakfastItems.add(nutritionList[1])
-        breakfastItems.add(nutritionList[2])
-        breakfastItems.add(nutritionList[3])
-        breakfastItems.add(nutritionList[4])
-
-    }
 
 
     fun getNutrition(size: Int): List<NutritionItem> {
@@ -211,18 +193,15 @@ class DataManager(context: Context) {
         return nutritionList.filter { item -> item.name.contains(keyword) }
     }
 
-    fun getAllItems(): MutableList<NutritionItem> {
-        return nutritionList
+    fun addBreakfast(breakfast: ArrayList<NutritionItem>) {
+        breakfastItems.addAll(breakfast)
     }
 
-    fun getBreakfastItems(): MutableList<NutritionItem> {
-        return breakfastItems
+    fun addLunch(lunch: ArrayList<NutritionItem>) {
+        lunchItems.addAll(lunch)
     }
 
-    fun getLunchItems(): MutableList<NutritionItem> {
-        return lunchItems
-    }
-    fun getDinnerItems(): MutableList<NutritionItem>{
-        return dinnerItems
+    fun addDinner(dinner: ArrayList<NutritionItem>) {
+        dinnerItems.addAll(dinner)
     }
 }

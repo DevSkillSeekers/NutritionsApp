@@ -5,9 +5,9 @@ class Converter {
         "Kilogram" to 0.001,
         "Gram" to 1.0,
         "Milligram" to 1000.0,
-        // "US ton" to 1.1023e-6,
         "Pound" to 0.00220462,
-        // "Ounce" to 0.035274,
+        "cm" to 1.div(30.48),
+        "feet" to 30.48
     )
 
     fun convertFromTypeToOther(
