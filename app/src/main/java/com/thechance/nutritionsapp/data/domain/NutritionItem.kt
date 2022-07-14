@@ -11,5 +11,6 @@ data class NutritionItem(
     val calories: Int,
     val carbs: Double,
     val proteins: Double,
-    val fats: Double
+    val fats: Double,
+//    val fiber: Double
 ) : Parcelable

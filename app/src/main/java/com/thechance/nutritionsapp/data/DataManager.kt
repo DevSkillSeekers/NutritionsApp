@@ -25,16 +25,6 @@ class DataManager(context: Context) {
         }
     }
 
-    //Just for test need to delete it.
-    fun setBreakfastItemsTest() {
-        breakfastItems.add(nutritionList[0])
-        breakfastItems.add(nutritionList[1])
-        breakfastItems.add(nutritionList[2])
-        breakfastItems.add(nutritionList[3])
-        breakfastItems.add(nutritionList[4])
-
-    }
-
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
         return when (mealType) {
             Constants.BREAKFAST -> {
@@ -163,7 +153,9 @@ class DataManager(context: Context) {
         getMealCarbs(Constants.BREAKFAST) + getMealCarbs(Constants.LUNCH) + getMealCarbs(Constants.DINNER)
 
     fun getProgressProtein(): Double =
-        getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(Constants.DINNER)
+        getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(
+            Constants.DINNER
+        )
 
     fun getProgressFat(): Double =
         getMealFats(Constants.BREAKFAST) + getMealFats(Constants.LUNCH) + getMealFats(Constants.DINNER)
@@ -222,7 +214,8 @@ class DataManager(context: Context) {
     fun getLunchItems(): MutableList<NutritionItem> {
         return lunchItems
     }
-    fun getDinnerItems(): MutableList<NutritionItem>{
+
+    fun getDinnerItems(): MutableList<NutritionItem> {
         return dinnerItems
     }
 }

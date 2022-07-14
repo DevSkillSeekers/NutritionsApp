@@ -1,5 +1,7 @@
 package com.thechance.nutritionsapp.ui.meal
 
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,9 @@ import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentMealBinding
+import com.thechance.nutritionsapp.ui.DetailMealFragment
 import com.thechance.nutritionsapp.ui.HomeActivity
+import com.thechance.nutritionsapp.ui.ItemDetailsFragment
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
 
@@ -42,8 +46,15 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         mealAdapter.setOnItemClickListener { item, actionType ->
             when (actionType) {
                 Constants.ACTION_OPEN -> {
-                    Toast.makeText(context, "OPEN ${item.name}", Toast.LENGTH_LONG)
-                        .show()
+//                    val fragment = ItemDetailsFragment()
+//                    val data = Bundle()
+//                    data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS, item)
+//                    fragment.arguments = data
+//                    changeFragment(
+//                        requireActivity() as HomeActivity,
+//                        fragment,
+//                        Constants.ADD_FRAGMENT
+//                    )
                 }
                 Constants.ACTION_DELETE -> {
                     val position = listMealItem.indexOf(item)

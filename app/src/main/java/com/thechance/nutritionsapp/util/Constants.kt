@@ -9,7 +9,8 @@ object Constants {
         const val CALORIES = 3
         const val FAT = 4
         const val PROTEIN = 39
-        const val CARBS = 59
+        const val CARBS = 58
+//        const val FIPER = 59
     }
 
     object FoodColumnIndex {
@@ -31,6 +32,7 @@ object Constants {
     const val EXTRA_MEAL_DETAILS = "meal"
 
     const val EXTRA_Add_MEAL = "Add_item_to_meal"
+    const val EXTRA_NUTRITION_DETAILS = "nutrition"
     const val MEAL_ITEMS_DATA = "meal_item_data"
 
     const val EXTRA_MEAL_TYPE = "MEAL_TYPE"
