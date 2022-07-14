@@ -1,3 +1,45 @@
 <resources>
-    <string name="app_name">Nutritions App</string>
+    <string name="app_name">Nutrition App</string>
+    <string name="meal_image">meal image</string>
+    <string name="search">Search</string>
+    <string name="empty_search">What are you looking for?</string>
+    <string name="search_hint">Search Here</string>
+    <string name="home">Home</string>
+    <string name="bmi">BMI</string>
+    <string name="tips">Get more active Being active is key to losing weight and keeping it off. As well as providing lots of health benefits, exercise can help burn off the excess calories you cannot lose through diet alone.</string>
+    <string name="bmi_calculator">BMI Calculator</string>
+    <string name="overweight_text">Overweight</string>
+    <string name="normal_text">Normal</string>
+    <string name="underweight_text">Underweight</string>
+    <string name="calculate_text">CALCULATE</string>
+    <string name="result_text">Result</string>
+    <string name="text_type_in_result">Overweight</string>
+    <string name="tips_text">Tips</string>
+    <string name="carbs">Carbs</string>
+    <string name="protein">Protein</string>
+    <string name="fat">Fat</string>
+    <string name="ingredients">Ingredients (%s calories)</string>
+    <string name="calories_tv">%s calories</string>
+    <string name="calories">Cals</string>
+
+    <string name="add_to_meal">Add item to meal</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="healthy_recipes">Healthy Recipes</string>
+    <string name="total_calories">Total calories</string>
+    <string name="see_all">see all</string>
+    <string name="carb_gram">%s gram</string>
+    <string name="protein_gram">%s gram</string>
+    <string name="fat_gram">%s gram</string>
+    <string name="servings_number">%s Servings</string>
+    <string name="calories_number">%s Kcal</string>
+    <string name="preparation">Preparation</string>
+    <string name="meal_details">Meal Details</string>
+    <string name="empty_meal_list">No item in meal yet!!</string>
+    <string name="kg_text">kg</string>
+    <string name="cm_text">cm</string>
+    <string name="feet">Feet</string>
+    <string name="pound">Pound</string>
+
 </resources>

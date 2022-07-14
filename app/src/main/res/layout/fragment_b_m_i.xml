@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/default_margin"
+    tools:context=".ui.BMIFragment">
+
+    <include
+        android:id="@+id/bmiToolbar"
+        layout="@layout/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    ArcProgress-->
+    <com.github.lzyzsd.circleprogress.ArcProgress
+        android:id="@+id/Arc_Progress"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        app:arc_bottom_text="BMI"
+        app:arc_bottom_text_size="28sp"
+        app:arc_finished_color="@color/color_yellow"
+        app:arc_progress="0"
+        app:arc_stroke_width="20dp"
+        app:arc_text_color="@color/black"
+        app:arc_unfinished_color="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progressGuide"
+        app:layout_constraintTop_toBottomOf="@id/bmiToolbar" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/progressGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".25" />
+
+    <!--TextView Overweight-->
+    <TextView
+        android:id="@+id/overweightTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/overweight_text"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Arc_Progress" />
+    <!--ImageView circle Red-->
+    <ImageView
+        android:id="@+id/circleRedIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_4dp"
+        android:src="@drawable/circle_red"
+        app:layout_constraintBottom_toBottomOf="@+id/overweightTV"
+        app:layout_constraintEnd_toStartOf="@+id/overweightTV"
+        app:layout_constraintTop_toTopOf="@+id/overweightTV" />
+    <!--TextView Normal-->
+    <TextView
+        android:id="@+id/normalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:text="@string/normal_text"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/overweightTV"
+        app:layout_constraintEnd_toStartOf="@+id/circleRedIV"
+        app:layout_constraintTop_toTopOf="@+id/overweightTV" />
+    <!--ImageView circle blue-->
+    <ImageView
+        android:id="@+id/circleBlueIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_4dp"
+        android:src="@drawable/circle_blue"
+        app:layout_constraintBottom_toBottomOf="@+id/normalTV"
+        app:layout_constraintEnd_toStartOf="@id/normalTV"
+        app:layout_constraintTop_toTopOf="@+id/normalTV" />
+    <!--TextView Underweight-->
+    <TextView
+        android:id="@+id/underWeightTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:text="@string/underweight_text"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/circleBlueIV"
+        app:layout_constraintTop_toTopOf="@+id/normalTV" />
+    <!--ImageView circle yellow-->
+    <ImageView
+        android:id="@+id/circleYellow_IV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_4dp"
+        android:src="@drawable/circle_yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/underWeightTV"
+        app:layout_constraintEnd_toStartOf="@id/underWeightTV"
+        app:layout_constraintTop_toTopOf="@+id/underWeightTV" />
+    <!--    TextInputLayout weight-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/WeightTIL"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="242dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:hint="Weight"
+        app:counterEnabled="true"
+        app:counterMaxLength="9"
+        app:endIconMode="clear_text"
+        app:helperTextEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/heightTIL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/normalTV">
+        <!--    TextInputEditText weight-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/WeightTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--    TextInputLayout Height-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/heightTIL"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="242dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="@dimen/margin_8dp"
+        android:hint="Height"
+        app:counterEnabled="true"
+        app:counterMaxLength="8"
+        app:endIconMode="clear_text"
+        app:layout_constraintBottom_toTopOf="@+id/calculateBT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/WeightTIL">
+        <!--    TextInputEditText Height-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/heightTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--TextInputLayout weight menu-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/menuWeightTIL"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/WeightTIL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/WeightTIL"
+        app:layout_constraintTop_toTopOf="@+id/WeightTIL">
+        <!--AutoCompleteTextView weight menu-->
+        <AutoCompleteTextView
+            android:id="@+id/menuWeightACTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="@string/kg_text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--TextInputLayout weight menu-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/menuHeightTIL"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/heightTIL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/heightTIL"
+        app:layout_constraintTop_toTopOf="@+id/heightTIL">
+        <!--AutoCompleteTextView height menu-->
+        <AutoCompleteTextView
+            android:id="@+id/menuHeightACTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="@string/cm_text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    Button calculate-->
+    <Button
+        android:id="@+id/calculateBT"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_8dp"
+        android:text="@string/calculate_text"
+        android:textSize="@dimen/margin_16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heightTIL" />
+
+    <!--    LinearLayout part result-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:background="@drawable/background_for_bmi_result"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <!--TextView result-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/result_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_16sp"
+            android:textStyle="bold" />
+        <!--TextView result-->
+        <TextView
+            android:id="@+id/displayResultTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_type_in_result"
+            android:textColor="@color/color_red"
+            android:textSize="@dimen/title_text_view_24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="91dp"
+            tools:layout_editor_absoluteY="165dp" />
+        <!--TextView tips-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/tips_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_16sp"
+            android:textStyle="bold" />
+        <!--TextView some tips-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_4dp"
+            android:text="@string/tips"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_16sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
