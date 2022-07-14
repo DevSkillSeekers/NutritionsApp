@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/large_margin"
+    android:layout_margin="@dimen/default_margin"
     tools:context=".ui.HomeFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/dark_teal"
-        app:cardCornerRadius="@dimen/card_radius"
+        app:cardBackgroundColor="@color/darkGreenTheme"
+        app:cardCornerRadius="@dimen/corner_radius_12dp"
         app:cardElevation="0dp"
-        app:contentPadding="@dimen/padding_8dp"
+        app:contentPadding="@dimen/default_padding"
         app:layout_constraintBottom_toBottomOf="@+id/cardGuide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
                 style="@style/bodyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginTop="@dimen/small_margin"
                 android:text="@string/carbs"
                 android:textColor="?attr/colorOnPrimary"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
@@ -139,7 +139,7 @@
         style="@style/Widget.Material3.ChipGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:chipSpacing="@dimen/padding_8dp"
+        app:chipSpacing="@dimen/default_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardGuide"
@@ -205,7 +205,7 @@
         style="@style/subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large_margin"
+        android:layout_marginTop="@dimen/default_margin"
         android:text="@string/breakfast"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipes" />
@@ -226,7 +226,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
-        app:cardBackgroundColor="@color/meal_shape_color"
+        app:cardBackgroundColor="@color/lightGreenTheme"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -237,14 +237,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_8dp">
+            android:padding="@dimen/default_padding">
 
             <include
                 android:id="@+id/meal1"
                 layout="@layout/item_meal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/default_margin"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -255,7 +255,7 @@
                 layout="@layout/item_meal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/default_margin"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -266,7 +266,7 @@
                 style="@style/subTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/large_margin"
+                android:layout_margin="@dimen/default_margin"
                 android:gravity="center"
                 android:text="@string/empty_meal_list"
                 android:visibility="visible"
@@ -280,7 +280,7 @@
                 style="@style/subTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/padding_8dp"
+                android:layout_marginVertical="@dimen/default_padding"
                 android:text="@string/total_calories"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
@@ -303,6 +303,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".30" />
+        app:layout_constraintGuide_begin="210dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

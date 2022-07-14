@@ -16,7 +16,7 @@
             android:layout_height="@dimen/size_card_of_meal"
             android:layout_gravity="center"
             android:background="@drawable/shape_img"
-            android:padding="@dimen/large_margin"
+            android:padding="@dimen/default_margin"
             android:src="@drawable/ic_pizza"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
             android:id="@+id/addIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="23dp"
+            android:layout_marginEnd="@dimen/large_margin"
             android:background="@color/white"
             android:src="@drawable/ic_outline_add_circle_24"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,10 +38,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginTop="@dimen/default_margin"
             android:text="Pizza"
-            android:textColor="@color/title_color"
-            android:textSize="@dimen/size_title_meal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/small_text_size"
             app:layout_constraintStart_toEndOf="@id/imgMeal"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,10 +49,10 @@
             android:id="@+id/tvCal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginStart="@dimen/default_margin"
             android:layout_marginTop="@dimen/small_margin"
             android:text="200 Cal"
-            android:textColor="@color/title_color"
+            android:textColor="@color/text_color"
             app:layout_constraintStart_toEndOf="@+id/imgMeal"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 

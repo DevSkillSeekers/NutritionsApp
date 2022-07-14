@@ -13,22 +13,22 @@
     <color name="color_yellow">#f9c541</color>
     <color name="color_red">#ba1a1a</color>
     <color name="icons_color_search_input">#3F4949</color>
-    <color name="ic_arrow_color">#191C1C</color>
     <color name="ic_add_color">#686B6F</color>
-    <color name="stroke_color_shape">#DAE4E5</color>
-    <color name="meal_shape_color">#FAFDFC</color>
-    <color name="title_color">#191C1C</color>
-    <color name="primaryBlack">#191c1c</color>
-    <color name="primaryGrey">#F0F0F0</color>
     <color name="lightGreenTheme">#FAFDFC</color>
+    <color name="primaryGrey">#F0F0F0</color>
     <color name="darkGreenTheme11">#1C00696E</color>
     <color name="darkGreenTheme">#00696E</color>
-
     <color name="chip_teal">#CCE8E9</color>
-    <color name="dark_teal">#00696E</color>
     <color name="teal">#4A6364</color>
     <color name="bleu">#4E5F7D</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="mealItemStrokeColor">#DAE4E5</color>
 
-</resources>
+    <!--Duplicate Colors-->
+<!--    <color name="dark_teal">#00696E</color>darkGreenTheme-->
+<!--    <color name="meal_shape_color">#FAFDFC</color>lightGreenTheme-->
+<!--    <color name="mealItemStrokeColor">#DAE4E5</color>light_gray-->
+<!--    <color name="stroke_color_shape">#DAE4E5</color>light_gray-->
+<!--    <color name="ic_arrow_color">#191C1C</color>text_color-->
+<!--    <color name="title_color">#191C1C</color>-->
+<!--    <color name="primaryBlack">#191c1c</color>-->
+  </resources>

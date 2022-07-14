@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.NutritionsApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/dark_teal</item>
+        <item name="colorPrimary">@color/darkGreenTheme</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal</item>
-        <item name="colorSecondaryVariant">@color/mealItemStrokeColor</item>
+        <item name="colorSecondaryVariant">@color/light_gray</item>
         <item name="colorOnSecondary">@color/white</item>
 
         <!-- Status bar color. -->
@@ -30,26 +30,26 @@
 
     <style name="titleText">
         <item name="android:fontFamily">sans-serif-black</item>
-        <item name="android:textSize">@dimen/title_font</item>
+        <item name="android:textSize">@dimen/medium_text_size_18sp</item>
     </style>
 
     <style name="subTitle">
         <item name="android:fontFamily">sans-serif-black</item>
-        <item name="android:textSize">@dimen/subtitle_font</item>
+        <item name="android:textSize">@dimen/large_body_size</item>
         <item name="android:textColor">@color/black</item>
         <item name="alpha">.4</item>
     </style>
 
     <style name="subBodyText">
         <item name="android:fontFamily">sans-serif-black</item>
-        <item name="android:textSize">@dimen/body_font</item>
+        <item name="android:textSize">@dimen/medium_body_size</item>
         <item name="android:textColor">@color/black</item>
         <item name="alpha">.4</item>
     </style>
 
     <style name="bodyText">
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">@dimen/subtitle_font</item>
+        <item name="android:textSize">@dimen/large_body_size</item>
         <item name="android:textColor">@color/black</item>
         <item name="alpha">.4</item>
     </style>
