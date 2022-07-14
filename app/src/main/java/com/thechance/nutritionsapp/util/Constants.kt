@@ -34,6 +34,11 @@ object Constants {
     const val MEAL_ITEMS_DATA = "meal_item_data"
 
     const val EXTRA_MEAL_TYPE = "MEAL_TYPE"
+    const val EXTRA_BREAKFAST = "MEAL_BREAKFAST"
+    const val EXTRA_LUNCH = "MEAL_LUNCH"
+    const val EXTRA_DINNER = "MEAL_DINNER"
+
+
     const val BREAKFAST = 0
     const val LUNCH = 1
     const val DINNER = 2

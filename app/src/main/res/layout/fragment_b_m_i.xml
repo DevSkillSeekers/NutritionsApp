@@ -19,20 +19,29 @@
     <!--    ArcProgress-->
     <com.github.lzyzsd.circleprogress.ArcProgress
         android:id="@+id/Arc_Progress"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="@dimen/margin_4dp"
         app:arc_bottom_text="BMI"
         app:arc_bottom_text_size="28sp"
         app:arc_finished_color="@color/color_yellow"
-        app:arc_progress="25"
+        app:arc_progress="0"
         app:arc_stroke_width="20dp"
         app:arc_text_color="@color/black"
         app:arc_unfinished_color="@color/light_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progressGuide"
         app:layout_constraintTop_toBottomOf="@id/bmiToolbar" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/progressGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".25" />
 
     <!--TextView Overweight-->
     <TextView
@@ -214,6 +223,7 @@
         android:background="@drawable/background_for_bmi_result"
         android:orientation="vertical"
         android:padding="@dimen/padding_8dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -227,6 +237,7 @@
             android:textStyle="bold" />
         <!--TextView result-->
         <TextView
+            android:id="@+id/displayResultTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_type_in_result"

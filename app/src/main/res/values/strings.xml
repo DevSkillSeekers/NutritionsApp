@@ -2,6 +2,7 @@
     <string name="app_name">Nutrition App</string>
     <string name="meal_image">meal image</string>
     <string name="search">Search</string>
+    <string name="empty_search">What are you looking for?</string>
     <string name="search_hint">Search Here</string>
     <string name="home">Home</string>
     <string name="bmi">BMI</string>
@@ -38,5 +39,7 @@
     <string name="empty_meal_list">No item in meal yet!!</string>
     <string name="kg_text">kg</string>
     <string name="cm_text">cm</string>
+    <string name="feet">Feet</string>
+    <string name="pound">Pound</string>
 
 </resources>

@@ -1,19 +1,21 @@
 package com.thechance.nutritionsapp.util
 
+import kotlinx.coroutines.handleCoroutineException
 import kotlin.math.abs
 
-class BMI(private val Weight: Double?, private val Height: Double?){
+class BMI(private val Weight: Double?, private val Height: Double?) {
 
     fun calculation0fBMI(): Double {
-        return if(Weight?.equals(abs(Weight)) == true && Height?.equals(abs(Height)) == true && Weight != 0.0 && Height != 0.0){
-            val result = Weight.div((Height.times(Height)))
+        return if (Weight?.equals(abs(Weight)) == true && Height?.equals(abs(Height)) == true && Weight != 0.0 && Height != 0.0) {
+            var heightM = Height.div(100)
+            val result = Weight.div((heightM.times(heightM)))
             String.format("%.2f", result).toDouble()
-        } else{
+        } else {
             -1.0
         }
     }
-    fun diagnostic(): String{
-        val bmiRAW = calculation0fBMI()
+
+    fun diagnostic(bmiRAW: Double): String {
         var result = ""
         val strBMI = String.format("%.02f", bmiRAW)
 
