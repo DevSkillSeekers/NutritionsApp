@@ -8,8 +8,8 @@ object Constants {
         const val SERVING_SIZE = 2
         const val CALORIES = 3
         const val FAT = 4
-        const val PROTEIN = 39
-        const val CARBS = 59
+        const val PROTEIN = 38
+        const val CARBS = 58
     }
 
     object FoodColumnIndex {

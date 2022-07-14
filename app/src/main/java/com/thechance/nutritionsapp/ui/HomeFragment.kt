@@ -22,7 +22,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var listMealItem = ArrayList<NutritionItem>()
 
     override fun setup() {
-        binding.totalCaloriesDayTv.text = dataManager.getRemainderCaloriesPerDay().toString()
+        binding.totalCaloriesDayTv.text = resources.getString(
+            R.string.reminder_number,
+            dataManager.getRemainderCaloriesPerDay().toString()
+        )
+        //dataManager.getRemainderCaloriesPerDay().toString()
         binding.progressBar.progress = dataManager.getProgressCalories()
         binding.carbProgressBar.progress = dataManager.getProgressCarbs().toInt()
         binding.proteinsProgressBar.progress = dataManager.getProgressProtein().toInt()

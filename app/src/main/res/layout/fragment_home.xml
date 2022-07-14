@@ -46,6 +46,7 @@
                 style="@style/bodyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="2000"
                 android:textColor="?attr/colorOnPrimary"
                 app:layout_constraintBottom_toBottomOf="@+id/progressBar"
@@ -231,7 +232,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mealTv"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:strokeColor="@color/light_gray">
 
         <androidx.constraintlayout.widget.ConstraintLayout
