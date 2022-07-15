@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="@dimen/large_margin"
+    android:layout_marginHorizontal="@dimen/default_margin"
     android:layout_marginVertical="@dimen/small_margin">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/itemRounded"
-        app:strokeColor="@color/mealItemStrokeColor"
+        app:strokeColor="@color/light_gray"
         app:strokeWidth="1dp" />
 
     <TextView
@@ -25,7 +25,7 @@
         android:background="@drawable/item_style"
         android:padding="21dp"
         android:text="🥚"
-        android:textColor="@color/primaryBlack"
+        android:textColor="@color/text_color"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="@id/mealItem1Box"
         app:layout_constraintTop_toTopOf="@id/mealItem1Box" />
@@ -34,12 +34,12 @@
         android:id="@+id/mealItem1Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/default_margin"
         android:fontFamily="sans-serif-medium"
         android:padding="2dp"
         android:text="Eggs"
-        android:textColor="@color/primaryBlack"
+        android:textColor="@color/text_color"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/mealItem1"
         app:layout_constraintTop_toTopOf="@id/mealItem1Box" />
@@ -51,7 +51,7 @@
         android:layout_marginTop="24dp"
         android:padding="2dp"
         android:text="200 cal"
-        android:textColor="@color/primaryBlack"
+        android:textColor="@color/text_color"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/mealItem1Name"
         app:layout_constraintTop_toTopOf="@id/mealItem1Name" />
@@ -61,7 +61,7 @@
         android:layout_width="25dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/ic_baseline_delete_24"
         app:layout_constraintEnd_toEndOf="@id/mealItem1Box"
         app:layout_constraintTop_toTopOf="@id/mealItem1Name" />
