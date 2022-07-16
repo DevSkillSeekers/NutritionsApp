@@ -22,6 +22,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun setup() {
         binding.totalCaloriesDayTv.text = dataManager.getRemainderCaloriesPerDay().toString()
+        binding.trackCarb.text = dataManager.getRemainderCarbsPerDay().toString() + "g"
+        binding.trackProtein.text = dataManager.getRemainderProteinsPerDay().toString() + "g"
+        binding.trackFat.text = dataManager.getRemainderFatsPerDay().toString() + "g"
         binding.progressBar.progress = dataManager.getProgressCalories()
         binding.carbProgressBar.progress = dataManager.getProgressCarbs().toInt()
         binding.proteinsProgressBar.progress = dataManager.getProgressProtein().toInt()
