@@ -8,8 +8,8 @@ object Constants {
         const val SERVING_SIZE = 2
         const val CALORIES = 3
         const val FAT = 4
-        const val PROTEIN = 39
-        const val CARBS = 59
+        const val PROTEIN = 38
+        const val CARBS = 58
     }
 
     object FoodColumnIndex {
@@ -43,6 +43,9 @@ object Constants {
     const val LUNCH = 1
     const val DINNER = 2
     const val MAX_CALORIES_PER_DAY = 2000
+    const val MAX_CARBS_PER_DAY = 300
+    const val MAX_PROTEINS_PER_DAY = 65
+    const val MAX_FATS_PER_DAY = 65
 
     const val ACTION_OPEN = 11
     const val ACTION_DELETE = 12

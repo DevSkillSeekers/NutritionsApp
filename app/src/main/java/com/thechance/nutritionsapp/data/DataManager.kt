@@ -146,19 +146,41 @@ class DataManager(context: Context) {
         return remainder
     }
 
+    fun getRemainderCarbsPerDay(): Int {
+        var remainder = Constants.MAX_CARBS_PER_DAY
+        remainder -= getMealCarbs(Constants.BREAKFAST).toInt()
+        remainder -= getMealCarbs(Constants.LUNCH).toInt()
+        remainder -= getMealCarbs(Constants.DINNER).toInt()
+        return remainder
+    }
+
+    fun getRemainderProteinsPerDay(): Int {
+        var remainder = Constants.MAX_PROTEINS_PER_DAY
+        remainder -= getMealProteins(Constants.BREAKFAST).toInt()
+        remainder -= getMealProteins(Constants.LUNCH).toInt()
+        remainder -= getMealProteins(Constants.DINNER).toInt()
+        return remainder
+    }
+
+    fun getRemainderFatsPerDay(): Int {
+        var remainder = Constants.MAX_FATS_PER_DAY
+        remainder -= getMealFats(Constants.BREAKFAST).toInt()
+        remainder -= getMealFats(Constants.LUNCH).toInt()
+        remainder -= getMealFats(Constants.DINNER).toInt()
+        return remainder
+    }
+
     fun getProgressCalories(): Int =
-        Constants.MAX_CALORIES_PER_DAY.div(getRemainderCaloriesPerDay()).times(100)
+        getRemainderCaloriesPerDay().toDouble().div(Constants.MAX_CALORIES_PER_DAY).times(100).toInt()
 
     fun getProgressCarbs(): Double =
-        getMealCarbs(Constants.BREAKFAST) + getMealCarbs(Constants.LUNCH) + getMealCarbs(Constants.DINNER)
+        getRemainderCarbsPerDay().toDouble().div(Constants.MAX_CARBS_PER_DAY).times(100)
 
     fun getProgressProtein(): Double =
-        getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(
-            Constants.DINNER
-        )
+        getRemainderProteinsPerDay().toDouble().div(Constants.MAX_PROTEINS_PER_DAY).times(100)
 
     fun getProgressFat(): Double =
-        getMealFats(Constants.BREAKFAST) + getMealFats(Constants.LUNCH) + getMealFats(Constants.DINNER)
+        getRemainderFatsPerDay().toDouble().div(Constants.MAX_FATS_PER_DAY).times(100)
 
 
     fun getNutrition(size: Int): List<NutritionItem> {
