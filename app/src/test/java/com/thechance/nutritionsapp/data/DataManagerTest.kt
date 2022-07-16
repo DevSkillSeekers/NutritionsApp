@@ -1,5 +1,8 @@
 package com.thechance.nutritionsapp.data
 
+import android.content.Context
+import android.content.ContextParams
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -214,4 +217,5 @@ internal class DataManagerTest {
         //then
         assertEquals(null,calories)
     }
+
 }
