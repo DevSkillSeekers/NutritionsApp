@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.FragmentBMIBinding
 import com.thechance.nutritionsapp.util.BMI
+import com.thechance.nutritionsapp.util.hideKeyboard
 import com.thechance.nutritionsapp.util.unitconverter.Converter
 import com.thechance.nutritionsapp.util.unitconverter.ConverterUtil
 
@@ -16,12 +17,12 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         FragmentBMIBinding::inflate
 
     override fun setup() {
-        this.setupActionBar(
+        setupActionBar(
             toolbar = binding.bmiToolbar.toolbar,
             title = resources.getString(R.string.bmi)
         )
 
-        binding.menuHeightACTV.setAdapter(
+        binding.heightInputView.setAdapter(
             ArrayAdapter(
                 requireContext(),
                 android.R.layout.simple_dropdown_item_1line, listOf(
@@ -31,7 +32,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
             )
         )
 
-        binding.menuWeightACTV.setAdapter(
+        binding.weightInputView.setAdapter(
             ArrayAdapter(
                 requireContext(),
                 android.R.layout.simple_dropdown_item_1line, listOf(
@@ -42,14 +43,15 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         )
 
         binding.calculateBT.setOnClickListener {
+//            this.hideKeyboard()
             if (!binding.WeightTIET.text.isNullOrBlank() && !binding.heightTIET.text.isNullOrBlank()) {
-                val weight = binding.WeightTIET.text.toString().toDouble()
-                val height = binding.heightTIET.text.toString().toDouble()
-                val weighUnit = binding.menuWeightACTV.text.toString()
-                val heightUnit = binding.menuHeightACTV.text.toString()
+                val weight = binding.WeightTIET.text.toString().toDoubleOrNull() ?: 0.0
+                val height = binding.heightTIET.text.toString().toDoubleOrNull() ?: 0.0
+                val weighUnit = binding.weightInputView.text.toString()
+                val heightUnit = binding.heightInputView.text.toString()
                 calculateBMI(weight, height, weighUnit, heightUnit)
             } else {
-                Toast.makeText(context, "Please enter your weight and height", Toast.LENGTH_LONG)
+                Toast.makeText(context,resources.getString(R.string.error_msg), Toast.LENGTH_LONG)
                     .show()
             }
         }

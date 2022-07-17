@@ -36,7 +36,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     ): View? {
         _binding = bindingInflater.invoke(inflater, container, false)
 
-        dataManager = DataManager(requireActivity())
+        dataManager = DataManager()
         mealType = arguments?.getInt(Constants.EXTRA_MEAL_TYPE) ?: Constants.BREAKFAST
         breakfast = arguments?.getParcelableArrayList(Constants.EXTRA_BREAKFAST) ?: arrayListOf()
         lunch = arguments?.getParcelableArrayList(Constants.EXTRA_LUNCH) ?: arrayListOf()
