@@ -1,6 +1,5 @@
-package com.thechance.nutritionsapp
+package com.thechance.nutritionsapp.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +8,11 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
+import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.data.domain.NutritionItem
-import com.thechance.nutritionsapp.ui.HomeActivity
-import com.thechance.nutritionsapp.ui.HomeFragment
-import com.thechance.nutritionsapp.ui.meal.MealFragment
 import com.thechance.nutritionsapp.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -38,7 +36,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     ): View? {
         _binding = bindingInflater.invoke(inflater, container, false)
 
-        dataManager = DataManager(requireActivity())
+        dataManager = DataManager()
         mealType = arguments?.getInt(Constants.EXTRA_MEAL_TYPE) ?: Constants.BREAKFAST
         breakfast = arguments?.getParcelableArrayList(Constants.EXTRA_BREAKFAST) ?: arrayListOf()
         lunch = arguments?.getParcelableArrayList(Constants.EXTRA_LUNCH) ?: arrayListOf()
@@ -53,7 +51,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     changeFragmentWithData(
-                        activity as HomeActivity,
                         HomeFragment(),
                         Constants.REPLACE_FRAGMENT,
                         Bundle()
@@ -71,20 +68,20 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun setup()
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
 
 
     fun changeFragmentWithData(
-        activity: HomeActivity,
         fragment: Fragment,
         type: Int,
         data: Bundle
     ) {
+        val manager: FragmentManager = parentFragmentManager
         val transaction =
-            activity.supportFragmentManager.beginTransaction()//.addToBackStack(fragment.id.toString())
+            manager.beginTransaction()
         data.putInt(Constants.EXTRA_MEAL_TYPE, mealType)
         data.putParcelableArrayList(Constants.EXTRA_BREAKFAST, breakfast)
         data.putParcelableArrayList(Constants.EXTRA_LUNCH, lunch)
@@ -116,10 +113,8 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
         toolbar.setNavigationOnClickListener {
             changeFragmentWithData(
-                requireActivity() as HomeActivity, HomeFragment(), Constants.REPLACE_FRAGMENT,
-                Bundle()
+                HomeFragment(), Constants.REPLACE_FRAGMENT, Bundle()
             )
-//            requireActivity().onBackPressed()
         }
     }
 

@@ -1,13 +1,13 @@
 package com.thechance.nutritionsapp.data
 
-import android.content.Context
+import com.thechance.nutritionsapp.NutritionApp
 import com.thechance.nutritionsapp.data.datasource.HealthyFoodDataSource
 import com.thechance.nutritionsapp.data.datasource.NutritionDataSource
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.util.Constants
 
-class DataManager(context: Context) {
+class DataManager {
     private val nutritionList = mutableListOf<NutritionItem>()
     private val breakfastItems = mutableListOf<NutritionItem>()
     private val lunchItems = mutableListOf<NutritionItem>()
@@ -16,14 +16,15 @@ class DataManager(context: Context) {
     private val healthyFoodList = mutableListOf<HealthyFood>()
 
     init {
-        val dataSource = HealthyFoodDataSource(context)
-        dataSource.getAllItems().forEach { food ->
+        HealthyFoodDataSource().getAllItems().forEach { food ->
             healthyFoodList.add(food)
         }
-        NutritionDataSource(context).getAllItems().forEach { nutritionItem ->
+        NutritionDataSource().getAllItems().forEach { nutritionItem ->
             nutritionList.add(nutritionItem)
         }
     }
+
+
 
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
         return when (mealType) {
