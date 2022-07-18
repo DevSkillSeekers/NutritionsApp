@@ -171,7 +171,7 @@
         app:layout_constraintTop_toTopOf="@+id/WeightTIL">
         <!--AutoCompleteTextView weight menu-->
         <AutoCompleteTextView
-            android:id="@+id/menuWeightACTV"
+            android:id="@+id/weightInputView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -192,7 +192,7 @@
         app:layout_constraintTop_toTopOf="@+id/heightTIL">
         <!--AutoCompleteTextView height menu-->
         <AutoCompleteTextView
-            android:id="@+id/menuHeightACTV"
+            android:id="@+id/heightInputView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

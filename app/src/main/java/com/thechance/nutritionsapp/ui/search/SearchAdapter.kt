@@ -8,21 +8,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.MealLayoutBinding
+import com.thechance.nutritionsapp.ui.meal.MealAdapter
+import kotlinx.coroutines.NonDisposableHandle.parent
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 class SearchAdapter(
-    private val context: Context,
-    private var nutritionList: ArrayList<NutritionItem>
+    private var nutritionList: ArrayList<NutritionItem>,
+    private var listener: OnClickListener
 ) : RecyclerView.Adapter<SearchAdapter.ConverterViewHolder>() {
 
-    private var listener: ((nutritionItem: NutritionItem) -> Unit)? = null
-
-    fun setOnItemClickListener(listener: (nutritionItem: NutritionItem) -> Unit) {
-        this.listener = listener
+    interface OnClickListener {
+        fun onClick(item: NutritionItem)
     }
 
+    //Need to review.
     fun setData(newItems: ArrayList<NutritionItem>) {
         nutritionList.clear()
         nutritionList.addAll(newItems)
@@ -36,12 +37,13 @@ class SearchAdapter(
     override fun onBindViewHolder(holder: ConverterViewHolder, position: Int) {
         val nutritionItem = nutritionList[position]
         holder.binding.apply {
-            tvTitle.text = nutritionItem.name
-            tvCal.text = context.resources.getString(R.string.calories_tv).format(
-                Locale.US, nutritionItem.calories
-            )
+            titleTextView.text = nutritionItem.name
+            caloriesTextView.text =
+                holder.itemView.context.resources.getString(R.string.calories_tv).format(
+                    Locale.US, nutritionItem.calories
+                )
             addIcon.setOnClickListener {
-                listener?.invoke(nutritionItem)
+                listener.onClick(nutritionItem)
             }
 
         }

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
@@ -136,7 +135,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         data.putParcelable(Constants.EXTRA_MEAL_DETAILS, healthMeal)
         fragment.arguments = data
         changeFragmentWithData(
-            requireActivity() as HomeActivity,
             fragment,
             Constants.ADD_FRAGMENT,
             data
@@ -146,7 +144,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun goToMealItemsView() {
         val fragment = MealFragment()
         changeFragmentWithData(
-            requireActivity() as HomeActivity,
             fragment,
             Constants.ADD_FRAGMENT,
             Bundle()
