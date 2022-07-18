@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.data.domain.DietValues
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentHomeBinding
@@ -30,10 +31,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.proteinsProgressBar.progress = dataManager.getProgressProtein().toInt()
         binding.fatProgressBar.progress = dataManager.getProgressFat().toInt()
         when {
-            Constants.MAX_CARBS_PER_DAY == Constants.StandardDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Standard Diet"
-            Constants.MAX_CARBS_PER_DAY == Constants.KetoDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Ketogenic Diet"
-            Constants.MAX_CARBS_PER_DAY == Constants.HighProteinDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "High-Protein Diet"
-            Constants.MAX_CARBS_PER_DAY == Constants.MediterraneanDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Mediterranean Diet"
+            DietValues.MAX_CARBS_PER_DAY == Constants.StandardDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Standard Diet"
+            DietValues.MAX_CARBS_PER_DAY == Constants.KetoDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Ketogenic Diet"
+            DietValues.MAX_CARBS_PER_DAY == Constants.HighProteinDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "High-Protein Diet"
+            DietValues.MAX_CARBS_PER_DAY == Constants.MediterraneanDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Mediterranean Diet"
         }
         when (mealType) {
             Constants.BREAKFAST -> {
