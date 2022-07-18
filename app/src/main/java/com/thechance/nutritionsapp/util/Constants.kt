@@ -43,9 +43,29 @@ object Constants {
     const val LUNCH = 1
     const val DINNER = 2
     const val MAX_CALORIES_PER_DAY = 2000
-    const val MAX_CARBS_PER_DAY = 300
-    const val MAX_PROTEINS_PER_DAY = 65
-    const val MAX_FATS_PER_DAY = 65
+    var MAX_CARBS_PER_DAY = 300
+    var MAX_PROTEINS_PER_DAY = 65
+    var MAX_FATS_PER_DAY = 65
+    object StandardDiet {
+        const val MAX_CARBS_PER_DAY = 300
+        const val MAX_PROTEINS_PER_DAY = 65
+        const val MAX_FATS_PER_DAY = 65
+    }
+    object KetoDiet {
+        const val MAX_CARBS_PER_DAY = 40
+        const val MAX_PROTEINS_PER_DAY = 75
+        const val MAX_FATS_PER_DAY = 165
+    }
+    object HighProteinDiet {
+        const val MAX_CARBS_PER_DAY = 202
+        const val MAX_PROTEINS_PER_DAY = 65
+        const val MAX_FATS_PER_DAY = 173
+    }
+    object MediterraneanDiet {
+        const val MAX_CARBS_PER_DAY = 245
+        const val MAX_PROTEINS_PER_DAY = 102
+        const val MAX_FATS_PER_DAY = 74
+    }
 
     const val ACTION_OPEN = 11
     const val ACTION_DELETE = 12

@@ -30,6 +30,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.carbProgressBar.progress = dataManager.getProgressCarbs().toInt()
         binding.proteinsProgressBar.progress = dataManager.getProgressProtein().toInt()
         binding.fatProgressBar.progress = dataManager.getProgressFat().toInt()
+        when {
+            Constants.MAX_CARBS_PER_DAY == Constants.StandardDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Standard Diet"
+            Constants.MAX_CARBS_PER_DAY == Constants.KetoDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Ketogenic Diet"
+            Constants.MAX_CARBS_PER_DAY == Constants.HighProteinDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "High-Protein Diet"
+            Constants.MAX_CARBS_PER_DAY == Constants.MediterraneanDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Mediterranean Diet"
+        }
         when (mealType) {
             Constants.BREAKFAST -> {
                 binding.breakfastChip.isChecked = true
