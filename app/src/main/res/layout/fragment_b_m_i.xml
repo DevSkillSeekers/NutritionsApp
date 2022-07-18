@@ -22,10 +22,8 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="@dimen/very_small_margin"
-        app:arc_bottom_text="BMI"
-        app:arc_bottom_text_size="28sp"
-        app:arc_finished_color="@color/color_yellow"
         app:arc_progress="0"
+        app:arc_max="40"
         app:arc_stroke_width="20dp"
         app:arc_text_color="@color/black"
         app:arc_unfinished_color="@color/light_gray"
@@ -44,19 +42,21 @@
         app:layout_constraintGuide_percent=".25" />
 
     <!--TextView Overweight-->
+    <!--ImageView circle Red-->
+
     <TextView
         android:id="@+id/overweightTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="8dp"
         android:text="@string/overweight_text"
         android:textColor="@color/text_color"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Arc_Progress"
+        app:layout_constraintStart_toEndOf="@+id/Arc_Progress"
         app:layout_constraintTop_toBottomOf="@+id/Arc_Progress" />
-    <!--ImageView circle Red-->
+
     <ImageView
         android:id="@+id/circleRedIV"
         android:layout_width="wrap_content"
@@ -67,19 +67,20 @@
         app:layout_constraintEnd_toStartOf="@+id/overweightTV"
         app:layout_constraintTop_toTopOf="@+id/overweightTV" />
     <!--TextView Normal-->
+    <!--ImageView circle blue-->
+
     <TextView
         android:id="@+id/normalTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/default_margin"
         android:text="@string/normal_text"
         android:textColor="@color/text_color"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/overweightTV"
         app:layout_constraintEnd_toStartOf="@+id/circleRedIV"
-        app:layout_constraintTop_toTopOf="@+id/overweightTV" />
-    <!--ImageView circle blue-->
+        app:layout_constraintStart_toEndOf="@+id/underWeightTV" />
+
     <ImageView
         android:id="@+id/circleBlueIV"
         android:layout_width="wrap_content"
@@ -90,18 +91,21 @@
         app:layout_constraintEnd_toStartOf="@id/normalTV"
         app:layout_constraintTop_toTopOf="@+id/normalTV" />
     <!--TextView Underweight-->
+    <!--ImageView circle yellow-->
+
     <TextView
         android:id="@+id/underWeightTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/default_margin"
         android:text="@string/underweight_text"
         android:textColor="@color/text_color"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/circleBlueIV"
-        app:layout_constraintTop_toTopOf="@+id/normalTV" />
-    <!--ImageView circle yellow-->
+
+        app:layout_constraintBottom_toBottomOf="@+id/normalTV"
+        app:layout_constraintEnd_toStartOf="@+id/Arc_Progress"
+        app:layout_constraintStart_toStartOf="@+id/Arc_Progress" />
+
     <ImageView
         android:id="@+id/circleYellow_IV"
         android:layout_width="wrap_content"
@@ -116,17 +120,17 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/WeightTIL"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="242dp"
+        android:layout_width="210dp"
         android:layout_height="56dp"
-        android:layout_marginTop="@dimen/small_margin"
         android:hint="@string/weight"
         app:counterEnabled="true"
         app:counterMaxLength="9"
+        android:layout_marginTop="@dimen/corner_radius_16dp"
         app:endIconMode="clear_text"
         app:helperTextEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/heightTIL"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/normalTV">
+        app:layout_constraintTop_toBottomOf="@+id/overweightTV">
         <!--    TextInputEditText weight-->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/WeightTIET"
@@ -140,21 +144,20 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/heightTIL"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="242dp"
+        android:layout_width="210dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="@dimen/small_margin"
         android:hint="@string/height"
         app:counterEnabled="true"
-        app:counterMaxLength="8"
+        app:counterMaxLength="9"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toTopOf="@+id/calculateBT"
+        android:layout_marginTop="@dimen/small_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/WeightTIL">
         <!--    TextInputEditText Height-->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/heightTIET"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="numberDecimal"
             android:maxLength="10" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -163,8 +166,8 @@
         android:id="@+id/menuWeightTIL"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/very_small_margin"
         app:layout_constraintBottom_toBottomOf="@+id/WeightTIL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/WeightTIL"
@@ -174,7 +177,6 @@
             android:id="@+id/menuWeightACTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:inputType="none"
             android:text="@string/kg_text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -184,8 +186,8 @@
         android:id="@+id/menuHeightTIL"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/very_small_margin"
         app:layout_constraintBottom_toBottomOf="@+id/heightTIL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/heightTIL"
@@ -195,7 +197,6 @@
             android:id="@+id/menuHeightACTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:inputType="none"
             android:text="@string/cm_text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -206,65 +207,83 @@
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/small_margin"
         android:text="@string/calculate_text"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heightTIL" />
-
-    <!--    LinearLayout part result-->
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="202dp"
-        android:background="@drawable/background_for_bmi_result"
-        android:orientation="vertical"
-        android:padding="@dimen/default_padding"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <!--TextView result-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/result_text"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/small_text_size"
-            android:textStyle="bold" />
-        <!--TextView result-->
-        <TextView
-            android:id="@+id/displayResultTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_type_in_result"
-            android:textColor="@color/color_red"
-            android:textSize="@dimen/headline_small"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="91dp"
-            tools:layout_editor_absoluteY="165dp" />
-        <!--TextView tips-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_margin"
-            android:text="@string/tips_text"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/small_text_size"
-            android:textStyle="bold" />
-        <!--TextView some tips-->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/small_padding"
-            android:text="@string/tips"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/small_text_size"
-            android:textStyle="normal" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightTIL">
+        <!--    LinearLayout part result-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="vertical"
+            android:padding="@dimen/default_padding">
+            <!--imageview icon BMI-->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ice_health"
+                app:layout_constraintBottom_toBottomOf="@+id/displayResultTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/displayResultTv" />
+            <!--TextView for display string BMI result-->
+            <TextView
+                android:id="@+id/displayResultTv"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:hint="your result"
+                android:textSize="@dimen/headline_small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--TextView for display number  BMI result-->
+            <TextView
+                android:id="@+id/displayNumResultTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="BMI"
+                android:paddingTop="4dp"
+                android:textSize="@dimen/headline_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/displayResultTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/displayResultTv"
+                app:layout_constraintTop_toTopOf="@+id/displayResultTv" />
+
+           <!--TextView for display tips -->
+            <TextView
+                android:id="@+id/displayTipsTV"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:paddingTop="4dp"
+                android:hint="@string/hinit_tips"
+                android:padding="@dimen/small_padding"
+                android:scrollbars="vertical"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,5 +43,6 @@
     <string name="pound">Pound</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
+    <string name="hinit_tips">For an ideal weight, some tips will be displayed that suits your weight here .</string>
 
 </resources>

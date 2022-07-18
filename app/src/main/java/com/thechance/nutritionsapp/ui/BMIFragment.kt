@@ -1,10 +1,12 @@
 package com.thechance.nutritionsapp.ui
 
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.compose.ui.Modifier
 import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.FragmentBMIBinding
@@ -21,7 +23,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
             toolbar = binding.bmiToolbar.toolbar,
             title = resources.getString(R.string.bmi)
         )
-
+         //  Adapter for height menu
         binding.menuHeightACTV.setAdapter(
             ArrayAdapter(
                 requireContext(),
@@ -31,7 +33,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
                 )
             )
         )
-
+        //  Adapter for weight menu
         binding.menuWeightACTV.setAdapter(
             ArrayAdapter(
                 requireContext(),
@@ -41,17 +43,25 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
                 )
             )
         )
-
+        //  when click on calculate Button
         binding.calculateBT.setOnClickListener {
-            if (!binding.WeightTIET.text.isNullOrBlank() && !binding.heightTIET.text.isNullOrBlank()) {
+            if (!binding.WeightTIET.text.isNullOrBlank()
+                && !binding.heightTIET.text.isNullOrBlank()
+                && (binding.WeightTIET.text.toString().toDouble() in 40.0..132.0)
+               && (binding.heightTIET.text.toString().toDouble() in 140.0..210.0)
+
+            ) {
                 val weight = binding.WeightTIET.text.toString().toDouble()
                 val height = binding.heightTIET.text.toString().toDouble()
                 val weighUnit = binding.menuWeightACTV.text.toString()
                 val heightUnit = binding.menuHeightACTV.text.toString()
                 calculateBMI(weight, height, weighUnit, heightUnit)
             } else {
-                Toast.makeText(context, "Please enter your weight and height", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Please enter your weight:between(40-132) and height:between(140-210)", Toast.LENGTH_LONG)
                     .show()
+                binding.WeightTIET.setText("")
+                binding.heightTIET.setText("")
+
             }
         }
     }
@@ -81,12 +91,34 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
             ) ?: weight
         }
 
+        // display the result
+        binding.displayTipsTV.movementMethod = ScrollingMovementMethod()
         val bmiCalculator = BMI(weightKG, heightCM)
         val result = bmiCalculator.calculation0fBMI()
-        binding.ArcProgress.progress = result.toInt()
-        val type = bmiCalculator.diagnostic(result)
-        binding.displayResultTv.text = type
-        binding.linearLayout.visibility = View.VISIBLE
-    }
 
+        if (result != -1.0) {
+            binding.ArcProgress.progress = result.toInt()
+            val type = bmiCalculator.diagnostic(result)
+            binding.displayResultTv.text = type
+            binding.displayNumResultTv.text=result.toString()
+            when (result) {
+                in 0.0..18.49 -> {
+                    binding.ArcProgress.finishedStrokeColor=(resources.getColor(R.color.color_yellow))
+                    binding.displayTipsTV.setText(R.string.tips)
+                    binding.displayResultTv.setTextColor(resources.getColor(R.color.color_yellow))}
+                in 18.50..24.99 -> {
+                        binding.ArcProgress.finishedStrokeColor = (resources.getColor(R.color.blue))
+                        binding.displayTipsTV.setText(R.string.tips)
+                        binding.displayResultTv.setTextColor(resources.getColor(R.color.blue))
+                }
+
+                in 25.0..40.0 -> {
+                    binding.ArcProgress.finishedStrokeColor = (resources.getColor(R.color.color_red))
+                    binding.displayTipsTV.setText(R.string.tips)
+                    binding.displayResultTv.setTextColor(resources.getColor(R.color.color_red))}
+                }
+            }else{
+            Toast.makeText(context, "Please make sure that you enter the correct values ", Toast.LENGTH_LONG).show()
+            }
+    }
 }
