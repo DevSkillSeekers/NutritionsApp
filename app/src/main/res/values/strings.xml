@@ -40,6 +40,7 @@
     <string name="empty_meal_list">No item in meal yet!!</string>
     <string name="kg_text">kg</string>
     <string name="cm_text">cm</string>
+    <string name="error_msg">"Please enter your weight and height"</string>
     <string name="feet">Feet</string>
     <string name="pound">Pound</string>
     <string name="weight">Weight</string>
