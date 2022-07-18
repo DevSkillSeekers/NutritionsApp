@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.DietValues
 import com.thechance.nutritionsapp.databinding.FragmentBMIBinding
