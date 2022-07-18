@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.app.AlertDialog
+import android.content.DialogInterface
+import androidx.compose.material3.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
@@ -63,9 +66,20 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                         .show()
                 }
                 Constants.ACTION_DELETE -> {
-                    val position = listMealItem.indexOf(item)
-                    listMealItem.remove(item)
-                    mealAdapter?.notifyItemRemoved(position)
+                    val builder = AlertDialog.Builder(context)
+                    builder.apply {
+                        setTitle("Delete meal")
+                        setMessage("Are you sure to delete \"${item.name}\" meal? ")
+                        setPositiveButton("Yes",DialogInterface.OnClickListener{dialogInterface, i ->
+                            val position = listMealItem.indexOf(item)
+                            listMealItem.remove(item)
+                            mealAdapter?.notifyItemRemoved(position)
+                            Toast.makeText(context, "Meal \"${item.name}\" was deleted." , Toast.LENGTH_LONG).show()
+                        })
+                        setNegativeButton("No",DialogInterface.OnClickListener{dialogInterface, i ->  })
+                    }
+                    val dialog = builder.create()
+                    dialog.show()
                 }
             }
         }

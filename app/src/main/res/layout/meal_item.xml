@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_card_of_meal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="@dimen/default_margin"
+    android:layout_marginVertical="@dimen/small_margin"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/light_gray"
+    app:cardCornerRadius="@dimen/corner_radius_12dp"
+    app:cardBackgroundColor="@color/lightGreenTheme"
+    app:cardElevation="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mealItemImgCard"
+            android:layout_width="@dimen/size_card_of_meal"
+            android:layout_height="@dimen/size_card_of_meal"
+            app:cardBackgroundColor="@color/primaryGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/itemImageRounded" >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/mealItemImg"
+                android:layout_width="@dimen/img_card_dimen"
+                android:layout_height="@dimen/img_card_dimen"
+                android:layout_margin="@dimen/small_margin"
+                android:src="@drawable/pesto_chicken_zoodles"
+                app:shapeAppearanceOverlay="@style/itemRounded"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/mealItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eggs"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/small_text_size"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="@dimen/default_margin" android:layout_marginStart="@dimen/default_margin"
+            app:layout_constraintStart_toEndOf="@id/mealItemImgCard"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mealItemCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200 cal" android:textSize="@dimen/large_body_size"
+            android:textColor="@color/text_color"
+            android:layout_marginTop="@dimen/very_small_margin"  android:layout_marginStart="@dimen/default_margin"
+            app:layout_constraintStart_toEndOf="@id/mealItemImgCard"
+            app:layout_constraintTop_toBottomOf="@id/mealItemName"/>
+
+        <Button
+            android:id="@+id/btnDeleteItem"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="@dimen/large_margin"
+            android:background="@drawable/ic_baseline_delete_24"
+            android:backgroundTint="@color/ic_add_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
