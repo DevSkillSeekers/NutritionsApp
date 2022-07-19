@@ -8,9 +8,7 @@ import android.widget.Toast
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.FragmentBMIBinding
 import com.thechance.nutritionsapp.util.BMI
-import com.thechance.nutritionsapp.util.hideKeyboard
 import com.thechance.nutritionsapp.util.unitconverter.Converter
-import com.thechance.nutritionsapp.util.unitconverter.ConverterUtil
 
 class BMIFragment : BaseFragment<FragmentBMIBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentBMIBinding =
