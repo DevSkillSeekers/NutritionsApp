@@ -24,6 +24,7 @@
         android:layout_marginTop="@dimen/very_small_margin"
         app:arc_progress="0"
         app:arc_max="40"
+        app:arc_suffix_text=" "
         app:arc_stroke_width="20dp"
         app:arc_text_color="@color/black"
         app:arc_unfinished_color="@color/light_gray"
@@ -254,7 +255,7 @@
             <TextView
                 android:id="@+id/displayNumResultTv"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:gravity="center"
                 android:hint="BMI"
                 android:paddingTop="4dp"
