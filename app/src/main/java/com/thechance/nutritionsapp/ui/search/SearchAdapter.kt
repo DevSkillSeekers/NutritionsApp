@@ -4,6 +4,7 @@ import android.R.attr.data
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
@@ -25,9 +26,12 @@ class SearchAdapter(
 
     //Need to review.
     fun setData(newItems: ArrayList<NutritionItem>) {
+        val diffResult = DiffUtil.calculateDiff(SearchDiffUtil(nutritionList,newItems))
         nutritionList.clear()
         nutritionList.addAll(newItems)
-        notifyDataSetChanged()
+        nutritionList = newItems
+        diffResult.dispatchUpdatesTo(this)
+       // notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConverterViewHolder {
