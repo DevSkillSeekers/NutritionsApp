@@ -66,20 +66,9 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                         .show()
                 }
                 Constants.ACTION_DELETE -> {
-                    val builder = AlertDialog.Builder(context)
-                    builder.apply {
-                        setTitle("Delete meal")
-                        setMessage("Are you sure to delete \"${item.name}\" meal? ")
-                        setPositiveButton("Yes",DialogInterface.OnClickListener{dialogInterface, i ->
-                            val position = listMealItem.indexOf(item)
+                  val position = listMealItem.indexOf(item)
                             listMealItem.remove(item)
                             mealAdapter?.notifyItemRemoved(position)
-                            Toast.makeText(context, "Meal \"${item.name}\" was deleted." , Toast.LENGTH_LONG).show()
-                        })
-                        setNegativeButton("No",DialogInterface.OnClickListener{dialogInterface, i ->  })
-                    }
-                    val dialog = builder.create()
-                    dialog.show()
                 }
             }
         }

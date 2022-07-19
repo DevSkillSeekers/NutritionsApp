@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="@dimen/size_card_of_meal"
+    android:layout_marginHorizontal="@dimen/default_margin">
+
+<com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="@dimen/size_card_of_meal"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="@dimen/default_margin"
-    android:layout_marginVertical="@dimen/small_margin"
-    app:strokeWidth="1dp"
-    app:strokeColor="@color/light_gray"
+    android:layout_marginVertical="@dimen/very_small_margin"
     app:cardCornerRadius="@dimen/corner_radius_12dp"
     app:cardBackgroundColor="@color/lightGreenTheme"
-    app:cardElevation="1dp">
+    app:cardElevation="0dp"
+    app:strokeColor="@color/light_gray"  app:strokeWidth="1dp"
+    style="?attr/materialCardViewElevatedStyle">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/mealItemImgCard"
@@ -40,7 +42,8 @@
             android:id="@+id/mealItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eggs"
+            android:maxWidth="@dimen/meal_name_max_width"
+            android:text="@string/meal_name_text"
             android:lines="1"
             android:ellipsize="end"
             android:textColor="@color/text_color"
@@ -64,14 +67,15 @@
             android:id="@+id/btnDeleteItem"
             android:layout_width="25dp"
             android:layout_height="30dp"
-            android:layout_marginEnd="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/default_margin"
             android:background="@drawable/ic_baseline_delete_24"
             android:backgroundTint="@color/ic_add_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
