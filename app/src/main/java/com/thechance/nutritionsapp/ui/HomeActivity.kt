@@ -32,8 +32,8 @@ class HomeActivity : AppCompatActivity() {
                     changeFragment(BMIFragment())
                     true
                 }
-                com.thechance.nutritionsapp.R.id.search_menu -> {
-                    changeFragment(SearchFragment())
+                com.thechance.nutritionsapp.R.id.diet_menu -> {
+                    changeFragment(DietTypeFragment())
                     true
                 }
                 else -> {

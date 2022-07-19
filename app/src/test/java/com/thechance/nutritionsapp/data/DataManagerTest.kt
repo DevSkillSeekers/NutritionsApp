@@ -12,12 +12,12 @@ import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class DataManagerTest {
-    /*lateinit var dataManager: DataManager
+    lateinit var dataManager: DataManager
     @BeforeEach
     fun setUp(){
         dataManager = DataManager()
-    }*/
-
+    }
+/*
     @Test
     fun should_NutritionListIncreasedByOneItem_When_AddItemToList(){
         //given
@@ -217,5 +217,5 @@ internal class DataManagerTest {
         //then
         assertEquals(null,calories)
     }
-
+*/
 }
