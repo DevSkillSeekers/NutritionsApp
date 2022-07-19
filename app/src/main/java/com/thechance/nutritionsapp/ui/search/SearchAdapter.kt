@@ -24,14 +24,12 @@ class SearchAdapter(
         fun onClick(item: NutritionItem)
     }
 
-    //Need to review.
     fun setData(newItems: ArrayList<NutritionItem>) {
         val diffResult = DiffUtil.calculateDiff(SearchDiffUtil(nutritionList,newItems))
         nutritionList.clear()
         nutritionList.addAll(newItems)
         nutritionList = newItems
         diffResult.dispatchUpdatesTo(this)
-       // notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConverterViewHolder {
@@ -40,16 +38,15 @@ class SearchAdapter(
 
     override fun onBindViewHolder(holder: ConverterViewHolder, position: Int) {
         val nutritionItem = nutritionList[position]
+        holder.itemView.setOnClickListener {
+            listener.onClick(nutritionItem)
+        }
         holder.binding.apply {
             titleTextView.text = nutritionItem.name
             caloriesTextView.text =
                 holder.itemView.context.resources.getString(R.string.calories_tv).format(
                     Locale.US, nutritionItem.calories
                 )
-            addIcon.setOnClickListener {
-                listener.onClick(nutritionItem)
-            }
-
         }
     }
 
