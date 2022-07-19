@@ -1,6 +1,5 @@
-package com.thechance.nutritionsapp
+package com.thechance.nutritionsapp.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.data.domain.NutritionItem
-import com.thechance.nutritionsapp.ui.HomeActivity
-import com.thechance.nutritionsapp.ui.HomeFragment
-import com.thechance.nutritionsapp.ui.meal.MealFragment
 import com.thechance.nutritionsapp.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {

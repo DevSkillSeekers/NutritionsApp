@@ -9,7 +9,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import androidx.compose.material3.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
-import com.thechance.nutritionsapp.BaseFragment
+import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentMealBinding
@@ -17,7 +17,7 @@ import com.thechance.nutritionsapp.ui.HomeActivity
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
 
-class MealFragment : BaseFragment<FragmentMealBinding>() {
+class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickListener {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMealBinding =
         FragmentMealBinding::inflate
 
@@ -41,7 +41,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
             }
         }
 
-        this.setupActionBar(
+        setupActionBar(
             toolbar = binding.mealToolbar.toolbar,
             title = title
         )
@@ -50,28 +50,17 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
             binding.emptyTv.visibility = View.GONE
             binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
             mealAdapter =
-                MealAdapter(binding.mealRecyclerView.context, listMealItem)
+                MealAdapter(listMealItem, this)
             binding.mealRecyclerView.adapter = mealAdapter
         } else {
             binding.emptyTv.visibility = View.VISIBLE
         }
+
         setListeners()
     }
 
+
     private fun setListeners() {
-        mealAdapter?.setOnItemClickListener { item, actionType ->
-            when (actionType) {
-                Constants.ACTION_OPEN -> {
-                    Toast.makeText(context, "OPEN ${item.name}", Toast.LENGTH_LONG)
-                        .show()
-                }
-                Constants.ACTION_DELETE -> {
-                  val position = listMealItem.indexOf(item)
-                            listMealItem.remove(item)
-                            mealAdapter?.notifyItemRemoved(position)
-                }
-            }
-        }
         binding.addToMealBtn.setOnClickListener {
             changeFragmentWithData(
                 requireActivity() as HomeActivity,
@@ -80,5 +69,16 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                 Bundle()
             )
         }
+    }
+
+    override fun onClick(item: NutritionItem) {
+        Toast.makeText(context, "OPEN ${item.name}", Toast.LENGTH_LONG)
+            .show()
+    }
+
+    override fun onDelete(item: NutritionItem) {
+        val position = listMealItem.indexOf(item)
+        listMealItem.remove(item)
+        mealAdapter?.notifyItemRemoved(position)
     }
 }

@@ -7,13 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
-import com.thechance.nutritionsapp.BaseFragment
+import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.ui.HomeActivity
 import com.thechance.nutritionsapp.ui.HomeFragment
-import com.thechance.nutritionsapp.ui.meal.MealFragment
 import com.thechance.nutritionsapp.util.Constants
 
 

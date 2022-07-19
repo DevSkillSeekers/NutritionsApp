@@ -13,14 +13,13 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class MealAdapter(
-    private val context: Context,
-    private var nutritionList: ArrayList<NutritionItem>
+    private var nutritionList: ArrayList<NutritionItem>,
+    private var listener: OnClickListener
 ) : RecyclerView.Adapter<MealAdapter.ConverterViewHolder>() {
 
-    private var listener: ((nutritionItem: NutritionItem, actionType: Int) -> Unit)? = null
-
-    fun setOnItemClickListener(listener: (nutritionItem: NutritionItem, actionType: Int) -> Unit) {
-        this.listener = listener
+    interface OnClickListener {
+        fun onClick(item: NutritionItem)
+        fun onDelete(item: NutritionItem)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConverterViewHolder {
@@ -29,20 +28,18 @@ class MealAdapter(
 
     override fun onBindViewHolder(holder: ConverterViewHolder, position: Int) {
         val nutritionItem = nutritionList[position]
-        holder.itemView.setOnClickListener {
-            listener?.invoke(nutritionItem, Constants.ACTION_OPEN)
+        holder.itemView.setOnClickListener{
+            listener.onClick(nutritionItem)
         }
+
         holder.binding.apply {
             mealItemName.text = nutritionItem.name
             mealItemCalories.text =
-                context.resources.getString(R.string.calories_tv).format(
+                holder.itemView.context.resources.getString(R.string.calories_tv).format(
                     Locale.US, nutritionItem.calories
                 )
             btnDeleteItem.setOnClickListener {
-                listener?.invoke(
-                    nutritionItem,
-                    Constants.ACTION_DELETE
-                )
+                listener.onDelete(nutritionItem)
             }
         }
     }
