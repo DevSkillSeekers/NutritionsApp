@@ -33,10 +33,27 @@ class NutritionDataSource(context: Context, fileName: String = Constants.FILE_NU
                 fields[Constants.NutritionColumnIndex.NAME],
                 fields[Constants.NutritionColumnIndex.SERVING_SIZE],
                 fields[Constants.NutritionColumnIndex.CALORIES].toInt(),
-                fields[Constants.NutritionColumnIndex.FAT].removeSuffix("g").toDouble(),
+                fields[Constants.NutritionColumnIndex.CARBS].removeSuffix("g").toDouble(),
                 fields[Constants.NutritionColumnIndex.PROTEIN].removeSuffix(" g").toDouble(),
-                fields[Constants.NutritionColumnIndex.CARBS].removeSuffix(" g").toDouble()
-            )
+                fields[Constants.NutritionColumnIndex.FAT].removeSuffix(" g").toDouble(),
+                fields[Constants.NutritionColumnIndex.FIBER],
+                fields[Constants.NutritionColumnIndex.IRON],
+                fields[Constants.NutritionColumnIndex.VITAMIN_C],
+                fields[Constants.NutritionColumnIndex.CHOLESTEROL],
+
+
+
+
+
+
+
+
+
+
+
+
+
+                )
         } else {
             null
         }
