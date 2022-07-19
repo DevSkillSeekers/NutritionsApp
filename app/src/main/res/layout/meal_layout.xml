@@ -35,14 +35,18 @@
 
         <TextView
             android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/default_margin"
             android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="Pizza"
             android:textColor="@color/text_color"
             android:textSize="@dimen/small_text_size"
-            app:layout_constraintStart_toEndOf="@id/imgMeal"
+            app:layout_constraintEnd_toStartOf="@+id/addIcon"
+            app:layout_constraintStart_toEndOf="@+id/imgMeal"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
