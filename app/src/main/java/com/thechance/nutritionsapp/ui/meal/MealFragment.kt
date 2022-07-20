@@ -59,29 +59,6 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
 
 
     private fun setListeners() {
-         mealAdapter?.setOnItemClickListener { item, actionType ->
-            when (actionType) {
- 
-                Constants.ACTION_OPEN -> {
-                    val fragment = ItemDetailsFragment()
-                    val data = Bundle()
-                    data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS, item)
-                    fragment.arguments = data
-                    changeFragmentWithData(
-                        requireActivity() as HomeActivity,
-                        fragment,
-                        Constants.ADD_FRAGMENT,
-                        data
-                    )
-                }
-                Constants.ACTION_DELETE -> {
-                    val position = listMealItem.indexOf(item)
-                    listMealItem.remove(item)
-                    mealAdapter?.notifyItemRemoved(position)
-                }
-            }
-        }
- 
         binding.addToMealBtn.setOnClickListener {
             changeFragmentWithData(
                 SearchFragment(),
