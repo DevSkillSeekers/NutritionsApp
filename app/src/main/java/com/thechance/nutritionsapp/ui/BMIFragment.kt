@@ -63,21 +63,11 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
     ) {
         var heightCM = height
         if (heightUnit != resources.getString(R.string.cm_text)) {
-            heightCM = Converter().convertFromTypeToOther(
-                ConverterUtil.MainConverter.weight,
-                "feet",
-                "cm",
-                height
-            ) ?: height
+            heightCM = Converter().feetToCm(height)
         }
         var weightKG = weight
         if (weighUnit != resources.getString(R.string.kg_text)) {
-            weightKG = Converter().convertFromTypeToOther(
-                ConverterUtil.MainConverter.weight,
-                "Pound",
-                "Kilogram",
-                height
-            ) ?: weight
+            weightKG = Converter().poundToKilo(weight)
         }
 
         val bmiCalculator = BMI(weightKG, heightCM)
