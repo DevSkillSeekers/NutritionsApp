@@ -9,7 +9,7 @@
     android:layout_height="@dimen/size_card_of_meal"
     android:layout_marginVertical="@dimen/very_small_margin"
     app:cardCornerRadius="@dimen/corner_radius_12dp"
-    app:cardBackgroundColor="@color/lightGreenTheme"
+    app:cardBackgroundColor="#FFFAEA"
     app:cardElevation="0dp"
     app:strokeColor="@color/light_gray"  app:strokeWidth="1dp"
     style="?attr/materialCardViewElevatedStyle">
@@ -19,21 +19,21 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/mealItemImgCard"
+            android:id="@+id/mealItemIconCard"
             android:layout_width="@dimen/size_card_of_meal"
             android:layout_height="@dimen/size_card_of_meal"
-            app:cardBackgroundColor="@color/primaryGrey"
+            app:cardBackgroundColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/itemImageRounded" >
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/mealItemImg"
+                android:id="@+id/mealIcon"
                 android:layout_width="@dimen/img_card_dimen"
                 android:layout_height="@dimen/img_card_dimen"
                 android:layout_margin="@dimen/small_margin"
-                android:src="@drawable/pesto_chicken_zoodles"
+                android:src="@drawable/ic_dinner_svgrepo_com"
                 app:shapeAppearanceOverlay="@style/itemRounded"/>
 
         </androidx.cardview.widget.CardView>
@@ -50,7 +50,7 @@
             android:textSize="@dimen/small_text_size"
             android:fontFamily="sans-serif-medium"
             android:layout_marginTop="@dimen/default_margin" android:layout_marginStart="@dimen/default_margin"
-            app:layout_constraintStart_toEndOf="@id/mealItemImgCard"
+            app:layout_constraintStart_toEndOf="@id/mealItemIconCard"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -60,7 +60,7 @@
             android:text="200 cal" android:textSize="@dimen/large_body_size"
             android:textColor="@color/text_color"
             android:layout_marginTop="@dimen/very_small_margin"  android:layout_marginStart="@dimen/default_margin"
-            app:layout_constraintStart_toEndOf="@id/mealItemImgCard"
+            app:layout_constraintStart_toEndOf="@id/mealItemIconCard"
             app:layout_constraintTop_toBottomOf="@id/mealItemName"/>
 
         <Button
@@ -69,7 +69,7 @@
             android:layout_height="30dp"
             android:layout_marginEnd="@dimen/default_margin"
             android:background="@drawable/ic_baseline_delete_24"
-            android:backgroundTint="@color/ic_add_color"
+            android:backgroundTint="#686B6F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

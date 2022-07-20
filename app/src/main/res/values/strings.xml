@@ -43,6 +43,6 @@
     <string name="pound">Pound</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
-    <string name="meal_name_text">Pesto chicken zoodles</string>
+    <string name="meal_name_text">Meal Item Name</string>
 
 </resources>
