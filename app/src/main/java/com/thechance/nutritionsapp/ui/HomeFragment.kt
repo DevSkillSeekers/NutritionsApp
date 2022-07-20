@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.data.domain.DietValues
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentHomeBinding
@@ -30,6 +30,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.carbProgressBar.progress = dataManager.getProgressCarbs().toInt()
         binding.proteinsProgressBar.progress = dataManager.getProgressProtein().toInt()
         binding.fatProgressBar.progress = dataManager.getProgressFat().toInt()
+        when {
+            DietValues.MAX_CARBS_PER_DAY == Constants.StandardDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Standard Diet"
+            DietValues.MAX_CARBS_PER_DAY == Constants.KetoDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Ketogenic Diet"
+            DietValues.MAX_CARBS_PER_DAY == Constants.HighProteinDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "High-Protein Diet"
+            DietValues.MAX_CARBS_PER_DAY == Constants.MediterraneanDiet.MAX_CARBS_PER_DAY -> binding.dietType.text = "Mediterranean Diet"
+        }
         when (mealType) {
             Constants.BREAKFAST -> {
                 binding.breakfastChip.isChecked = true
@@ -136,7 +142,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         data.putParcelable(Constants.EXTRA_MEAL_DETAILS, healthMeal)
         fragment.arguments = data
         changeFragmentWithData(
-            requireActivity() as HomeActivity,
             fragment,
             Constants.ADD_FRAGMENT,
             data
@@ -146,7 +151,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun goToMealItemsView() {
         val fragment = MealFragment()
         changeFragmentWithData(
-            requireActivity() as HomeActivity,
             fragment,
             Constants.ADD_FRAGMENT,
             Bundle()

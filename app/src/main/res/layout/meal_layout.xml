@@ -34,19 +34,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/default_margin"
             android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="Pizza"
             android:textColor="@color/text_color"
             android:textSize="@dimen/small_text_size"
-            app:layout_constraintStart_toEndOf="@id/imgMeal"
+            app:layout_constraintEnd_toStartOf="@+id/addIcon"
+            app:layout_constraintStart_toEndOf="@+id/imgMeal"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvCal"
+            android:id="@+id/caloriesTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin"
@@ -54,7 +58,7 @@
             android:text="200 Cal"
             android:textColor="@color/text_color"
             app:layout_constraintStart_toEndOf="@+id/imgMeal"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

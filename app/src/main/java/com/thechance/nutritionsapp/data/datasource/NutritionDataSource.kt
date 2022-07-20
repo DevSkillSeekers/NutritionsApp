@@ -5,17 +5,18 @@ import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.util.Constants
 import com.thechance.nutritionsapp.util.FileReader
 
-class NutritionDataSource(context: Context, fileName: String = Constants.FILE_NUTRITION) :
-    CSVDataSource<NutritionItem>(context, fileName) {
+class NutritionDataSource(fileName: String = Constants.FILE_NUTRITION) :
+    CSVDataSource<NutritionItem>(fileName) {
 
-    private val fileReader by lazy { FileReader(context, fileName) }
+    private val fileReader by lazy { FileReader(fileName) }
 
     override fun getAllItems(): List<NutritionItem> {
         val nutritionList = mutableListOf<NutritionItem>()
         fileReader.getLinesFromFile().forEach { line ->
             val nutritionItem = parseStringToNutrition(line)
-            if (nutritionItem != null)
+            if (nutritionItem != null){
                 nutritionList.add(nutritionItem)
+            }
         }
         return nutritionList.distinctBy { nutritionItem ->
             Pair(
