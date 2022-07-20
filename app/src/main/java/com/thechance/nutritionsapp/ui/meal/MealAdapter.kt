@@ -28,7 +28,7 @@ class MealAdapter(
 
     override fun onBindViewHolder(holder: ConverterViewHolder, position: Int) {
         val nutritionItem = nutritionList[position]
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             listener.onClick(nutritionItem)
         }
 
@@ -42,7 +42,7 @@ class MealAdapter(
                 listener.onDelete(nutritionItem)
             }
         }
-
+    }
 
     override fun getItemCount(): Int = nutritionList.size
 
