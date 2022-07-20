@@ -17,6 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:startIconContentDescription="@string/search"
+        app:placeholderTextColor="@color/yellow_medium"
+        app:counterOverflowTextColor="@color/yellow_medium"
+        app:counterTextColor="@color/yello_heavy"
+        app:boxStrokeColor="@color/yello_heavy"
+        app:helperTextTextColor="@color/yello_heavy"
+        app:helperTextTextAppearance="@color/yello_heavy"
+        app:suffixTextColor="@color/yello_heavy"
+        app:hintTextAppearance="@color/yello_heavy"
+        app:hintTextColor="@color/yello_heavy"
+        app:endIconMode="clear_text"
         app:startIconDrawable="@drawable/ic_outline_search_24">
 
         <com.google.android.material.textfield.TextInputEditText

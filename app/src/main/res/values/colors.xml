@@ -3,7 +3,10 @@
     <!--New Colors-->
     <color name="yello_light">#FFFAEA</color>
     <color name="yello_heavy">#FFD858</color>
+    <color name="yellow_medium">#FFEAA5</color>
     <color name="progress_color">#00405C</color>
+    <color name="bottom_item_color">#3F4949</color>
+    <color name="color_text_chip">#041F21</color>
 
 
     <color name="purple_200">#FFD858</color>
