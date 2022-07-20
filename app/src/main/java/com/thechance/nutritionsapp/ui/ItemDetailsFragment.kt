@@ -6,12 +6,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentItemDetailsBinding
 import com.thechance.nutritionsapp.util.Constants
-import com.thechance.nutritionsapp.util.unitconverter.Converter
 import com.thechance.nutritionsapp.util.unitconverter.NutrationFacts
 
 
