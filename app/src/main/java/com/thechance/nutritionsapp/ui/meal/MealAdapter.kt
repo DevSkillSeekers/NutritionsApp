@@ -1,6 +1,5 @@
 package com.thechance.nutritionsapp.ui.meal
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +7,6 @@ import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.MealItemBinding
 import com.thechance.nutritionsapp.databinding.MealItemLayoutBinding
-import com.thechance.nutritionsapp.util.Constants
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -43,7 +41,6 @@ class MealAdapter(
             }
         }
     }
-
 
     override fun getItemCount(): Int = nutritionList.size
 

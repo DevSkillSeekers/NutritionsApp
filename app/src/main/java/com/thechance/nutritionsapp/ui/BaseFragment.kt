@@ -8,6 +8,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.DataManager
@@ -50,7 +51,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     changeFragmentWithData(
-                        activity as HomeActivity,
                         HomeFragment(),
                         Constants.REPLACE_FRAGMENT,
                         Bundle()
@@ -68,20 +68,20 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun setup()
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
 
 
     fun changeFragmentWithData(
-        activity: HomeActivity,
         fragment: Fragment,
         type: Int,
         data: Bundle
     ) {
+        val manager: FragmentManager = parentFragmentManager
         val transaction =
-            activity.supportFragmentManager.beginTransaction()//.addToBackStack(fragment.id.toString())
+            manager.beginTransaction()
         data.putInt(Constants.EXTRA_MEAL_TYPE, mealType)
         data.putParcelableArrayList(Constants.EXTRA_BREAKFAST, breakfast)
         data.putParcelableArrayList(Constants.EXTRA_LUNCH, lunch)
@@ -113,10 +113,8 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
         toolbar.setNavigationOnClickListener {
             changeFragmentWithData(
-                requireActivity() as HomeActivity, HomeFragment(), Constants.REPLACE_FRAGMENT,
-                Bundle()
+                HomeFragment(), Constants.REPLACE_FRAGMENT, Bundle()
             )
-//            requireActivity().onBackPressed()
         }
     }
 

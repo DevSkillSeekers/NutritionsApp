@@ -63,7 +63,6 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
     private fun setListeners() {
         binding.addToMealBtn.setOnClickListener {
             changeFragmentWithData(
-                requireActivity() as HomeActivity,
                 SearchFragment(),
                 Constants.ADD_FRAGMENT,
                 Bundle()

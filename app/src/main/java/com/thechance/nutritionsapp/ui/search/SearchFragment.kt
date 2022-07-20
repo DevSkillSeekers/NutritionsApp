@@ -81,7 +81,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         data.putInt(Constants.EXTRA_Add_MEAL, mealType)
         fragment.arguments = data
         changeFragmentWithData(
-            requireActivity() as HomeActivity,
             fragment,
             Constants.REPLACE_FRAGMENT,
             data
