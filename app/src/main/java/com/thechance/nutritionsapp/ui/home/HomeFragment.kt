@@ -19,7 +19,7 @@ import com.thechance.nutritionsapp.ui.meal.MealAdapter
 import com.thechance.nutritionsapp.ui.meal.MealFragment
 import com.thechance.nutritionsapp.util.Constants
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnClickListener {
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding =
         FragmentHomeBinding::inflate
@@ -61,24 +61,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setSuggestionFood() {
-
         binding.listHealthyRecipes.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 //        val divider = DividerItemDecoration(requireContext(),DividerItemDecoration.HORIZONTAL)
 //        divider.setDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.item_separator)!!)
 //        binding.listHealthyRecipes.addItemDecoration(divider)
-        healthyFoodAdapter = HealthyFoodAdapter(healthySuggestionMeal)
+        healthyFoodAdapter = HealthyFoodAdapter(healthySuggestionMeal,this)
         binding.listHealthyRecipes.adapter = healthyFoodAdapter
-
-//        binding.recipes.recipe1.setOnClickListener {
-//            goToDetailView(healthySuggestionMeal[0])
-//        }
-//        binding.recipes.recipe2.setOnClickListener {
-//            goToDetailView(healthySuggestionMeal[1])
-//        }
-//        binding.recipes.recipe3.setOnClickListener {
-//            goToDetailView(healthySuggestionMeal[2])
-//        }
     }
 
     private fun setListeners() {
@@ -144,18 +133,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    private fun goToDetailView(healthMeal: HealthyFood?) {
-        val fragment = DetailMealFragment()
-        val data = Bundle()
-        data.putParcelable(Constants.EXTRA_MEAL_DETAILS, healthMeal)
-        fragment.arguments = data
-        changeFragmentWithData(
-            fragment,
-            Constants.ADD_FRAGMENT,
-            data
-        )
-    }
-
     private fun goToMealItemsView() {
         val fragment = MealFragment()
         changeFragmentWithData(
@@ -171,6 +148,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun addDataToBundle() {
         TODO("Not yet implemented")
+    }
+
+    override fun onClick(item: HealthyFood) {
+        val fragment = DetailMealFragment()
+        val data = Bundle()
+        data.putParcelable(Constants.EXTRA_MEAL_DETAILS, item)
+        fragment.arguments = data
+        changeFragmentWithData(
+            fragment,
+            Constants.ADD_FRAGMENT,
+            data
+        )
     }
 
 }
