@@ -10,6 +10,8 @@ import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentMealBinding
+import com.thechance.nutritionsapp.ui.HomeActivity
+import com.thechance.nutritionsapp.ui.ItemDetailsFragment
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
 
@@ -57,6 +59,29 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
 
 
     private fun setListeners() {
+         mealAdapter?.setOnItemClickListener { item, actionType ->
+            when (actionType) {
+ 
+                Constants.ACTION_OPEN -> {
+                    val fragment = ItemDetailsFragment()
+                    val data = Bundle()
+                    data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS, item)
+                    fragment.arguments = data
+                    changeFragmentWithData(
+                        requireActivity() as HomeActivity,
+                        fragment,
+                        Constants.ADD_FRAGMENT,
+                        data
+                    )
+                }
+                Constants.ACTION_DELETE -> {
+                    val position = listMealItem.indexOf(item)
+                    listMealItem.remove(item)
+                    mealAdapter?.notifyItemRemoved(position)
+                }
+            }
+        }
+ 
         binding.addToMealBtn.setOnClickListener {
             changeFragmentWithData(
                 SearchFragment(),
