@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Nutrition App</string>
+
+    <!--Home Screen-->
+    <string name="remaining">Remaining</string>
+    <string name="text_kcal">Kcal</string>
+
     <string name="meal_image">meal image</string>
     <string name="search">Search</string>
     <string name="empty_search">What are you looking for?</string>

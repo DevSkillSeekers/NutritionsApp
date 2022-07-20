@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
 import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.data.domain.NutritionItem
-import com.thechance.nutritionsapp.ui.HomeFragment
+import com.thechance.nutritionsapp.ui.home.HomeFragment
 import com.thechance.nutritionsapp.util.Constants
 import com.thechance.nutritionsapp.util.hideKeyboard
 
