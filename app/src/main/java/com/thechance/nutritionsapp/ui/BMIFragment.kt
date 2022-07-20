@@ -47,7 +47,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
                 val height = binding.heightTIET.text.toString().toDoubleOrNull() ?: 0.0
                 val weighUnit = binding.weightInputView.text.toString()
                 val heightUnit = binding.heightInputView.text.toString()
-                calculateBMI(weight, height, weighUnit, heightUnit)
+            //    calculateBMI(weight, height, weighUnit, heightUnit)
             } else {
                 Toast.makeText(context,resources.getString(R.string.error_msg), Toast.LENGTH_LONG)
                     .show()
@@ -55,37 +55,37 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         }
     }
 
-    private fun calculateBMI(
-        weight: Double,
-        height: Double,
-        weighUnit: String,
-        heightUnit: String
-    ) {
-        var heightCM = height
-        if (heightUnit != resources.getString(R.string.cm_text)) {
-            heightCM = Converter().convertFromTypeToOther(
-                ConverterUtil.MainConverter.weight,
-                "feet",
-                "cm",
-                height
-            ) ?: height
-        }
-        var weightKG = weight
-        if (weighUnit != resources.getString(R.string.kg_text)) {
-            weightKG = Converter().convertFromTypeToOther(
-                ConverterUtil.MainConverter.weight,
-                "Pound",
-                "Kilogram",
-                height
-            ) ?: weight
-        }
-
-        val bmiCalculator = BMI(weightKG, heightCM)
-        val result = bmiCalculator.calculation0fBMI()
-        binding.ArcProgress.progress = result.toInt()
-        val type = bmiCalculator.diagnostic(result)
-        binding.displayResultTv.text = type
-        binding.linearLayout.visibility = View.VISIBLE
-    }
+//    private fun calculateBMI(
+//        weight: Double,
+//        height: Double,
+//        weighUnit: String,
+//        heightUnit: String
+//    ) {
+//        var heightCM = height
+//        if (heightUnit != resources.getString(R.string.cm_text)) {
+//            heightCM = Converter().convertFromTypeToOther(
+//                ConverterUtil.MainConverter.weight,
+//                "feet",
+//                "cm",
+//                height
+//            ) ?: height
+//        }
+//        var weightKG = weight
+//        if (weighUnit != resources.getString(R.string.kg_text)) {
+//            weightKG = Converter().convertFromTypeToOther(
+//                ConverterUtil.MainConverter.weight,
+//                "Pound",
+//                "Kilogram",
+//                height
+//            ) ?: weight
+//        }
+//
+//        val bmiCalculator = BMI(weightKG, heightCM)
+//        val result = bmiCalculator.calculation0fBMI()
+//        binding.ArcProgress.progress = result.toInt()
+//        val type = bmiCalculator.diagnostic(result)
+//        binding.displayResultTv.text = type
+//        binding.linearLayout.visibility = View.VISIBLE
+//    }
 
 }
