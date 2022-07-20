@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/diet_background">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <include
         android:id="@+id/dietTypesToolbar"
         layout="@layout/custom_toolbar"
@@ -12,52 +11,123 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/dietTypes"
-        style="@style/Widget.Material3.Chip.Suggestion"
-        android:layout_width="230dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:selectionRequired="true"
-        app:singleSelection="true">
-        <com.google.android.material.chip.Chip
-            android:id="@+id/standard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/infoCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Chip.Suggestion"
-            app:chipBackgroundColor="@color/diet_chip_bg"
-            android:textSize="@dimen/headline_small"
-            android:textAlignment="center"
-            android:text="Standard"/>
-        <com.google.android.material.chip.Chip
-            android:id="@+id/ketogenic"
-            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/darkGreenTheme"
+            app:cardCornerRadius="@dimen/corner_radius_12dp"
+            app:cardElevation="0dp"
+            android:layout_margin="@dimen/default_margin"
+            app:contentPadding="@dimen/large_padding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/dietIcon"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:src="@drawable/ic_diet_symbol"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/dietTypeHeadline"
+                    android:layout_marginBottom="@dimen/default_margin"/>
+                <TextView
+                    android:id="@+id/dietTypeHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Standard Diet"
+                    style="@style/titleText"
+                    android:textColor="@color/white"
+
+                    app:layout_constraintTop_toBottomOf="@id/dietIcon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <TextView
+                    android:id="@+id/info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/standardDiet"
+                    style="@style/bodyText"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/small_margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dietTypeHeadline"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Chip.Suggestion"
-            app:chipBackgroundColor="@color/diet_chip_bg"
-            android:textSize="@dimen/headline_small"
-            android:textAlignment="center"
-            android:text="Ketogenic"/>
-        <com.google.android.material.chip.Chip
-            android:id="@+id/highProtein"
-            android:layout_width="match_parent"
+            android:text="@string/question"
+            style="@style/titleText"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/large_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/infoCard"/>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/dietTypes"
+            style="@style/Widget.Material3.ChipGroup"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Chip.Suggestion"
-            app:chipBackgroundColor="@color/diet_chip_bg"
-            android:textSize="@dimen/headline_small"
-            android:textAlignment="center"
-            android:text="High-Protein"/>
-        <com.google.android.material.chip.Chip
-            android:id="@+id/mediterranean"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Chip.Suggestion"
-            app:chipBackgroundColor="@color/diet_chip_bg"
-            android:textSize="@dimen/headline_small"
-            android:textAlignment="center"
-            android:text="Mediterranean "/>
-    </com.google.android.material.chip.ChipGroup>
+            app:layout_constraintTop_toBottomOf="@id/question"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/large_margin"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/standard"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                style="@style/chip"
+                android:textSize="@dimen/medium_text_size_18sp"
+                android:textAlignment="center"
+                android:padding="@dimen/default_padding"
+                app:chipIconSize="28dp"
+                android:text="Standard"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ketogenic"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                style="@style/chip"
+                android:textSize="@dimen/medium_text_size_18sp"
+                android:textAlignment="center"
+                android:padding="@dimen/default_padding"
+                app:chipIconSize="28dp"
+                android:text="Ketogenic"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/highProtein"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                style="@style/chip"
+                android:textSize="@dimen/medium_text_size_18sp"
+                android:textAlignment="center"
+                android:padding="@dimen/default_padding"
+                app:chipIconSize="28dp"
+                android:text="High-Protein"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/mediterranean"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                style="@style/chip"
+                android:textSize="@dimen/medium_text_size_18sp"
+                android:textAlignment="center"
+                android:padding="@dimen/default_padding"
+                app:chipIconSize="28dp"
+                android:text="Mediterranean "/>
+        </com.google.android.material.chip.ChipGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
