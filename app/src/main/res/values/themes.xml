@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.NutritionsApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/darkGreenTheme</item>
-        <item name="colorPrimaryVariant">@color/darkGreenTheme</item>
+        <item name="colorPrimary">@color/yello_heavy</item>
+        <item name="colorPrimaryVariant">@color/yello_heavy</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal</item>
+        <item name="colorSecondary">@color/yello_light</item>
         <item name="colorSecondaryVariant">@color/light_gray</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
@@ -16,7 +16,7 @@
 
     <style name="chip" parent="Widget.Material3.Chip.Filter">
         <item name="chipStrokeColor">@color/light_gray</item>
-        <item name="chipSurfaceColor">@color/teal</item>
+        <item name="chipSurfaceColor">@color/yello_light</item>
         <item name="chipBackgroundColor">@color/bg_chip_state_list</item>
         <item name="chipStrokeWidth">1dp</item>
     </style>

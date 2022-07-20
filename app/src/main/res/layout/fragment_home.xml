@@ -11,7 +11,7 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/darkGreenTheme"
+        app:cardBackgroundColor="@color/yello_heavy"
         app:cardCornerRadius="@dimen/corner_radius_12dp"
         app:cardElevation="0dp"
         app:contentPadding="@dimen/default_padding"
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/remaining"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintBottom_toTopOf="@id/text_totalCaloriesDay"
                 app:layout_constraintEnd_toEndOf="@id/progressBar"
                 app:layout_constraintStart_toStartOf="@id/progressBar" />
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2000"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/text_color"
                 app:layout_constraintBottom_toBottomOf="@+id/progressBar"
                 app:layout_constraintEnd_toEndOf="@+id/progressBar"
                 app:layout_constraintStart_toStartOf="@+id/progressBar"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_kcal"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintEnd_toEndOf="@id/progressBar"
                 app:layout_constraintStart_toStartOf="@id/progressBar"
                 app:layout_constraintTop_toBottomOf="@id/text_totalCaloriesDay" />
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Standard Diet"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@id/Text_carbs"
                 app:layout_constraintStart_toStartOf="@id/centerGuide" />
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/large_margin"
                 android:text="@string/carbs"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
                 app:layout_constraintTop_toTopOf="@id/progressBar" />
 
@@ -103,7 +103,7 @@
                 android:layout_height="4dp"
                 android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="@color/splash_bg"
+                app:indicatorColor="@color/progress_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
                 app:layout_constraintTop_toBottomOf="@+id/Text_carbs"
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="300g"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintBaseline_toBaselineOf="@id/Text_carbs"
                 app:layout_constraintEnd_toEndOf="@id/carbProgressBar" />
 
@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/protein"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +136,7 @@
                 android:layout_height="4dp"
                 android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="@color/splash_bg"
+                app:indicatorColor="@color/progress_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
                 app:layout_constraintTop_toBottomOf="@+id/text_proteins"
@@ -148,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="65g"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text_proteins"
                 app:layout_constraintEnd_toEndOf="@id/proteinsProgressBar" />
 
@@ -158,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fat"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintBottom_toTopOf="@id/fatProgressBar"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide" />
 
@@ -169,7 +169,7 @@
                 android:layout_marginEnd="@dimen/small_margin"
                 android:layout_marginBottom="@dimen/large_margin"
                 android:progress="10"
-                app:indicatorColor="@color/splash_bg"
+                app:indicatorColor="@color/progress_color"
                 app:layout_constraintBottom_toBottomOf="@id/progressBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/large_margin"
                 android:text="65g"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text_fat"
                 app:layout_constraintEnd_toEndOf="@id/fatProgressBar" />
 
