@@ -17,7 +17,7 @@ class DietTypeFragment: BaseFragment<FragmentDietTypeBinding>() {
         FragmentDietTypeBinding::inflate
 
     override fun setup() {
-        this.setupActionBar(
+        setupActionBar(
             toolbar = binding.dietTypesToolbar.toolbar,
             title = resources.getString(R.string.dietType)
         )
