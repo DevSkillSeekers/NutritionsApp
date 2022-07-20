@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/bmi_calculator_menu"
-        android:icon="@drawable/ic_baseline_calculate_24"
+        android:icon="@drawable/ic_cal"
         android:title="@string/bmi" />
 
     <item
