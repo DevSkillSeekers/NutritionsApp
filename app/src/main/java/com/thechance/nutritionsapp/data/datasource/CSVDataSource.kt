@@ -6,6 +6,6 @@ import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.util.Constants
 import com.thechance.nutritionsapp.util.FileReader
 
-abstract class CSVDataSource<T>(val context: Context, val fileName: String = Constants.FILE_NUTRITION){
+abstract class CSVDataSource<T>(/*val context: Context,*/ val fileName: String = Constants.FILE_NUTRITION){
     abstract fun getAllItems():List<T>
 }

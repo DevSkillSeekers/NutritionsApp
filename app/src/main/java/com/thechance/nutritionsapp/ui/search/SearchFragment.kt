@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
 import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.data.domain.NutritionItem
-import com.thechance.nutritionsapp.ui.HomeActivity
 import com.thechance.nutritionsapp.ui.HomeFragment
 import com.thechance.nutritionsapp.util.Constants
+import com.thechance.nutritionsapp.util.hideKeyboard
 
 
-class SearchFragment : BaseFragment<FragmentSearchBinding>() {
+class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnClickListener {
     private var keyword: String? = null
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
@@ -25,24 +25,21 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override fun setup() {
         binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
         nutritionList = if (keyword == null) {
-            binding.emptySearch.visibility= View.VISIBLE
+            binding.emptySearch.visibility = View.VISIBLE
             ArrayList()
         } else {
-            binding.emptySearch.visibility= View.GONE
+            binding.emptySearch.visibility = View.GONE
             ArrayList(dataManager.getSpecificNutrition(keyword.toString()))
         }
-        searchAdapter = SearchAdapter(binding.mealRecyclerView.context, nutritionList)
+        searchAdapter = SearchAdapter(nutritionList, this)
         binding.mealRecyclerView.adapter = searchAdapter
         setListeners()
     }
 
     private fun setListeners() {
-        searchAdapter.setOnItemClickListener { mealItem ->
-            addToMeal(mealItem)
-        }
         binding.edtTxtSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(keyword: Editable?) {
-                binding.emptySearch.visibility= View.GONE
+                binding.emptySearch.visibility = View.GONE
                 searchAdapter.setData(ArrayList(dataManager.getSpecificNutrition(keyword.toString())))
             }
 
@@ -64,7 +61,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         })
     }
 
-    private fun addToMeal(item: NutritionItem) {
+    override fun onClick(item: NutritionItem) {
+        this.hideKeyboard()
         when (mealType) {
             Constants.BREAKFAST -> {
                 breakfast.add(item)

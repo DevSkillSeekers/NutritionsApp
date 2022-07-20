@@ -27,8 +27,8 @@
             <ProgressBar
                 android:id="@+id/progressBar"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:background="@drawable/circular_shape"
                 android:indeterminate="false"
                 android:max="100"
@@ -40,6 +40,16 @@
                 app:layout_constraintEnd_toStartOf="@+id/centerGuide"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remaining"
+                style="@style/subTitle"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/progressBar"
+                app:layout_constraintEnd_toEndOf="@id/progressBar"
+                app:layout_constraintBottom_toTopOf="@id/totalCaloriesDayTv"/>
 
             <TextView
                 android:id="@+id/totalCaloriesDayTv"
@@ -54,27 +64,59 @@
                 app:layout_constraintTop_toTopOf="@+id/progressBar" />
 
             <TextView
+                android:id="@+id/kcal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/subBodyText"
+                android:text="Kcal"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/progressBar"
+                app:layout_constraintEnd_toEndOf="@id/progressBar"
+                app:layout_constraintTop_toBottomOf="@id/totalCaloriesDayTv"/>
+
+            <TextView
+                android:id="@+id/dietType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Standard Diet"
+                style="@style/subTitle"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/centerGuide"
+                app:layout_constraintBottom_toTopOf="@id/carbsTv"/>
+
+            <TextView
                 android:id="@+id/carbsTv"
                 style="@style/bodyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
                 android:text="@string/carbs"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/large_margin"/>
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/carbProgressBar"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
+                android:layout_height="4dp"
+                android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="?attr/colorOnPrimary"
+
+                app:indicatorColor="@color/splash_bg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
                 app:layout_constraintTop_toBottomOf="@+id/carbsTv"
                 app:trackColor="@color/chip_teal" />
+
+            <TextView
+                android:id="@+id/trackCarb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/subBodyText"
+                android:textColor="@color/white"
+                android:text="300g"
+                app:layout_constraintTop_toBottomOf="@id/carbProgressBar"
+                app:layout_constraintStart_toStartOf="@id/centerGuide"/>
 
             <TextView
                 android:id="@+id/proteinsTv"
@@ -82,23 +124,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/protein"
-                android:textColor="?attr/colorOnPrimary"
-                app:layout_constraintBottom_toTopOf="@+id/proteinsProgressBar"
-                app:layout_constraintStart_toEndOf="@+id/centerGuide"
-                app:layout_constraintTop_toBottomOf="@+id/carbProgressBar" />
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/centerGuide" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/proteinsProgressBar"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
+                android:layout_height="4dp"
+                android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="?attr/colorOnPrimary"
-                app:layout_constraintBottom_toTopOf="@+id/fatTv"
+                app:indicatorColor="@color/splash_bg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
                 app:layout_constraintTop_toBottomOf="@+id/proteinsTv"
                 app:trackColor="@color/chip_teal" />
+
+            <TextView
+                android:id="@+id/trackProtein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/subBodyText"
+                android:textColor="@color/white"
+                android:text="65g"
+                app:layout_constraintTop_toBottomOf="@id/proteinsProgressBar"
+                app:layout_constraintStart_toStartOf="@id/centerGuide"/>
 
             <TextView
                 android:id="@+id/fatTv"
@@ -106,22 +157,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fat"
-                android:textColor="?attr/colorOnPrimary"
-                app:layout_constraintBottom_toTopOf="@+id/fatProgressBar"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
-                app:layout_constraintTop_toBottomOf="@+id/proteinsProgressBar" />
+                app:layout_constraintBottom_toTopOf="@id/fatProgressBar"/>
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/fatProgressBar"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="4dp"
+                android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="?attr/colorOnPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:indicatorColor="@color/splash_bg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
-                app:layout_constraintTop_toBottomOf="@+id/fatTv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/large_margin"
                 app:trackColor="@color/chip_teal" />
+
+            <TextView
+                android:id="@+id/trackFat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/subBodyText"
+                android:textColor="@color/white"
+                android:text="65g"
+                app:layout_constraintTop_toBottomOf="@id/fatProgressBar"
+                app:layout_constraintStart_toStartOf="@id/centerGuide"
+                android:layout_marginBottom="@dimen/large_margin"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/centerGuide"

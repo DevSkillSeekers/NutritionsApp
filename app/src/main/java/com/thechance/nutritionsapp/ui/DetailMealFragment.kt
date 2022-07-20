@@ -15,7 +15,7 @@ class DetailMealFragment : BaseFragment<FragmentDetailMealBinding>() {
         FragmentDetailMealBinding::inflate
 
     override fun setup() {
-        this.setupActionBar(
+        setupActionBar(
             toolbar = binding.detailToolbar.toolbar,
             title = getString(R.string.meal_details)
         )

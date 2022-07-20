@@ -1,13 +1,14 @@
 package com.thechance.nutritionsapp.data
 
-import android.content.Context
+import com.thechance.nutritionsapp.NutritionApp
 import com.thechance.nutritionsapp.data.datasource.HealthyFoodDataSource
 import com.thechance.nutritionsapp.data.datasource.NutritionDataSource
+import com.thechance.nutritionsapp.data.domain.DietValues
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.util.Constants
 
-class DataManager(context: Context) {
+class DataManager {
     private val nutritionList = mutableListOf<NutritionItem>()
     private val breakfastItems = mutableListOf<NutritionItem>()
     private val lunchItems = mutableListOf<NutritionItem>()
@@ -16,14 +17,15 @@ class DataManager(context: Context) {
     private val healthyFoodList = mutableListOf<HealthyFood>()
 
     init {
-        val dataSource = HealthyFoodDataSource(context)
-        dataSource.getAllItems().forEach { food ->
+        HealthyFoodDataSource().getAllItems().forEach { food ->
             healthyFoodList.add(food)
         }
-        NutritionDataSource(context).getAllItems().forEach { nutritionItem ->
+        NutritionDataSource().getAllItems().forEach { nutritionItem ->
             nutritionList.add(nutritionItem)
         }
     }
+
+
 
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
         return when (mealType) {
@@ -146,19 +148,41 @@ class DataManager(context: Context) {
         return remainder
     }
 
+    fun getRemainderCarbsPerDay(): Int {
+        var remainder = DietValues.MAX_CARBS_PER_DAY
+        remainder -= getMealCarbs(Constants.BREAKFAST).toInt()
+        remainder -= getMealCarbs(Constants.LUNCH).toInt()
+        remainder -= getMealCarbs(Constants.DINNER).toInt()
+        return remainder
+    }
+
+    fun getRemainderProteinsPerDay(): Int {
+        var remainder = DietValues.MAX_PROTEINS_PER_DAY
+        remainder -= getMealProteins(Constants.BREAKFAST).toInt()
+        remainder -= getMealProteins(Constants.LUNCH).toInt()
+        remainder -= getMealProteins(Constants.DINNER).toInt()
+        return remainder
+    }
+
+    fun getRemainderFatsPerDay(): Int {
+        var remainder = DietValues.MAX_FATS_PER_DAY
+        remainder -= getMealFats(Constants.BREAKFAST).toInt()
+        remainder -= getMealFats(Constants.LUNCH).toInt()
+        remainder -= getMealFats(Constants.DINNER).toInt()
+        return remainder
+    }
+
     fun getProgressCalories(): Int =
-        Constants.MAX_CALORIES_PER_DAY.div(getRemainderCaloriesPerDay()).times(100)
+        getRemainderCaloriesPerDay().toDouble().div(Constants.MAX_CALORIES_PER_DAY).times(100).toInt()
 
     fun getProgressCarbs(): Double =
-        getMealCarbs(Constants.BREAKFAST) + getMealCarbs(Constants.LUNCH) + getMealCarbs(Constants.DINNER)
+        getRemainderCarbsPerDay().toDouble().div(DietValues.MAX_CARBS_PER_DAY).times(100)
 
     fun getProgressProtein(): Double =
-        getMealProteins(Constants.BREAKFAST) + getMealProteins(Constants.LUNCH) + getMealProteins(
-            Constants.DINNER
-        )
+        getRemainderProteinsPerDay().toDouble().div(DietValues.MAX_PROTEINS_PER_DAY).times(100)
 
     fun getProgressFat(): Double =
-        getMealFats(Constants.BREAKFAST) + getMealFats(Constants.LUNCH) + getMealFats(Constants.DINNER)
+        getRemainderFatsPerDay().toDouble().div(DietValues.MAX_FATS_PER_DAY).times(100)
 
 
     fun getNutrition(size: Int): List<NutritionItem> {
