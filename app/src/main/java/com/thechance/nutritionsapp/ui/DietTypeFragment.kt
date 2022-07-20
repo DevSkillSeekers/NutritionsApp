@@ -48,4 +48,12 @@ class DietTypeFragment: BaseFragment<FragmentDietTypeBinding>() {
             }
         }
     }
+
+    override fun getData() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addDataToBundle() {
+        TODO("Not yet implemented")
+    }
 }

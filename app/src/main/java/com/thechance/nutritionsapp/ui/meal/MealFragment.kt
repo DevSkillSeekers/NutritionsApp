@@ -76,4 +76,12 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
         listMealItem.remove(item)
         mealAdapter?.notifyItemRemoved(position)
     }
+
+    override fun getData() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addDataToBundle() {
+        TODO("Not yet implemented")
+    }
 }

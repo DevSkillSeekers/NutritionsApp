@@ -35,7 +35,7 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/ketogenic"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             style="@style/Widget.Material3.Chip.Suggestion"
             app:chipBackgroundColor="@color/diet_chip_bg"
             android:textSize="@dimen/headline_small"

@@ -84,4 +84,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
             data
         )
     }
+
+    override fun getData() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addDataToBundle() {
+        TODO("Not yet implemented")
+    }
 }

@@ -47,7 +47,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
                 val height = binding.heightTIET.text.toString().toDoubleOrNull() ?: 0.0
                 val weighUnit = binding.weightInputView.text.toString()
                 val heightUnit = binding.heightInputView.text.toString()
-                calculateBMI(weight, height, weighUnit, heightUnit)
+              //  calculateBMI(weight, height, weighUnit, heightUnit)
             } else {
                 Toast.makeText(context,resources.getString(R.string.error_msg), Toast.LENGTH_LONG)
                     .show()
@@ -55,7 +55,15 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         }
     }
 
-    private fun calculateBMI(
+    override fun getData() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addDataToBundle() {
+        TODO("Not yet implemented")
+    }
+
+    /*private fun calculateBMI(
         weight: Double,
         height: Double,
         weighUnit: String,
@@ -86,6 +94,6 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         val type = bmiCalculator.diagnostic(result)
         binding.displayResultTv.text = type
         binding.linearLayout.visibility = View.VISIBLE
-    }
+    }*/
 
 }

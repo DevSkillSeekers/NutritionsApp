@@ -58,4 +58,12 @@ class DetailMealFragment : BaseFragment<FragmentDetailMealBinding>() {
             resources.getIdentifier(mMealDetails.image, "drawable", requireActivity().packageName)
         binding.mealIv.setImageResource(imageId)
     }
+
+    override fun getData() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addDataToBundle() {
+        TODO("Not yet implemented")
+    }
 }

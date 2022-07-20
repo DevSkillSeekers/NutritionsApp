@@ -68,11 +68,9 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun setup()
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
+    abstract fun getData()
 
+    abstract fun addDataToBundle()
 
     fun changeFragmentWithData(
         fragment: Fragment,
@@ -99,9 +97,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         transaction.commit()
     }
 
-    /**
-     * A function for actionBar Setup.
-     */
     fun setupActionBar(toolbar: Toolbar, title: String) {
         (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
 
@@ -117,6 +112,4 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             )
         }
     }
-
-
 }
