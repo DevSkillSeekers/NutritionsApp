@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:text="Remaining"
                 style="@style/subTitle"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintStart_toStartOf="@id/progressBar"
                 app:layout_constraintEnd_toEndOf="@id/progressBar"
                 app:layout_constraintBottom_toTopOf="@id/totalCaloriesDayTv"/>
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 style="@style/subBodyText"
                 android:text="Kcal"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintStart_toStartOf="@id/progressBar"
                 app:layout_constraintEnd_toEndOf="@id/progressBar"
                 app:layout_constraintTop_toBottomOf="@id/totalCaloriesDayTv"/>
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:text="Standard Diet"
                 style="@style/subTitle"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintStart_toStartOf="@id/centerGuide"
                 app:layout_constraintBottom_toTopOf="@id/carbsTv"/>
 
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carbs"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="@dimen/large_margin"/>
@@ -113,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/subBodyText"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 android:text="300g"
                 app:layout_constraintTop_toBottomOf="@id/carbProgressBar"
                 app:layout_constraintStart_toStartOf="@id/centerGuide"/>
@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/protein"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide" />
@@ -135,18 +135,18 @@
                 android:layout_height="4dp"
                 android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="@color/splash_bg"
+                app:indicatorColor="@color/progress_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
                 app:layout_constraintTop_toBottomOf="@+id/proteinsTv"
-                app:trackColor="@color/chip_teal" />
+                app:trackColor="@color/white" />
 
             <TextView
                 android:id="@+id/trackProtein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/subBodyText"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 android:text="65g"
                 app:layout_constraintTop_toBottomOf="@id/proteinsProgressBar"
                 app:layout_constraintStart_toStartOf="@id/centerGuide"/>
@@ -157,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fat"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 app:layout_constraintStart_toEndOf="@+id/centerGuide"
                 app:layout_constraintBottom_toTopOf="@id/fatProgressBar"/>
 
@@ -179,7 +179,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/subBodyText"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 android:text="65g"
                 app:layout_constraintTop_toBottomOf="@id/fatProgressBar"
                 app:layout_constraintStart_toStartOf="@id/centerGuide"
@@ -247,6 +247,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/healthy_recipes"
+        android:textSize="@dimen/headline_small"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mealChipGroup" />
@@ -365,6 +367,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="210dp" />
+        app:layout_constraintGuide_end="489dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
