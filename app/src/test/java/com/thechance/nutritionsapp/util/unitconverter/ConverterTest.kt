@@ -1,15 +1,11 @@
 package com.thechance.nutritionsapp.util.unitconverter
-import com.thechance.nutritionsapp.util.unitconverter.Converter
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
 import org.junit.Test
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.Assertions.assertEquals
 
 @Suppress("DEPRECATION")
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class ConverterTest {
     private var converter = Converter()
+
     @Test
     fun should_ReturnZero_WhenKiloIsZeroInKiloToGram() {
         //Given Kilogram
@@ -90,7 +86,6 @@ internal class ConverterTest {
         assertEquals(0.0220462, result)
     }
 
-
     @Test
     fun should_ReturnZero_WhenPoundIsZeroInPoundsToGram() {
         //Given gram
@@ -129,5 +124,25 @@ internal class ConverterTest {
         val result = converter.poundToKilo(pound)
         //then result is 0.45359290943563974
         assertEquals(0.45359290943563974, result)
+    }
+
+    @Test
+    fun should_ReturnZero_WhenHeightInFootIsZero() {
+        //given feet is 0
+        val feet = 0.0
+        //when convert feet to cm
+        val result = converter.feetToCm(feet)
+        //then result is zero
+        assertEquals(0.0,result)
+    }
+
+    @Test
+    fun should_ReturnCorrectResult_WhenHasCorrectInput() {
+        //given is 10
+        val feet = 10.0
+        //when convert feet to cm
+        val result = converter.feetToCm(feet)
+        //then result is zero
+        assertEquals(304.8,result)
     }
 }

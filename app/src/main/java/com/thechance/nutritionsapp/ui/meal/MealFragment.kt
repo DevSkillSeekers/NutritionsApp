@@ -10,6 +10,8 @@ import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentMealBinding
+import com.thechance.nutritionsapp.ui.HomeActivity
+import com.thechance.nutritionsapp.ui.ItemDetailsFragment
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
 

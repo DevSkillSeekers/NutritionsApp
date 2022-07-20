@@ -23,4 +23,7 @@ class Converter {
     fun poundToGram(pound: Double) : Double {
         return pound * 453.592
     }
+    fun feetToCm(feet : Double) : Double {
+        return feet * 30.48
+    }
 }

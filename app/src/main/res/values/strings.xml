@@ -50,5 +50,13 @@
     <string name="pound">Pound</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
-
+    <string name="standardDiet">The FDA recommends consuming 300g of carbs, 65g of protein and 65g of fat per day on a 2000-calorie meal plan.</string>
+    <string name="standardHeadline">Standard Diet</string>
+    <string name="ketoHeadline">Ketogenic Diet</string>
+    <string name="ketoDiet">Generally, popular ketogenic resources suggest about 165 grams fat, 40 grams carbs, and 75 grams protein.</string>
+    <string name="highProteinHeadline">High-Protein Diet</string>
+    <string name="highProteinDiet">2000 calorie high-protein diet meal plan suggest depends on consuming about 202g of carbs, 173g of protein and 65g of fat.</string>
+    <string name="mediterraneanHeadline">Mediterranean Diet</string>
+    <string name="mediterraneanDiet">2000 calorie mediterranean diet meal plan suggest depends on consuming about 167g of carbs, 50g of protein and 135g of fat.</string>
+    <string name="question">Which diet type do You prefer ?</string>
 </resources>
