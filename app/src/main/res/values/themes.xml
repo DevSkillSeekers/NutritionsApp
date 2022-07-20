@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.NutritionsApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/yello_heavy</item>
-        <item name="colorPrimaryVariant">@color/yello_heavy</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/progress_color</item>
+        <item name="colorPrimaryVariant">@color/progress_color</item>
+        <item name="colorOnPrimary">@color/progress_color</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/yello_light</item>
-        <item name="colorSecondaryVariant">@color/light_gray</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondary">@color/progress_color</item>
+        <item name="colorSecondaryVariant">@color/progress_color</item>
+        <item name="colorOnSecondary">@color/progress_color</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorOnPrimary</item>
+        <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
@@ -62,7 +62,7 @@
     </style>
 
     <style name="cardViewWithBackground" parent="cardView">
-        <item name="cardBackgroundColor">@color/lightGreenTheme</item>
+        <item name="cardBackgroundColor">@color/yello_light</item>
     </style>
 
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title" />
