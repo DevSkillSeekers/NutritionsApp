@@ -46,12 +46,14 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
 
         if (listMealItem.isNotEmpty()) {
             binding.emptyTv.visibility = View.GONE
+            binding.animationEmptyMeal.visibility = View.GONE
             binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
             mealAdapter =
                 MealAdapter(listMealItem, this)
             binding.mealRecyclerView.adapter = mealAdapter
         } else {
             binding.emptyTv.visibility = View.VISIBLE
+            binding.animationEmptyMeal.visibility = View.VISIBLE
         }
 
         setListeners()
@@ -78,4 +80,5 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
         listMealItem.remove(item)
         mealAdapter?.notifyItemRemoved(position)
     }
+
 }

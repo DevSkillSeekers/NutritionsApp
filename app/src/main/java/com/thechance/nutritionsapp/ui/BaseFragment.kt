@@ -13,6 +13,7 @@ import androidx.viewbinding.ViewBinding
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.DataManager
 import com.thechance.nutritionsapp.data.domain.NutritionItem
+import com.thechance.nutritionsapp.ui.home.HomeFragment
 import com.thechance.nutritionsapp.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -68,12 +69,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun setup()
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
-
-
     fun changeFragmentWithData(
         fragment: Fragment,
         type: Int,
@@ -99,9 +94,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         transaction.commit()
     }
 
-    /**
-     * A function for actionBar Setup.
-     */
     fun setupActionBar(toolbar: Toolbar, title: String) {
         (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
 
@@ -117,6 +109,4 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             )
         }
     }
-
-
 }

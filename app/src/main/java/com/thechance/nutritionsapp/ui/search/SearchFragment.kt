@@ -8,10 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
 import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.data.domain.NutritionItem
-import com.thechance.nutritionsapp.ui.HomeFragment
+import com.thechance.nutritionsapp.ui.home.HomeFragment
 import com.thechance.nutritionsapp.util.Constants
 import com.thechance.nutritionsapp.util.hideKeyboard
 
@@ -27,9 +28,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
         binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
         nutritionList = if (keyword == null) {
             binding.emptySearch.visibility = View.VISIBLE
+            binding.animationEmptySearch.visibility = View.VISIBLE
             ArrayList()
         } else {
             binding.emptySearch.visibility = View.GONE
+            binding.animationEmptySearch.visibility = View.GONE
             ArrayList(dataManager.getSpecificNutrition(keyword.toString()))
         }
         searchAdapter = SearchAdapter(nutritionList, this)
@@ -41,6 +44,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
         binding.edtTxtSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(keyword: Editable?) {
                 binding.emptySearch.visibility = View.GONE
+                binding.animationEmptySearch.visibility = View.GONE
                 searchAdapter.setData(ArrayList(dataManager.getSpecificNutrition(keyword.toString())))
             }
 
