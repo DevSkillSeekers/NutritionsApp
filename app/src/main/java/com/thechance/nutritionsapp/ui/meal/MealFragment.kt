@@ -5,14 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import android.app.AlertDialog
-import android.content.DialogInterface
-import androidx.compose.material3.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentMealBinding
+import com.thechance.nutritionsapp.ui.HomeActivity
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
 

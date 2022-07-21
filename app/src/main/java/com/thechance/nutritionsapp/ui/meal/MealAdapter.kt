@@ -1,6 +1,6 @@
 package com.thechance.nutritionsapp.ui.meal
 
-import android.provider.SyncStateContract
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +14,7 @@ import kotlin.collections.ArrayList
 
 class MealAdapter(
     private var nutritionList: ArrayList<NutritionItem>,
-    private var listener: OnClickListener,
+    private var listener: OnClickListener
 ) : RecyclerView.Adapter<MealAdapter.ConverterViewHolder>() {
 
     interface OnClickListener {
@@ -50,3 +50,4 @@ class MealAdapter(
         RecyclerView.ViewHolder(binding.root) {
     }
 }
+

@@ -11,5 +11,10 @@ data class NutritionItem(
     val calories: Int,
     val carbs: Double,
     val proteins: Double,
-    val fats: Double
-) : Parcelable
+    val fats: Double,
+    var fiber: String,
+    var iron: String,
+    var vitamin_c: String,
+    val cholesterol: String,
+
+    ) : Parcelable
