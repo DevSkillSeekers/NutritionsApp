@@ -33,7 +33,7 @@
                 android:layout_width="@dimen/img_card_dimen"
                 android:layout_height="@dimen/img_card_dimen"
                 android:layout_margin="@dimen/small_margin"
-                android:src="@drawable/ic_dinner_svgrepo_com"
+                android:src="@drawable/dinner_svgrepo_com"
                 app:shapeAppearanceOverlay="@style/itemRounded"/>
 
         </androidx.cardview.widget.CardView>
