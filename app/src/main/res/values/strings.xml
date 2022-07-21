@@ -34,7 +34,7 @@
     <string name="dinner">Dinner</string>
     <string name="healthy_recipes">Healthy Recipes</string>
     <string name="total_calories">Total calories</string>
-    <string name="see_all">see all</string>
+    <string name="see_all">Add item</string>
     <string name="carb_gram">%s gram</string>
     <string name="protein_gram">%s gram</string>
     <string name="fat_gram">%s gram</string>
@@ -42,7 +42,8 @@
     <string name="calories_number">%s Kcal</string>
     <string name="preparation">Preparation</string>
     <string name="meal_details">Meal Details</string>
-    <string name="empty_meal_list">No item in meal yet!!</string>
+    <string name="empty_meal_list">Please, add your meal items!!</string>
+    <string name="no_item">Would you want to start adding items?</string>
     <string name="kg_text">kg</string>
     <string name="cm_text">cm</string>
     <string name="error_msg">"Please enter your weight and height"</string>

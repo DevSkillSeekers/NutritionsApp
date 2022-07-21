@@ -27,9 +27,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
         binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
         nutritionList = if (keyword == null) {
             binding.emptySearch.visibility = View.VISIBLE
+            binding.animationEmptySearch.visibility = View.VISIBLE
             ArrayList()
         } else {
             binding.emptySearch.visibility = View.GONE
+            binding.animationEmptySearch.visibility = View.GONE
             ArrayList(dataManager.getSpecificNutrition(keyword.toString()))
         }
         searchAdapter = SearchAdapter(nutritionList, this)
@@ -41,6 +43,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
         binding.edtTxtSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(keyword: Editable?) {
                 binding.emptySearch.visibility = View.GONE
+                binding.animationEmptySearch.visibility = View.GONE
                 searchAdapter.setData(ArrayList(dataManager.getSpecificNutrition(keyword.toString())))
             }
 
@@ -85,13 +88,4 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
             data
         )
     }
-
-    override fun getData() {
-        TODO("Not yet implemented")
-    }
-
-    override fun addDataToBundle() {
-        TODO("Not yet implemented")
-    }
-
 }

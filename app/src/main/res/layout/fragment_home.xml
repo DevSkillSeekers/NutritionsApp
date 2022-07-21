@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/default_margin"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/yello_heavy"
+        android:layout_marginHorizontal="@dimen/large_margin"
         app:cardCornerRadius="@dimen/corner_radius_12dp"
         app:cardElevation="0dp"
         app:contentPadding="@dimen/default_padding"
@@ -22,7 +22,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -247,6 +247,7 @@
     <TextView
         android:id="@+id/healthyRecipesTv"
         style="@style/titleText"
+        android:layout_marginHorizontal="@dimen/large_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/healthy_recipes"
@@ -271,6 +272,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
         android:text="@string/breakfast"
+        android:layout_marginHorizontal="@dimen/large_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_healthy_recipes" />
 
@@ -279,6 +281,7 @@
         style="@style/subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/large_margin"
         android:drawablePadding="@dimen/small_padding"
         android:text="@string/see_all"
         app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -287,10 +290,11 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_meal_item"
-        style="@style/cardViewWithBackground"
+        style="@style/cardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginVertical="@dimen/small_margin"
+        android:layout_marginHorizontal="@dimen/large_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -301,25 +305,34 @@
             android:layout_height="match_parent"
             android:padding="@dimen/default_padding">
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_empty_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/no_items"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="empty_list.json"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/no_items"
+                style="@style/bodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/very_small_margin"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/no_item"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_meal_items"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toTopOf="@id/text_totalCalories"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/text_noItem"
-                style="@style/subTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_margin"
-                android:gravity="center"
-                android:text="@string/empty_meal_list"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -351,6 +364,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="210dp" />
+        app:layout_constraintGuide_begin="200dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

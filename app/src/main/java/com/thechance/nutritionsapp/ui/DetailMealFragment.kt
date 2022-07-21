@@ -59,11 +59,4 @@ class DetailMealFragment : BaseFragment<FragmentDetailMealBinding>() {
         binding.mealIv.setImageResource(imageId)
     }
 
-    override fun getData() {
-        TODO("Not yet implemented")
-    }
-
-    override fun addDataToBundle() {
-        TODO("Not yet implemented")
-    }
 }

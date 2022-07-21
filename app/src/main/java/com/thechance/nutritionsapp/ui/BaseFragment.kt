@@ -69,10 +69,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun setup()
 
-    abstract fun getData()
-
-    abstract fun addDataToBundle()
-
     fun changeFragmentWithData(
         fragment: Fragment,
         type: Int,

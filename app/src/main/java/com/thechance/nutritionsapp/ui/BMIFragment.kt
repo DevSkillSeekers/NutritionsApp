@@ -55,14 +55,6 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         }
     }
 
-    override fun getData() {
-        TODO("Not yet implemented")
-    }
-
-    override fun addDataToBundle() {
-        TODO("Not yet implemented")
-    }
-
     /*private fun calculateBMI(
         weight: Double,
         height: Double,

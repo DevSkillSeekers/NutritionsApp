@@ -63,9 +63,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
     private fun setSuggestionFood() {
         binding.listHealthyRecipes.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-//        val divider = DividerItemDecoration(requireContext(),DividerItemDecoration.HORIZONTAL)
-//        divider.setDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.item_separator)!!)
-//        binding.listHealthyRecipes.addItemDecoration(divider)
         healthyFoodAdapter = HealthyFoodAdapter(healthySuggestionMeal,this)
         binding.listHealthyRecipes.adapter = healthyFoodAdapter
     }
@@ -86,6 +83,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
                     updateView()
                 }
             }
+        }
+
+        binding.cardMealItem.setOnClickListener{
+            goToMealItemsView()
         }
 
         binding.textSeeAll.setOnClickListener {
@@ -112,7 +113,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
 
     private fun setMealItems() {
         if (listMealItem.isNotEmpty()) {
-            binding.textNoItem.visibility = View.GONE
+            binding.animationEmptyList.visibility = View.GONE
+            binding.noItems.visibility = View.GONE
             binding.textTotalCalories.visibility = View.VISIBLE
             binding.textTotalCaloriesAmount.visibility = View.VISIBLE
             binding.listMealItems.visibility = View.VISIBLE
@@ -126,7 +128,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
             mealAdapter = MealItemAdapter(listMealItem)
             binding.listMealItems.adapter = mealAdapter
         } else {
-            binding.textNoItem.visibility = View.VISIBLE
+            binding.animationEmptyList.visibility = View.VISIBLE
+            binding.noItems.visibility = View.VISIBLE
             binding.textTotalCalories.visibility = View.GONE
             binding.textTotalCaloriesAmount.visibility = View.GONE
             binding.listMealItems.visibility = View.INVISIBLE
@@ -140,14 +143,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
             Constants.ADD_FRAGMENT,
             Bundle()
         )
-    }
-
-    override fun getData() {
-        TODO("Not yet implemented")
-    }
-
-    override fun addDataToBundle() {
-        TODO("Not yet implemented")
     }
 
     override fun onClick(item: HealthyFood) {
