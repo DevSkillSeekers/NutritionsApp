@@ -1,5 +1,8 @@
 package com.thechance.nutritionsapp.data
 
+import android.content.Context
+import android.content.ContextParams
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -9,12 +12,12 @@ import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class DataManagerTest {
-    /*lateinit var dataManager: DataManager
+    lateinit var dataManager: DataManager
     @BeforeEach
     fun setUp(){
         dataManager = DataManager()
-    }*/
-
+    }
+/*
     @Test
     fun should_NutritionListIncreasedByOneItem_When_AddItemToList(){
         //given
@@ -214,4 +217,5 @@ internal class DataManagerTest {
         //then
         assertEquals(null,calories)
     }
+*/
 }

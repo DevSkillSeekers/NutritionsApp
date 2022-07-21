@@ -7,7 +7,7 @@ class BMI(private val Weight: Double?, private val Height: Double?) {
 
     fun calculation0fBMI(): Double {
         return if (Weight?.equals(abs(Weight)) == true && Height?.equals(abs(Height)) == true && Weight != 0.0 && Height != 0.0) {
-            var heightM = Height.div(100)
+            val heightM = Height.div(100)
             val result = Weight.div((heightM.times(heightM)))
             String.format("%.2f", result).toDouble()
         } else {

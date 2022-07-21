@@ -8,11 +8,11 @@
 
     <item
         android:id="@+id/bmi_calculator_menu"
-        android:icon="@drawable/ic_baseline_calculate_24"
+        android:icon="@drawable/ic_cal"
         android:title="@string/bmi" />
 
     <item
-        android:id="@+id/search_menu"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="@string/search" />
+        android:id="@+id/diet_menu"
+        android:icon="@drawable/ic_diet"
+        android:title="@string/dietType" />
 </menu>

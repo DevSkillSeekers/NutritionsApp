@@ -7,7 +7,7 @@
             android:thicknessRatio="10.0"
             android:useLevel="true">
 
-            <solid android:color="@color/white" />
+            <solid android:color="@color/progress_color" />
 
         </shape>
     </item>

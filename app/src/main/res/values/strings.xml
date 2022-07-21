@@ -6,6 +6,7 @@
     <string name="search_hint">Search Here</string>
     <string name="home">Home</string>
     <string name="bmi">BMI</string>
+    <string name="dietType">Diet</string>
     <string name="tips_normal_weight">Drink more WATER in the morning less at night, Best sleeping time is from 10pm at night to 6am in the morning,,Reduce the amount of OILY food you consume </string>
     <string name="tips_low_weight">Do not drink coffee TWICE a day, Do not have HUGE meals after 5pm,Do not lie down immediately after taking medicine before sleeping</string>
     <string name="tips_over_weight">Get more active Being active is key to losing weight and keeping it off. As well as providing lots of health benefits, exercise can help burn off the excess calories you cannot lose through diet alone.</string>
@@ -41,10 +42,20 @@
     <string name="empty_meal_list">No item in meal yet!!</string>
     <string name="kg_text">kg</string>
     <string name="cm_text">cm</string>
+    <string name="error_msg">"Please enter your weight and height"</string>
     <string name="feet">Feet</string>
     <string name="pound">Pound</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="hinit_tips">For an ideal weight, some tips will be displayed that suits your weight here .</string>
 
+    <string name="standardDiet">The FDA recommends consuming 300g of carbs, 65g of protein and 65g of fat per day on a 2000-calorie meal plan.</string>
+    <string name="standardHeadline">Standard Diet</string>
+    <string name="ketoHeadline">Ketogenic Diet</string>
+    <string name="ketoDiet">Generally, popular ketogenic resources suggest about 165 grams fat, 40 grams carbs, and 75 grams protein.</string>
+    <string name="highProteinHeadline">High-Protein Diet</string>
+    <string name="highProteinDiet">2000 calorie high-protein diet meal plan suggest depends on consuming about 202g of carbs, 173g of protein and 65g of fat.</string>
+    <string name="mediterraneanHeadline">Mediterranean Diet</string>
+    <string name="mediterraneanDiet">2000 calorie mediterranean diet meal plan suggest depends on consuming about 167g of carbs, 50g of protein and 135g of fat.</string>
+    <string name="question">Which diet type do You prefer ?</string>
 </resources>

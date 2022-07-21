@@ -27,7 +27,7 @@
         app:arc_suffix_text=" "
         app:arc_stroke_width="20dp"
         app:arc_text_color="@color/black"
-        app:arc_unfinished_color="@color/light_gray"
+        app:arc_unfinished_color="@color/yellow_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,14 +42,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".25" />
 
-    <!--TextView Overweight-->
     <!--ImageView circle Red-->
 
     <TextView
         android:id="@+id/overweightTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/small_margin"
         android:text="@string/overweight_text"
         android:textColor="@color/text_color"
         android:textSize="@dimen/small_text_size"
@@ -57,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Arc_Progress"
         app:layout_constraintStart_toEndOf="@+id/Arc_Progress"
         app:layout_constraintTop_toBottomOf="@+id/Arc_Progress" />
-
+    <!--ImageView circle Red-->
     <ImageView
         android:id="@+id/circleRedIV"
         android:layout_width="wrap_content"
@@ -68,12 +67,11 @@
         app:layout_constraintEnd_toStartOf="@+id/overweightTV"
         app:layout_constraintTop_toTopOf="@+id/overweightTV" />
     <!--TextView Normal-->
-    <!--ImageView circle blue-->
-
     <TextView
         android:id="@+id/normalTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin"
         android:text="@string/normal_text"
         android:textColor="@color/text_color"
         android:textSize="@dimen/small_text_size"
@@ -91,13 +89,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/normalTV"
         app:layout_constraintEnd_toStartOf="@id/normalTV"
         app:layout_constraintTop_toTopOf="@+id/normalTV" />
-    <!--TextView Underweight-->
     <!--ImageView circle yellow-->
 
     <TextView
         android:id="@+id/underWeightTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin"
         android:text="@string/underweight_text"
         android:textColor="@color/text_color"
         android:textSize="@dimen/small_text_size"
@@ -129,6 +127,16 @@
         android:layout_marginTop="@dimen/corner_radius_16dp"
         app:endIconMode="clear_text"
         app:helperTextEnabled="true"
+        app:boxBackgroundMode="outline"
+        app:placeholderTextColor="@color/yellow_medium"
+        app:counterOverflowTextColor="@color/yellow_medium"
+        app:counterTextColor="@color/yello_heavy"
+        app:boxStrokeColor="@color/yello_heavy"
+        app:helperTextTextColor="@color/yello_heavy"
+        app:helperTextTextAppearance="@color/yello_heavy"
+        app:suffixTextColor="@color/yello_heavy"
+        app:hintTextAppearance="@color/yello_heavy"
+        app:hintTextColor="@color/yello_heavy"
         app:layout_constraintBottom_toTopOf="@+id/heightTIL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/overweightTV">
@@ -147,13 +155,26 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="210dp"
         android:layout_height="56dp"
+        android:layout_marginBottom="@dimen/small_margin"
         android:hint="@string/height"
         app:counterEnabled="true"
         app:counterMaxLength="9"
         app:endIconMode="clear_text"
         android:layout_marginTop="@dimen/small_margin"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintBottom_toTopOf="@+id/calculateBT"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/WeightTIL">
+        app:layout_constraintTop_toBottomOf="@id/WeightTIL"
+        app:placeholderTextColor="@color/yellow_medium"
+        app:counterOverflowTextColor="@color/yellow_medium"
+        app:counterTextColor="@color/yello_heavy"
+        app:boxStrokeColor="@color/yello_heavy"
+        app:helperTextTextColor="@color/yello_heavy"
+        app:helperTextTextAppearance="@color/yello_heavy"
+        app:suffixTextColor="@color/yello_heavy"
+        app:hintTextAppearance="@color/yello_heavy"
+        app:hintTextColor="@color/yello_heavy"
+        >
         <!--    TextInputEditText Height-->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/heightTIET"
@@ -169,15 +190,18 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/very_small_margin"
+        app:boxBackgroundMode="outline"
         app:layout_constraintBottom_toBottomOf="@+id/WeightTIL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/WeightTIL"
-        app:layout_constraintTop_toTopOf="@+id/WeightTIL">
+        app:layout_constraintTop_toTopOf="@+id/WeightTIL"
+        >
         <!--AutoCompleteTextView weight menu-->
         <AutoCompleteTextView
-            android:id="@+id/menuWeightACTV"
+            android:id="@+id/weightInputView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:inputType="none"
             android:text="@string/kg_text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -192,12 +216,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/heightTIL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/heightTIL"
-        app:layout_constraintTop_toTopOf="@+id/heightTIL">
+        app:layout_constraintTop_toTopOf="@+id/heightTIL"
+        app:boxBackgroundMode="outline">
         <!--AutoCompleteTextView height menu-->
         <AutoCompleteTextView
-            android:id="@+id/menuHeightACTV"
+            android:id="@+id/heightInputView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:inputType="none"
             android:text="@string/cm_text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -208,6 +234,7 @@
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_margin"
         android:text="@string/calculate_text"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
