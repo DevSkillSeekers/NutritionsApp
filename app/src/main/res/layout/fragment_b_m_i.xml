@@ -162,7 +162,6 @@
         app:endIconMode="clear_text"
         android:layout_marginTop="@dimen/small_margin"
         app:boxBackgroundMode="outline"
-        app:layout_constraintBottom_toTopOf="@+id/calculateBT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/WeightTIL"
         app:placeholderTextColor="@color/yellow_medium"
@@ -195,6 +194,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/WeightTIL"
         app:layout_constraintTop_toTopOf="@+id/WeightTIL"
+        app:boxStrokeColor="@color/yello_heavy"
+
         >
         <!--AutoCompleteTextView weight menu-->
         <AutoCompleteTextView
@@ -217,7 +218,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/heightTIL"
         app:layout_constraintTop_toTopOf="@+id/heightTIL"
-        app:boxBackgroundMode="outline">
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/yello_heavy"
+        >
         <!--AutoCompleteTextView height menu-->
         <AutoCompleteTextView
             android:id="@+id/heightInputView"
@@ -229,6 +232,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--    Button calculate-->
+
     <Button
         android:id="@+id/calculateBT"
         style="@style/Widget.Material3.Button.ElevatedButton"
@@ -240,8 +244,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.483" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -293,7 +299,7 @@
                 app:layout_constraintStart_toEndOf="@+id/displayResultTv"
                 app:layout_constraintTop_toTopOf="@+id/displayResultTv" />
 
-           <!--TextView for display tips -->
+            <!--TextView for display tips -->
             <TextView
                 android:id="@+id/displayTipsTV"
                 android:layout_width="match_parent"
