@@ -4,10 +4,10 @@
         <shape
             android:innerRadiusRatio="2.7"
             android:shape="ring"
-            android:thicknessRatio="10.0"
+            android:thicknessRatio="15.0"
             android:useLevel="true">
 
-            <solid android:color="@color/splash_bg" />
+            <solid android:color="@color/progress_color" />
 
         </shape>
     </item>

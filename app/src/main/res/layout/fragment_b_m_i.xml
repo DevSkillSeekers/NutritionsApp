@@ -24,11 +24,11 @@
         android:layout_marginTop="@dimen/very_small_margin"
         app:arc_bottom_text="BMI"
         app:arc_bottom_text_size="28sp"
-        app:arc_finished_color="@color/color_yellow"
+        app:arc_finished_color="@color/color_red"
         app:arc_progress="0"
         app:arc_stroke_width="20dp"
         app:arc_text_color="@color/black"
-        app:arc_unfinished_color="@color/light_gray"
+        app:arc_unfinished_color="@color/yellow_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +124,16 @@
         app:counterMaxLength="9"
         app:endIconMode="clear_text"
         app:helperTextEnabled="true"
+        app:boxBackgroundMode="outline"
+        app:placeholderTextColor="@color/yellow_medium"
+        app:counterOverflowTextColor="@color/yellow_medium"
+        app:counterTextColor="@color/yello_heavy"
+        app:boxStrokeColor="@color/yello_heavy"
+        app:helperTextTextColor="@color/yello_heavy"
+        app:helperTextTextAppearance="@color/yello_heavy"
+        app:suffixTextColor="@color/yello_heavy"
+        app:hintTextAppearance="@color/yello_heavy"
+        app:hintTextColor="@color/yello_heavy"
         app:layout_constraintBottom_toTopOf="@+id/heightTIL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/normalTV">
@@ -147,9 +157,20 @@
         app:counterEnabled="true"
         app:counterMaxLength="8"
         app:endIconMode="clear_text"
+        app:boxBackgroundMode="outline"
         app:layout_constraintBottom_toTopOf="@+id/calculateBT"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/WeightTIL">
+        app:layout_constraintTop_toBottomOf="@id/WeightTIL"
+        app:placeholderTextColor="@color/yellow_medium"
+        app:counterOverflowTextColor="@color/yellow_medium"
+        app:counterTextColor="@color/yello_heavy"
+        app:boxStrokeColor="@color/yello_heavy"
+        app:helperTextTextColor="@color/yello_heavy"
+        app:helperTextTextAppearance="@color/yello_heavy"
+        app:suffixTextColor="@color/yello_heavy"
+        app:hintTextAppearance="@color/yello_heavy"
+        app:hintTextColor="@color/yello_heavy"
+        >
         <!--    TextInputEditText Height-->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/heightTIET"
@@ -165,10 +186,12 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="@dimen/default_margin"
+        app:boxBackgroundMode="outline"
         app:layout_constraintBottom_toBottomOf="@+id/WeightTIL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/WeightTIL"
-        app:layout_constraintTop_toTopOf="@+id/WeightTIL">
+        app:layout_constraintTop_toTopOf="@+id/WeightTIL"
+        >
         <!--AutoCompleteTextView weight menu-->
         <AutoCompleteTextView
             android:id="@+id/weightInputView"
@@ -189,7 +212,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/heightTIL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/heightTIL"
-        app:layout_constraintTop_toTopOf="@+id/heightTIL">
+        app:layout_constraintTop_toTopOf="@+id/heightTIL"
+        app:boxBackgroundMode="outline">
         <!--AutoCompleteTextView height menu-->
         <AutoCompleteTextView
             android:id="@+id/heightInputView"

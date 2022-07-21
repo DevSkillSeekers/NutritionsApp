@@ -65,9 +65,9 @@ object Constants {
         const val MAX_FATS_PER_DAY = 173
     }
     object MediterraneanDiet {
-        const val MAX_CARBS_PER_DAY = 245
-        const val MAX_PROTEINS_PER_DAY = 102
-        const val MAX_FATS_PER_DAY = 74
+        const val MAX_CARBS_PER_DAY = 167
+        const val MAX_PROTEINS_PER_DAY = 50
+        const val MAX_FATS_PER_DAY = 135
     }
 
     const val ACTION_OPEN = 11

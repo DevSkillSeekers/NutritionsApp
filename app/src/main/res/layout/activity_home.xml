@@ -8,9 +8,10 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
-        android:name="com.thechance.nutritionsapp.ui.HomeFragment"
+        android:name="com.thechance.nutritionsapp.ui.home.HomeFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,5 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
-        app:menu="@menu/menu_bottom_nav" />
+        app:menu="@menu/menu_bottom_nav"
+        app:backgroundTint="@color/yello_light"
+        app:itemTextColor="@color/bottom_item_color"
+        app:itemIconTint="@color/bottom_item_color"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
