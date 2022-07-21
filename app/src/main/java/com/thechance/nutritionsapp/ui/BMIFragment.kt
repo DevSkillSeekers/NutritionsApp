@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.compose.ui.Modifier
-import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.FragmentBMIBinding
 import com.thechance.nutritionsapp.util.BMI
