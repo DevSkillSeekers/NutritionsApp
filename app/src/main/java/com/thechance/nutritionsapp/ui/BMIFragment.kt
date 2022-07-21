@@ -57,10 +57,14 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
                 val heightUnit = binding.menuHeightACTV.text.toString()
                 calculateBMI(weight, height, weighUnit, heightUnit)
             } else {
-                Toast.makeText(context, "Please enter your weight:between(40-132) and height:between(140-210)", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Please enter your  weight:between(40-132)  and  height:between(140-210)", Toast.LENGTH_LONG)
                     .show()
                 binding.WeightTIET.setText("")
                 binding.heightTIET.setText("")
+                binding.ArcProgress.progress = 0
+                binding.displayResultTv.text = ""
+                binding.displayNumResultTv.text=""
+                binding.displayTipsTV.text=""
 
             }
         }
@@ -104,17 +108,17 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
             when (result) {
                 in 0.0..18.49 -> {
                     binding.ArcProgress.finishedStrokeColor=(resources.getColor(R.color.color_yellow))
-                    binding.displayTipsTV.setText(R.string.tips)
+                    binding.displayTipsTV.setText(R.string.tips_low_weight)
                     binding.displayResultTv.setTextColor(resources.getColor(R.color.color_yellow))}
                 in 18.50..24.99 -> {
                         binding.ArcProgress.finishedStrokeColor = (resources.getColor(R.color.blue))
-                        binding.displayTipsTV.setText(R.string.tips)
+                        binding.displayTipsTV.setText(R.string.tips_normal_weight)
                         binding.displayResultTv.setTextColor(resources.getColor(R.color.blue))
                 }
 
                 in 25.0..40.0 -> {
                     binding.ArcProgress.finishedStrokeColor = (resources.getColor(R.color.color_red))
-                    binding.displayTipsTV.setText(R.string.tips)
+                    binding.displayTipsTV.setText(R.string.tips_over_weight)
                     binding.displayResultTv.setTextColor(resources.getColor(R.color.color_red))}
                 }
             }else{

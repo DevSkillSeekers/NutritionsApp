@@ -22,10 +22,10 @@ class BMI(private val Weight: Double?, private val Height: Double?) {
         if (bmiRAW != -1.0) {
             when {
                 bmiRAW <= 16.0 -> {
-                    result += "Severely Underweight"
+                    result += "Underweight Class II"
                 }
                 bmiRAW in 16.0..16.99 -> {
-                    result += "Underweight"
+                    result += "Underweight class I"
                 }
                 bmiRAW in 17.0..18.49 -> {
                     result += "Low weight"

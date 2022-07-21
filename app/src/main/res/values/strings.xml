@@ -6,7 +6,9 @@
     <string name="search_hint">Search Here</string>
     <string name="home">Home</string>
     <string name="bmi">BMI</string>
-    <string name="tips">Get more active Being active is key to losing weight and keeping it off. As well as providing lots of health benefits, exercise can help burn off the excess calories you cannot lose through diet alone.</string>
+    <string name="tips_normal_weight">Drink more WATER in the morning less at night, Best sleeping time is from 10pm at night to 6am in the morning,,Reduce the amount of OILY food you consume </string>
+    <string name="tips_low_weight">Do not drink coffee TWICE a day, Do not have HUGE meals after 5pm,Do not lie down immediately after taking medicine before sleeping</string>
+    <string name="tips_over_weight">Get more active Being active is key to losing weight and keeping it off. As well as providing lots of health benefits, exercise can help burn off the excess calories you cannot lose through diet alone.</string>
     <string name="bmi_calculator">BMI Calculator</string>
     <string name="overweight_text">Overweight</string>
     <string name="normal_text">Normal</string>
