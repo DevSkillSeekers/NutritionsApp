@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
@@ -67,6 +68,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
 
     override fun onClick(item: NutritionItem) {
         this.hideKeyboard()
+        /// should deleted after add abdallah's task
         when (mealType) {
             Constants.BREAKFAST -> {
                 breakfast.add(item)
@@ -78,13 +80,15 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
                 dinner.add(item)
             }
         }
+        /////////////////////////////
         val fragment = HomeFragment()
         val data = Bundle()
         data.putInt(Constants.EXTRA_Add_MEAL, mealType)
+        data.putParcelable(Constants.MEAL_ITEMS_DATA,item)
         fragment.arguments = data
         changeFragmentWithData(
             fragment,
-            Constants.REPLACE_FRAGMENT,
+            Constants.ADD_FRAGMENT,
             data
         )
     }
