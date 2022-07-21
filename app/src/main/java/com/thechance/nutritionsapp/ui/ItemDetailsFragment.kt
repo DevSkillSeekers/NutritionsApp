@@ -19,7 +19,6 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentItemDetailsBinding =
         FragmentItemDetailsBinding::inflate
 
-
     override fun setup() {
         mNutritionDetails = arguments?.getParcelable(Constants.EXTRA_NUTRITION_DETAILS)!!
         setupActionBar(binding.toolbarItemDetails.toolbar, mNutritionDetails.name)
@@ -108,8 +107,6 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             DropDownUnit
         )
         binding.cholesterolAmount.text = String.format("%.02f", result) + itemUnit
-
-
     }
 }
 

@@ -6,7 +6,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
-import com.thechance.nutritionsapp.ui.search.SearchFragment
+import com.thechance.nutritionsapp.ui.home.HomeFragment
 
 
 class HomeActivity : AppCompatActivity() {

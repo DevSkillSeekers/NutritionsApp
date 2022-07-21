@@ -10,7 +10,6 @@ import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentMealBinding
-import com.thechance.nutritionsapp.ui.HomeActivity
 import com.thechance.nutritionsapp.ui.ItemDetailsFragment
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
@@ -46,12 +45,14 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
 
         if (listMealItem.isNotEmpty()) {
             binding.emptyTv.visibility = View.GONE
+            binding.animationEmptyMeal.visibility = View.GONE
             binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
             mealAdapter =
                 MealAdapter(listMealItem, this)
             binding.mealRecyclerView.adapter = mealAdapter
         } else {
             binding.emptyTv.visibility = View.VISIBLE
+            binding.animationEmptyMeal.visibility = View.VISIBLE
         }
 
         setListeners()
@@ -69,8 +70,13 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
     }
 
     override fun onClick(item: NutritionItem) {
-        Toast.makeText(context, "OPEN ${item.name}", Toast.LENGTH_LONG)
-            .show()
+        val data = Bundle()
+        data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS, item)
+            changeFragmentWithData(
+                ItemDetailsFragment(),
+                Constants.ADD_FRAGMENT,
+                data
+            )
     }
 
     override fun onDelete(item: NutritionItem) {
@@ -78,4 +84,5 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
         listMealItem.remove(item)
         mealAdapter?.notifyItemRemoved(position)
     }
+
 }

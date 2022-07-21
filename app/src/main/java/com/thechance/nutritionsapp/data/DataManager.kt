@@ -30,13 +30,13 @@ class DataManager {
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
         return when (mealType) {
             Constants.BREAKFAST -> {
-                healthyFoodList.subList(0, 3)
+                healthyFoodList.subList(0, 6)
             }
             Constants.LUNCH -> {
-                healthyFoodList.subList(3, 6)
+                healthyFoodList.subList(3, 9)
             }
             else -> {
-                healthyFoodList.subList(6, 9)
+                healthyFoodList.subList(3, 9)
             }
         }
     }

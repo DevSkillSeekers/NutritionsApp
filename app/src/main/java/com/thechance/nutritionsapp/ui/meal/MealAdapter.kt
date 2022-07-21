@@ -1,11 +1,14 @@
 package com.thechance.nutritionsapp.ui.meal
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
+import com.thechance.nutritionsapp.databinding.MealItemBinding
 import com.thechance.nutritionsapp.databinding.MealItemLayoutBinding
+import com.thechance.nutritionsapp.util.Constants
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -20,7 +23,7 @@ class MealAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConverterViewHolder {
-        return ConverterViewHolder(MealItemLayoutBinding.inflate(LayoutInflater.from(parent.context)))
+        return ConverterViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: ConverterViewHolder, position: Int) {
@@ -30,12 +33,12 @@ class MealAdapter(
         }
 
         holder.binding.apply {
-            mealItem1Name.text = nutritionItem.name
-            mealItem1Calories.text =
+            mealItemName.text = nutritionItem.name
+            mealItemCalories.text =
                 holder.itemView.context.resources.getString(R.string.calories_tv).format(
                     Locale.US, nutritionItem.calories
                 )
-            btnDeleteItem1.setOnClickListener {
+            btnDeleteItem.setOnClickListener {
                 listener.onDelete(nutritionItem)
             }
         }
@@ -43,7 +46,8 @@ class MealAdapter(
 
     override fun getItemCount(): Int = nutritionList.size
 
-    inner class ConverterViewHolder(val binding: MealItemLayoutBinding) :
+    inner class ConverterViewHolder(val binding: MealItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
     }
 }
+

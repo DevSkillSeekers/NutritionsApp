@@ -58,4 +58,5 @@ class DetailMealFragment : BaseFragment<FragmentDetailMealBinding>() {
             resources.getIdentifier(mMealDetails.image, "drawable", requireActivity().packageName)
         binding.mealIv.setImageResource(imageId)
     }
+
 }
