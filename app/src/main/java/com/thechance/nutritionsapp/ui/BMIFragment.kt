@@ -55,7 +55,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
                 val heightUnit = binding.heightInputView.text.toString()
              calculateBMI(weight, height, weighUnit, heightUnit)
             } else {
-                Toast.makeText(context, "Please enter your  weight:between(40-132)  and  height:between(140-210)", Toast.LENGTH_LONG)
+                Toast.makeText(context, getString(R.string.toast_calculate_bmi), Toast.LENGTH_LONG)
                     .show()
                 binding.WeightTIET.setText("")
                 binding.heightTIET.setText("")
@@ -111,7 +111,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
                     binding.displayResultTv.setTextColor(resources.getColor(R.color.color_red))}
                 }
             }else{
-            Toast.makeText(context, "Please make sure that you enter the correct values ", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, getString(R.string.toast_make_sure), Toast.LENGTH_LONG).show()
             }
     }
 }
