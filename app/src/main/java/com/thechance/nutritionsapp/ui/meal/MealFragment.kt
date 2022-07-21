@@ -71,8 +71,13 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
     }
 
     override fun onClick(item: NutritionItem) {
-        Toast.makeText(context, "OPEN ${item.name}", Toast.LENGTH_LONG)
-            .show()
+        val data = Bundle()
+        data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS, item)
+            changeFragmentWithData(
+                ItemDetailsFragment(),
+                Constants.ADD_FRAGMENT,
+                data
+            )
     }
 
     override fun onDelete(item: NutritionItem) {
