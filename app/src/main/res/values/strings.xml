@@ -60,4 +60,6 @@
     <string name="mediterraneanHeadline">Mediterranean Diet</string>
     <string name="mediterraneanDiet">2000 calorie mediterranean diet meal plan suggest depends on consuming about 167g of carbs, 50g of protein and 135g of fat.</string>
     <string name="question">Which diet type do You prefer ?</string>
+    <string name="meal_name_text">Meal Item Name</string>
+
 </resources>

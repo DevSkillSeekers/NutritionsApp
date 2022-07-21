@@ -30,8 +30,9 @@
     <dimen name="size_meal_img_width_height">36dp</dimen>
     <dimen name="img_card_dimen">65dp</dimen>
 
--->
+    -->
 
+    <dimen name="meal_name_max_width">170dp</dimen>
 
 
 <!--    <dimen name="margin_4dp">4dp</dimen>-->

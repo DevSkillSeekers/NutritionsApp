@@ -48,7 +48,7 @@ object Constants {
     const val LUNCH = 1
     const val DINNER = 2
     const val MAX_CALORIES_PER_DAY = 2000
-    
+
     object StandardDiet {
         const val MAX_CARBS_PER_DAY = 300
         const val MAX_PROTEINS_PER_DAY = 65
