@@ -7,8 +7,8 @@ import kotlinx.parcelize.Parcelize
 data class NutritionItem(
     val id: Int,
     val name: String,
-    val servingSize: String,
-    val calories: Int,
+    var servingSize: String,
+    var calories: Int,
     val carbs: Double,
     val proteins: Double,
     val fats: Double,

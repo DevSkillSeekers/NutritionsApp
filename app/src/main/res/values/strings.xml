@@ -45,6 +45,7 @@
     <string name="preparation">Preparation</string>
     <string name="meal_details">Meal Details</string>
     <string name="empty_meal_list">Please, add your meal items!!</string>
+    <string name="button_add_item">Add item</string>
     <string name="no_item">Would you want to start adding items?</string>
     <string name="kg_text">kg</string>
     <string name="cm_text">cm</string>

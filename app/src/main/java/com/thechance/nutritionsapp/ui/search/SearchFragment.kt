@@ -17,6 +17,7 @@ import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
 import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.data.domain.NutritionItem
+import com.thechance.nutritionsapp.ui.ItemDetailsFragment
 import com.thechance.nutritionsapp.ui.home.HomeFragment
 import com.thechance.nutritionsapp.util.Constants
 import com.thechance.nutritionsapp.util.hideKeyboard
@@ -73,81 +74,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
 
     override fun onClick(item: NutritionItem) {
         this.hideKeyboard()
-        /// should deleted after add abdallah's task
-        var msg = ""
-        //var snackBar = Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_SHORT)
-        //snackBar.setBackgroundTint(R.color.yello_heavy)
-        //snackBar.setTextColor(R.color.black)
-        when (mealType) {
-            Constants.BREAKFAST -> {
-                when{
-                    item.calories > DietValues.remainderCal -> {
-                        msg = "Oops, you don`t have enough remained calories"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.carbs > DietValues.remainderCarb -> {
-                        msg = "Oops, you don`t have enough remained carbs"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.proteins > DietValues.remainderProtein -> {
-                        msg = "Oops, you don`t have enough remained protein"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.fats > DietValues.remainderFat -> {
-                        msg = "Oops, you don`t have enough remained fat"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    else -> breakfast.add(item)
-                }
-            }
-            Constants.LUNCH -> {
-                when{
-                    item.calories > DietValues.remainderCal -> {
-                        msg = "Oops, you don`t have enough remained calories"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.carbs > DietValues.remainderCarb -> {
-                        msg = "Oops, you don`t have enough remained carbs"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.proteins > DietValues.remainderProtein -> {
-                        msg = "Oops, you don`t have enough remained protein"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.fats > DietValues.remainderFat -> {
-                        msg = "Oops, you don`t have enough remained fat"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    else -> lunch.add(item)
-                }
-            }
-            Constants.DINNER -> {
-                when{
-                    item.calories > DietValues.remainderCal -> {
-                        msg = "Oops, you don`t have enough remainded calories"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.carbs > DietValues.remainderCarb -> {
-                        msg = "Oops, you don`t have enough remainded carbs"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.proteins > DietValues.remainderProtein -> {
-                        msg = "Oops, you don`t have enough remainded protein"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    item.fats > DietValues.remainderFat -> {
-                        msg = "Oops, you don`t have enough remainded fat"
-                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
-                    }
-                    else -> dinner.add(item)
-                }
-            }
-        }
-        /////////////////////////////
-        val fragment = HomeFragment()
+        val fragment = ItemDetailsFragment()
         val data = Bundle()
         data.putInt(Constants.EXTRA_Add_MEAL, mealType)
-        data.putParcelable(Constants.MEAL_ITEMS_DATA,item)
+        data.putParcelable(Constants.EXTRA_NUTRITION_DETAILS,item)
         fragment.arguments = data
         changeFragmentWithData(
             fragment,
