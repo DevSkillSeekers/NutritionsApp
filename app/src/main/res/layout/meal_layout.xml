@@ -17,7 +17,7 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_img"
             android:padding="@dimen/default_margin"
-            android:src="@drawable/ic_pizza"
+            android:src="@drawable/dinner_svgrepo_com"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
