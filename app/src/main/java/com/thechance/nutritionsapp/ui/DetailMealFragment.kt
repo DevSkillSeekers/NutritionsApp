@@ -2,7 +2,6 @@ package com.thechance.nutritionsapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.databinding.FragmentDetailMealBinding
@@ -16,7 +15,7 @@ class DetailMealFragment : BaseFragment<FragmentDetailMealBinding>() {
         FragmentDetailMealBinding::inflate
 
     override fun setup() {
-        this.setupActionBar(
+        setupActionBar(
             toolbar = binding.detailToolbar.toolbar,
             title = getString(R.string.meal_details)
         )
@@ -59,4 +58,5 @@ class DetailMealFragment : BaseFragment<FragmentDetailMealBinding>() {
             resources.getIdentifier(mMealDetails.image, "drawable", requireActivity().packageName)
         binding.mealIv.setImageResource(imageId)
     }
+
 }

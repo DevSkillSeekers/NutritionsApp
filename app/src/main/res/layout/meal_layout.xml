@@ -16,7 +16,7 @@
             android:layout_height="@dimen/size_card_of_meal"
             android:layout_gravity="center"
             android:background="@drawable/shape_img"
-            android:padding="@dimen/large_margin"
+            android:padding="@dimen/default_margin"
             android:src="@drawable/ic_pizza"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,35 +26,39 @@
             android:id="@+id/addIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="23dp"
-            android:background="@color/white"
-            android:src="@drawable/ic_outline_add_circle_24"
+            android:layout_marginEnd="@dimen/large_margin"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="Pizza"
-            android:textColor="@color/title_color"
-            android:textSize="@dimen/size_title_meal"
-            app:layout_constraintStart_toEndOf="@id/imgMeal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintEnd_toStartOf="@+id/addIcon"
+            app:layout_constraintStart_toEndOf="@+id/imgMeal"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvCal"
+            android:id="@+id/caloriesTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
             android:text="200 Cal"
-            android:textColor="@color/title_color"
+            android:textColor="@color/text_color"
             app:layout_constraintStart_toEndOf="@+id/imgMeal"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

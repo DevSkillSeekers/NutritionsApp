@@ -1,28 +1,28 @@
 package com.thechance.nutritionsapp.ui
 
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.thechance.nutritionsapp.BaseFragment
+import androidx.compose.ui.Modifier
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.FragmentBMIBinding
 import com.thechance.nutritionsapp.util.BMI
 import com.thechance.nutritionsapp.util.unitconverter.Converter
-import com.thechance.nutritionsapp.util.unitconverter.ConverterUtil
 
 class BMIFragment : BaseFragment<FragmentBMIBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentBMIBinding =
         FragmentBMIBinding::inflate
 
     override fun setup() {
-        this.setupActionBar(
+        setupActionBar(
             toolbar = binding.bmiToolbar.toolbar,
             title = resources.getString(R.string.bmi)
         )
 
-        binding.menuHeightACTV.setAdapter(
+        binding.heightInputView.setAdapter(
             ArrayAdapter(
                 requireContext(),
                 android.R.layout.simple_dropdown_item_1line, listOf(
@@ -32,7 +32,7 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
             )
         )
 
-        binding.menuWeightACTV.setAdapter(
+        binding.weightInputView.setAdapter(
             ArrayAdapter(
                 requireContext(),
                 android.R.layout.simple_dropdown_item_1line, listOf(
@@ -43,15 +43,27 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
         )
 
         binding.calculateBT.setOnClickListener {
-            if (!binding.WeightTIET.text.isNullOrBlank() && !binding.heightTIET.text.isNullOrBlank()) {
-                val weight = binding.WeightTIET.text.toString().toDouble()
-                val height = binding.heightTIET.text.toString().toDouble()
-                val weighUnit = binding.menuWeightACTV.text.toString()
-                val heightUnit = binding.menuHeightACTV.text.toString()
-                calculateBMI(weight, height, weighUnit, heightUnit)
+
+            if (!binding.WeightTIET.text.isNullOrBlank()
+                && !binding.heightTIET.text.isNullOrBlank()
+                && (binding.WeightTIET.text.toString().toDouble() in 40.0..132.0)
+                && (binding.heightTIET.text.toString().toDouble() in 140.0..210.0)
+            ) {
+                val weight = binding.WeightTIET.text.toString().toDoubleOrNull() ?: 0.0
+                val height = binding.heightTIET.text.toString().toDoubleOrNull() ?: 0.0
+                val weighUnit = binding.weightInputView.text.toString()
+                val heightUnit = binding.heightInputView.text.toString()
+             calculateBMI(weight, height, weighUnit, heightUnit)
             } else {
-                Toast.makeText(context, "Please enter your weight and height", Toast.LENGTH_LONG)
+                Toast.makeText(context, getString(R.string.toast_calculate_bmi), Toast.LENGTH_LONG)
                     .show()
+                binding.WeightTIET.setText("")
+                binding.heightTIET.setText("")
+                binding.ArcProgress.progress = 0
+                binding.displayResultTv.text = ""
+                binding.displayNumResultTv.text=""
+                binding.displayTipsTV.text=""
+
             }
         }
     }
@@ -64,29 +76,42 @@ class BMIFragment : BaseFragment<FragmentBMIBinding>() {
     ) {
         var heightCM = height
         if (heightUnit != resources.getString(R.string.cm_text)) {
-            heightCM = Converter().convertFromTypeToOther(
-                ConverterUtil.MainConverter.weight,
-                "feet",
-                "cm",
-                height
-            ) ?: height
+            heightCM = Converter().feetToCm(height)
         }
+
         var weightKG = weight
         if (weighUnit != resources.getString(R.string.kg_text)) {
-            weightKG = Converter().convertFromTypeToOther(
-                ConverterUtil.MainConverter.weight,
-                "Pound",
-                "Kilogram",
-                height
-            ) ?: weight
+            weightKG = Converter().poundToKilo(weight)
         }
 
+        // display the result
+        binding.displayTipsTV.movementMethod = ScrollingMovementMethod()
         val bmiCalculator = BMI(weightKG, heightCM)
         val result = bmiCalculator.calculation0fBMI()
-        binding.ArcProgress.progress = result.toInt()
-        val type = bmiCalculator.diagnostic(result)
-        binding.displayResultTv.text = type
-        binding.linearLayout.visibility = View.VISIBLE
-    }
 
+        if (result != -1.0) {
+            binding.ArcProgress.progress = result.toInt()
+            val type = bmiCalculator.diagnostic(result)
+            binding.displayResultTv.text = type
+            binding.displayNumResultTv.text=result.toString()
+            when (result) {
+                in 0.0..18.49 -> {
+                    binding.ArcProgress.finishedStrokeColor=(resources.getColor(R.color.color_yellow))
+                    binding.displayTipsTV.setText(R.string.tips_low_weight)
+                    binding.displayResultTv.setTextColor(resources.getColor(R.color.color_yellow))}
+                in 18.50..24.99 -> {
+                        binding.ArcProgress.finishedStrokeColor = (resources.getColor(R.color.blue))
+                        binding.displayTipsTV.setText(R.string.tips_normal_weight)
+                        binding.displayResultTv.setTextColor(resources.getColor(R.color.blue))
+                }
+
+                in 25.0..40.0 -> {
+                    binding.ArcProgress.finishedStrokeColor = (resources.getColor(R.color.color_red))
+                    binding.displayTipsTV.setText(R.string.tips_over_weight)
+                    binding.displayResultTv.setTextColor(resources.getColor(R.color.color_red))}
+                }
+            }else{
+            Toast.makeText(context, getString(R.string.toast_make_sure), Toast.LENGTH_LONG).show()
+            }
+    }
 }

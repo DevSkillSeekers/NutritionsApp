@@ -3,20 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/large_margin"
-    android:layout_marginEnd="@dimen/large_margin"
     android:background="@color/white">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchViewInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
         android:hint="@string/search_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:startIconContentDescription="@string/search"
+        app:placeholderTextColor="@color/yellow_medium"
+        app:counterOverflowTextColor="@color/yellow_medium"
+        app:counterTextColor="@color/yello_heavy"
+        app:boxStrokeColor="@color/yello_heavy"
+        app:helperTextTextColor="@color/yello_heavy"
+        app:helperTextTextAppearance="@color/yello_heavy"
+        app:suffixTextColor="@color/yello_heavy"
+        app:hintTextAppearance="@color/yello_heavy"
+        app:hintTextColor="@color/yello_heavy"
+        app:endIconMode="clear_text"
         app:startIconDrawable="@drawable/ic_outline_search_24">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -33,8 +43,10 @@
         android:id="@+id/mealRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/large_margin"
-        android:layout_marginBottom="@dimen/large_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,9 +61,21 @@
         android:gravity="center"
         android:text="@string/empty_search"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/large_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchViewInput" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_empty_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="searching.json"
+        app:lottie_loop="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

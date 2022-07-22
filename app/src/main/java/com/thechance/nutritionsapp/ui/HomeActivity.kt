@@ -4,11 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
-import com.thechance.nutritionsapp.BaseFragment
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
-import com.thechance.nutritionsapp.ui.search.SearchFragment
-import com.thechance.nutritionsapp.util.Constants
+import com.thechance.nutritionsapp.ui.home.HomeFragment
 
 
 class HomeActivity : AppCompatActivity() {
@@ -34,8 +32,8 @@ class HomeActivity : AppCompatActivity() {
                     changeFragment(BMIFragment())
                     true
                 }
-                com.thechance.nutritionsapp.R.id.search_menu -> {
-                    changeFragment(SearchFragment())
+                com.thechance.nutritionsapp.R.id.diet_menu -> {
+                    changeFragment(DietTypeFragment())
                     true
                 }
                 else -> {

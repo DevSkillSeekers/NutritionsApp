@@ -4,4 +4,16 @@
         <item name="cornerSize">12dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
+
+    <style name="itemImageRounded">
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
+
+    <style name="addItemBtnRounded">
+        <item name="cornerSize">16dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
 </resources>
