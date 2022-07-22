@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    style="@style/fragment_bg"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.cardview.widget.CardView
@@ -240,6 +240,7 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/dinner"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/lunchChip"
             app:layout_constraintTop_toBottomOf="@+id/cardGuide" />
@@ -279,13 +280,13 @@
 
     <TextView
         android:id="@+id/text_seeAll"
-        style="@style/subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/large_margin"
         android:drawablePadding="@dimen/small_padding"
         android:text="@string/see_all"
         app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        style="@style/subTitle"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_meal"
         app:layout_constraintEnd_toEndOf="parent" />
 

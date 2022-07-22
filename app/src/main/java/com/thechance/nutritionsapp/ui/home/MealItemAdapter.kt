@@ -2,6 +2,7 @@ package com.thechance.nutritionsapp.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
