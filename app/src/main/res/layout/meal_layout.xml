@@ -17,7 +17,7 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_img"
             android:padding="@dimen/default_margin"
-            android:src="@drawable/ic_pizza"
+            android:src="@drawable/dinner_svgrepo_com"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,6 +43,8 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="Pizza"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
             android:textColor="@color/text_color"
             android:textSize="@dimen/small_text_size"
             app:layout_constraintEnd_toStartOf="@+id/addIcon"
@@ -56,7 +58,7 @@
             android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
             android:text="200 Cal"
-            android:textColor="@color/text_color"
+            android:textColor="#767676"
             app:layout_constraintStart_toEndOf="@+id/imgMeal"
             app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 

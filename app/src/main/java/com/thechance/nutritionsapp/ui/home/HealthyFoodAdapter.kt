@@ -2,7 +2,9 @@ package com.thechance.nutritionsapp.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.compose.ui.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
+import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.HealthyFoodBinding
@@ -26,6 +28,7 @@ class HealthyFoodAdapter(
         holder.itemView.setOnClickListener{
             listener.onClick(healthyFoodItem)
         }
+
         holder.binding.apply {
             textHealthyFood.text = healthyFoodItem.name
 //            imageHealthyFood.drawable = holder.itemView.resources.

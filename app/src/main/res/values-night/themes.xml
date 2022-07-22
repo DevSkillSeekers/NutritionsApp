@@ -17,12 +17,14 @@
     <style name="chip" parent="Widget.Material3.Chip.Filter">
         <item name="chipStrokeColor">@color/light_gray</item>
         <item name="chipSurfaceColor">@color/yello_light</item>
-        <item name="chipBackgroundColor">@color/bg_chip_state_list</item>
+        <item name="chipBackgroundColor">@color/bg_chip_state_list_night</item>
+        <item name="android:textColor">@color/chip_text_night</item>
+        <item name="checkedIconTint">@color/black</item>
         <item name="chipStrokeWidth">1dp</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
+        <item name="windowSplashScreenBackground">@color/black</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
         <item name="postSplashScreenTheme">@style/Theme.NutritionsApp</item>
     </style>
@@ -30,15 +32,15 @@
     <style name="titleText">
         <item name="android:fontFamily">sans-serif-black</item>
         <item name="android:textSize">@dimen/medium_text_size_18sp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="subTitle">
         <item name="android:fontFamily">sans-serif-black</item>
         <item name="android:textSize">@dimen/large_body_size</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
         <item name="alpha">.4</item>
-        <item name="android:drawableTint">@color/black</item>
+        <item name="android:drawableTint">@color/white</item>
     </style>
 
     <style name="subBodyText">
@@ -70,38 +72,36 @@
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title"/>
 
     <style name="toolbar">
-        <item name="titleTextColor">@color/black</item>
-        <item name="navigationIconTint">@color/black</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="navigationIconTint">@color/white</item>
     </style>
 
     <style name="fragment_bg">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/black</item>
     </style>
 
     <style name="bottom_nav" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
-        <item name="backgroundTint">@color/yello_light</item>
-        <item name="itemTextColor">@color/bottom_item_color</item>
-        <item name="itemIconTint">@color/bottom_item_color</item>
+        <item name="backgroundTint">@color/bottom_nav_bg_night</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemRippleColor">@color/yello_light</item>
     </style>
 
     <style name="text_color">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="arc_text_color">
-        <item name="arc_text_color">@color/black</item>
+        <item name="arc_text_color">@color/white</item>
     </style>
 
     <style name="stroke_color" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/input</item>
+        <item name="boxStrokeColor">@color/input_night</item>
     </style>
 
     <style name="drop_down" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-        <item name="boxStrokeColor">@color/input</item>
+        <item name="boxStrokeColor">@color/input_night</item>
     </style>
-
-
-
 
     <!--Bottom Navigation Style-->
 <!--    <style name="Theme.App" parent="Theme.Material3.DayNight.NoActionBar">-->
