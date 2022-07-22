@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     android:paddingHorizontal="0dp"
     tools:context=".ui.ItemDetailsFragment">
@@ -49,12 +49,12 @@
             <ProgressBar
                 android:id="@+id/progressBarOfCarb"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="200dp"
+                android:layout_width="165dp"
                 android:layout_height="0dp"
                 android:progress="50"
-                android:progressBackgroundTint="@color/darkGreenTheme"
-                android:progressTint="@color/darkGreenTheme"
-                android:scaleY="1.8"
+                android:scaleY=".5"
+                android:max="100"
+                android:progressDrawable="@drawable/horizontal_progress_bar"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -85,12 +85,12 @@
             <ProgressBar
                 android:id="@+id/progressBarOfProtein"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="200dp"
+                android:layout_width="165dp"
                 android:layout_height="0dp"
                 android:progress="70"
-                android:progressBackgroundTint="@color/darkGreenTheme"
-                android:progressTint="@color/darkGreenTheme"
-                android:scaleY="1.8"
+                android:scaleY=".5"
+                android:max="100"
+                android:progressDrawable="@drawable/horizontal_progress_bar"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -121,12 +121,12 @@
             <ProgressBar
                 android:id="@+id/fatProgressBarOfFats"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="200dp"
+                android:layout_width="165dp"
                 android:layout_height="0dp"
                 android:progress="14"
-                android:progressBackgroundTint="@color/darkGreenTheme"
-                android:progressTint="@color/darkGreenTheme"
-                android:scaleY="1.8"
+                android:scaleY=".5"
+                android:max="100"
+                android:progressDrawable="@drawable/horizontal_progress_bar"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -185,8 +185,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin"
-            android:background="@drawable/rounded_corners"
-            android:padding="@dimen/large_margin"
+            android:background="@drawable/rounded_corners2"
+            android:padding="@dimen/default_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/statistics_layout">
@@ -194,7 +194,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
@@ -214,7 +214,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="195dp"
+                android:layout_width="185dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
                 android:hint="Label"
@@ -400,14 +400,16 @@
                 app:layout_constraintEnd_toEndOf="@id/label_vitamin_c"
                 app:layout_constraintTop_toTopOf="@id/label_vitamin_c" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/label_cholesterol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin"
             android:background="@drawable/rounded_corners2"
-            app:layout_constraintTop_toBottomOf="@+id/label_vitamin_c"
-            app:layout_constraintStart_toStartOf="@id/label_vitamin_c">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/label_vitamin_c"
+            app:layout_constraintTop_toBottomOf="@+id/label_vitamin_c">
 
             <ImageView
                 android:id="@+id/imageView4"
