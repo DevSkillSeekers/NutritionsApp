@@ -1,12 +1,12 @@
 package com.thechance.nutritionsapp.ui.search
 
-import android.R.attr.data
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.MealLayoutBinding
 import com.thechance.nutritionsapp.ui.meal.MealAdapter

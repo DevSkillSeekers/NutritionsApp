@@ -1,5 +1,6 @@
 package com.thechance.nutritionsapp.ui.search
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,11 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.data.domain.DietValues
+import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.databinding.FragmentSearchBinding
 import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.data.domain.NutritionItem
-import com.thechance.nutritionsapp.ui.HomeFragment
+import com.thechance.nutritionsapp.ui.home.HomeFragment
 import com.thechance.nutritionsapp.util.Constants
 import com.thechance.nutritionsapp.util.hideKeyboard
 
@@ -27,9 +33,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
         binding.mealRecyclerView.layoutManager = GridLayoutManager(context, 1)
         nutritionList = if (keyword == null) {
             binding.emptySearch.visibility = View.VISIBLE
+            binding.animationEmptySearch.visibility = View.VISIBLE
             ArrayList()
         } else {
             binding.emptySearch.visibility = View.GONE
+            binding.animationEmptySearch.visibility = View.GONE
             ArrayList(dataManager.getSpecificNutrition(keyword.toString()))
         }
         searchAdapter = SearchAdapter(nutritionList, this)
@@ -41,6 +49,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
         binding.edtTxtSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(keyword: Editable?) {
                 binding.emptySearch.visibility = View.GONE
+                binding.animationEmptySearch.visibility = View.GONE
                 searchAdapter.setData(ArrayList(dataManager.getSpecificNutrition(keyword.toString())))
             }
 
@@ -65,15 +74,73 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
     override fun onClick(item: NutritionItem) {
         this.hideKeyboard()
         /// should deleted after add abdallah's task
+        var msg = ""
+        //var snackBar = Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_SHORT)
+        //snackBar.setBackgroundTint(R.color.yello_heavy)
+        //snackBar.setTextColor(R.color.black)
         when (mealType) {
             Constants.BREAKFAST -> {
-                breakfast.add(item)
+                when{
+                    item.calories > DietValues.remainderCal -> {
+                        msg = "Oops, you don`t have enough remained calories"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.carbs > DietValues.remainderCarb -> {
+                        msg = "Oops, you don`t have enough remained carbs"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.proteins > DietValues.remainderProtein -> {
+                        msg = "Oops, you don`t have enough remained protein"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.fats > DietValues.remainderFat -> {
+                        msg = "Oops, you don`t have enough remained fat"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    else -> breakfast.add(item)
+                }
             }
             Constants.LUNCH -> {
-                lunch.add(item)
+                when{
+                    item.calories > DietValues.remainderCal -> {
+                        msg = "Oops, you don`t have enough remained calories"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.carbs > DietValues.remainderCarb -> {
+                        msg = "Oops, you don`t have enough remained carbs"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.proteins > DietValues.remainderProtein -> {
+                        msg = "Oops, you don`t have enough remained protein"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.fats > DietValues.remainderFat -> {
+                        msg = "Oops, you don`t have enough remained fat"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    else -> lunch.add(item)
+                }
             }
             Constants.DINNER -> {
-                dinner.add(item)
+                when{
+                    item.calories > DietValues.remainderCal -> {
+                        msg = "Oops, you don`t have enough remainded calories"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.carbs > DietValues.remainderCarb -> {
+                        msg = "Oops, you don`t have enough remainded carbs"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.proteins > DietValues.remainderProtein -> {
+                        msg = "Oops, you don`t have enough remainded protein"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    item.fats > DietValues.remainderFat -> {
+                        msg = "Oops, you don`t have enough remainded fat"
+                        Snackbar.make(binding.root,"${msg}",Snackbar.LENGTH_LONG).show()
+                    }
+                    else -> dinner.add(item)
+                }
             }
         }
         /////////////////////////////

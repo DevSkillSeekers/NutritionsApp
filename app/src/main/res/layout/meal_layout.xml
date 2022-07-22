@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/large_margin"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

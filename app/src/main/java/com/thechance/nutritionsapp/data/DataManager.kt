@@ -30,13 +30,13 @@ class DataManager {
     fun getHealthyMeal(mealType: Int): List<HealthyFood> {
         return when (mealType) {
             Constants.BREAKFAST -> {
-                healthyFoodList.subList(0, 3)
+                healthyFoodList.subList(0, 6)
             }
             Constants.LUNCH -> {
-                healthyFoodList.subList(3, 6)
+                healthyFoodList.subList(3, 9)
             }
             else -> {
-                healthyFoodList.subList(6, 9)
+                healthyFoodList.subList(3, 9)
             }
         }
     }
@@ -145,6 +145,7 @@ class DataManager {
         remainder -= getMealCalories(Constants.BREAKFAST)
         remainder -= getMealCalories(Constants.LUNCH)
         remainder -= getMealCalories(Constants.DINNER)
+        DietValues.remainderCal = remainder
         return remainder
     }
 
@@ -153,6 +154,7 @@ class DataManager {
         remainder -= getMealCarbs(Constants.BREAKFAST).toInt()
         remainder -= getMealCarbs(Constants.LUNCH).toInt()
         remainder -= getMealCarbs(Constants.DINNER).toInt()
+        DietValues.remainderCarb = remainder
         return remainder
     }
 
@@ -161,6 +163,7 @@ class DataManager {
         remainder -= getMealProteins(Constants.BREAKFAST).toInt()
         remainder -= getMealProteins(Constants.LUNCH).toInt()
         remainder -= getMealProteins(Constants.DINNER).toInt()
+        DietValues.remainderProtein = remainder
         return remainder
     }
 
@@ -169,6 +172,7 @@ class DataManager {
         remainder -= getMealFats(Constants.BREAKFAST).toInt()
         remainder -= getMealFats(Constants.LUNCH).toInt()
         remainder -= getMealFats(Constants.DINNER).toInt()
+        DietValues.remainderFat = remainder
         return remainder
     }
 

@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Nutrition App</string>
+
+    <!--Home Screen-->
+    <string name="remaining">Remaining</string>
+    <string name="text_kcal">Kcal</string>
+
     <string name="meal_image">meal image</string>
     <string name="search">Search</string>
     <string name="empty_search">What are you looking for?</string>
@@ -7,7 +12,9 @@
     <string name="home">Home</string>
     <string name="bmi">BMI</string>
     <string name="dietType">Diet</string>
-    <string name="tips">Get more active Being active is key to losing weight and keeping it off. As well as providing lots of health benefits, exercise can help burn off the excess calories you cannot lose through diet alone.</string>
+    <string name="tips_normal_weight">Drink more WATER in the morning less at night, Best sleeping time is from 10pm at night to 6am in the morning,,Reduce the amount of OILY food you consume </string>
+    <string name="tips_low_weight">Do not drink coffee TWICE a day, Do not have HUGE meals after 5pm,Do not lie down immediately after taking medicine before sleeping</string>
+    <string name="tips_over_weight">Get more active Being active is key to losing weight and keeping it off. As well as providing lots of health benefits, exercise can help burn off the excess calories you cannot lose through diet alone.</string>
     <string name="bmi_calculator">BMI Calculator</string>
     <string name="overweight_text">Overweight</string>
     <string name="normal_text">Normal</string>
@@ -29,7 +36,7 @@
     <string name="dinner">Dinner</string>
     <string name="healthy_recipes">Healthy Recipes</string>
     <string name="total_calories">Total calories</string>
-    <string name="see_all">see all</string>
+    <string name="see_all">Add item</string>
     <string name="carb_gram">%s gram</string>
     <string name="protein_gram">%s gram</string>
     <string name="fat_gram">%s gram</string>
@@ -37,7 +44,8 @@
     <string name="calories_number">%s Kcal</string>
     <string name="preparation">Preparation</string>
     <string name="meal_details">Meal Details</string>
-    <string name="empty_meal_list">No item in meal yet!!</string>
+    <string name="empty_meal_list">Please, add your meal items!!</string>
+    <string name="no_item">Would you want to start adding items?</string>
     <string name="kg_text">kg</string>
     <string name="cm_text">cm</string>
     <string name="error_msg">"Please enter your weight and height"</string>
@@ -45,6 +53,8 @@
     <string name="pound">Pound</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
+    <string name="hinit_tips">For an ideal weight, some tips will be displayed that suits your weight here .</string>
+
     <string name="standardDiet">The FDA recommends consuming 300g of carbs, 65g of protein and 65g of fat per day on a 2000-calorie meal plan.</string>
     <string name="standardHeadline">Standard Diet</string>
     <string name="ketoHeadline">Ketogenic Diet</string>
@@ -54,4 +64,8 @@
     <string name="mediterraneanHeadline">Mediterranean Diet</string>
     <string name="mediterraneanDiet">2000 calorie mediterranean diet meal plan suggest depends on consuming about 167g of carbs, 50g of protein and 135g of fat.</string>
     <string name="question">Which diet type do You prefer ?</string>
+    <string name="toast_calculate_bmi">Please enter your  weight:between(40-132)  and  height:between(140-210)</string>
+    <string name="toast_make_sure">\"Please make sure that you enter the correct values \"</string>
+    <string name="meal_name_text">Meal Item Name</string>
+
 </resources>

@@ -20,7 +20,6 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentItemDetailsBinding =
         FragmentItemDetailsBinding::inflate
 
-
     override fun setup() {
         mNutritionDetails = arguments?.getParcelable(Constants.EXTRA_NUTRITION_DETAILS)!!
         setupActionBar(binding.toolbarItemDetails.toolbar, mNutritionDetails.name)
@@ -148,6 +147,7 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
         binding.circularProgressBar.progress = result.toInt()
         binding.KcalAmount.text =  result.toInt().toString()
 
+ 
     }
 }
 
