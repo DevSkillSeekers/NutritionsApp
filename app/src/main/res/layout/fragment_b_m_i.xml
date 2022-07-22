@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/fragment_bg"
     android:paddingHorizontal="@dimen/default_margin"
     tools:context=".ui.BMIFragment">
 
@@ -26,8 +27,8 @@
         app:arc_max="40"
         app:arc_suffix_text=" "
         app:arc_stroke_width="20dp"
-        app:arc_text_color="@color/black"
         app:arc_unfinished_color="@color/yellow_medium"
+        style="@style/arc_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
         android:text="@string/overweight_text"
-        android:textColor="@color/text_color"
+        style="@style/text_color"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/Arc_Progress"
@@ -73,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/default_margin"
         android:text="@string/normal_text"
-        android:textColor="@color/text_color"
+        style="@style/text_color"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/overweightTV"
@@ -97,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/default_margin"
         android:text="@string/underweight_text"
-        android:textColor="@color/text_color"
+        style="@style/text_color"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
 
@@ -118,7 +119,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/WeightTIL"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/stroke_color"
         android:layout_width="210dp"
         android:layout_height="56dp"
         android:hint="@string/weight"
@@ -131,7 +132,6 @@
         app:placeholderTextColor="@color/yellow_medium"
         app:counterOverflowTextColor="@color/yellow_medium"
         app:counterTextColor="@color/yello_heavy"
-        app:boxStrokeColor="@color/yello_heavy"
         app:helperTextTextColor="@color/yello_heavy"
         app:helperTextTextAppearance="@color/yello_heavy"
         app:suffixTextColor="@color/yello_heavy"
@@ -152,7 +152,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/heightTIL"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/stroke_color"
         android:layout_width="210dp"
         android:layout_height="56dp"
         android:layout_marginBottom="@dimen/small_margin"
@@ -167,7 +167,6 @@
         app:placeholderTextColor="@color/yellow_medium"
         app:counterOverflowTextColor="@color/yellow_medium"
         app:counterTextColor="@color/yello_heavy"
-        app:boxStrokeColor="@color/yello_heavy"
         app:helperTextTextColor="@color/yello_heavy"
         app:helperTextTextAppearance="@color/yello_heavy"
         app:suffixTextColor="@color/yello_heavy"
@@ -185,7 +184,7 @@
     <!--TextInputLayout weight menu-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/menuWeightTIL"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/drop_down"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/very_small_margin"
@@ -194,7 +193,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/WeightTIL"
         app:layout_constraintTop_toTopOf="@+id/WeightTIL"
-        app:boxStrokeColor="@color/yello_heavy"
+
 
         >
         <!--AutoCompleteTextView weight menu-->
@@ -210,7 +209,7 @@
     <!--TextInputLayout weight menu-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/menuHeightTIL"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/drop_down"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/very_small_margin"
@@ -219,7 +218,7 @@
         app:layout_constraintStart_toEndOf="@+id/heightTIL"
         app:layout_constraintTop_toTopOf="@+id/heightTIL"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/yello_heavy"
+
         >
         <!--AutoCompleteTextView height menu-->
         <AutoCompleteTextView
@@ -242,6 +241,8 @@
         android:text="@string/calculate_text"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/yello_heavy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -254,6 +255,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
+        android:backgroundTint="@color/yello_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heightTIL">
@@ -294,6 +296,7 @@
                 android:paddingTop="4dp"
                 android:textSize="@dimen/headline_small"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/displayResultTv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/displayResultTv"

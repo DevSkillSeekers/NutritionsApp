@@ -33,6 +33,8 @@
     <color name="teal">#4A6364</color>
     <color name="bleu">#4E5F7D</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bottom_nav_bg_night">#363636</color>
+
 
     <!--Duplicate Colors-->
 <!--    <color name="dark_teal">#00696E</color>darkGreenTheme-->
