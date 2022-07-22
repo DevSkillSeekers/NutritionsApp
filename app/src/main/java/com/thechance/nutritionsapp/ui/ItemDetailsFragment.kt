@@ -5,6 +5,7 @@ import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.NutritionItem
@@ -30,11 +31,9 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
         setData()
         binding.autoCompleteTextView.onItemClickListener =
             OnItemClickListener { parent, view, position, id ->
-                var item = parent.getItemAtPosition(position).toString()
-                Toast.makeText(requireActivity(), "item: $item", Toast.LENGTH_SHORT).show()
-                if (binding.servingsNumber.text.toString().isNotEmpty()) {
+                  if (binding.servingsNumber.text.toString().isNotEmpty()) {
                     setNutritionFacts()
-                }
+                 }
             }
         binding.servingsNumber.onFocusChangeListener =
             OnFocusChangeListener { v, hasFocus ->
@@ -42,12 +41,13 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
                         .isNotEmpty() && binding.autoCompleteTextView.text.isNotEmpty()
                 )
                     setNutritionFacts()
-            }
+             }
 
 
     }
 
     private fun setData() {
+
         binding.progressBarOfCarb.progress = (mNutritionDetails.carbs).toInt()
         binding.progressBarOfProtein.progress = (mNutritionDetails.proteins).toInt()
         binding.fatProgressBarOfFats.progress = (mNutritionDetails.fats).toInt()
@@ -100,15 +100,53 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
         )
         binding.vitaminCAmount.text = String.format("%.02f", result) + itemUnit
 
-        itemUnit = mNutritionDetails.cholesterol.replace("[^A-Za-z]".toRegex(), "")
         amountOfNutritionItem = mNutritionDetails.cholesterol.replace("mg", "").toDouble()
         result = nutritional.calcultionOfNuTritionFacts(
             amountOfNutritionItem,
             servingNumber,
             DropDownUnit
         )
-        binding.cholesterolAmount.text = String.format("%.02f", result) + itemUnit
+        binding.cholesterolAmount.text = String.format("%.02f", result) + "mg"
 
+        amountOfNutritionItem = mNutritionDetails.carbs
+        result = nutritional.calcultionOfNuTritionFacts(
+            amountOfNutritionItem,
+            servingNumber,
+            DropDownUnit
+        )
+        binding.progressBarOfCarb.max = servingNumber.toInt()
+        binding.progressBarOfCarb.progress = result.toInt()
+        binding.carbAmount.text = String.format("%.02f", result) + "g"
+
+        amountOfNutritionItem = mNutritionDetails.proteins
+        result = nutritional.calcultionOfNuTritionFacts(
+            amountOfNutritionItem,
+            servingNumber,
+            DropDownUnit
+        )
+        binding.progressBarOfProtein.max = servingNumber.toInt()
+        binding.progressBarOfProtein.progress = result.toInt()
+        binding.proteinAmount.text = String.format("%.02f", result) + "g"
+
+        amountOfNutritionItem = mNutritionDetails.fats
+        result = nutritional.calcultionOfNuTritionFacts(
+            amountOfNutritionItem,
+            servingNumber,
+            DropDownUnit
+        )
+        binding.fatProgressBarOfFats.max = servingNumber.toInt()
+        binding.fatProgressBarOfFats.progress = result.toInt()
+        binding.fatsAmount.text = String.format("%.02f", result) + "g"
+
+        amountOfNutritionItem = mNutritionDetails.calories.toDouble()
+        result = nutritional.calcultionOfNuTritionFacts(
+            amountOfNutritionItem,
+            servingNumber,
+            DropDownUnit
+        )
+
+        binding.circularProgressBar.progress = result.toInt()
+        binding.KcalAmount.text =  result.toInt().toString()
 
     }
 }
