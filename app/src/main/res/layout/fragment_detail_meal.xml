@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    style="@style/fragment_bg"
     tools:context=".ui.DetailMealFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
             android:text="@string/app_name"
-            android:textColor="@color/black"
+            style="@style/text_color"
             android:textSize="@dimen/medium_text_size_18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
