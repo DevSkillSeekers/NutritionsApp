@@ -89,7 +89,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
             goToMealItemsView()
         }
 
-        binding.textSeeAll.setOnClickListener {
+        binding.addToMealBtn.setOnClickListener {
             goToMealItemsView()
         }
     }
@@ -113,8 +113,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
 
     private fun setMealItems() {
         if (listMealItem.isNotEmpty()) {
-            binding.animationEmptyList.visibility = View.GONE
-            binding.noItems.visibility = View.GONE
+            binding.group.visibility = View.GONE
+            binding.cardMealItem.visibility = View.VISIBLE
             binding.textTotalCalories.visibility = View.VISIBLE
             binding.textTotalCaloriesAmount.visibility = View.VISIBLE
             binding.listMealItems.visibility = View.VISIBLE
@@ -128,8 +128,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
             mealAdapter = MealItemAdapter(listMealItem)
             binding.listMealItems.adapter = mealAdapter
         } else {
-            binding.animationEmptyList.visibility = View.VISIBLE
-            binding.noItems.visibility = View.VISIBLE
+            binding.group.visibility = View.VISIBLE
+            binding.cardMealItem.visibility = View.GONE
             binding.textTotalCalories.visibility = View.GONE
             binding.textTotalCaloriesAmount.visibility = View.GONE
             binding.listMealItems.visibility = View.INVISIBLE
