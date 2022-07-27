@@ -125,6 +125,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HealthyFoodAdapter.OnC
 
             if (listMealItem.count() > 2) {
                 binding.animationSeeMore.visibility = View.VISIBLE
+                binding.animationSeeMore.setOnClickListener {
+                    goToMealItemsView()
+                }
             } else {
                 binding.animationSeeMore.visibility = View.GONE
             }
