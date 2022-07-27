@@ -47,7 +47,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchAdapter.OnCl
     }
 
     private fun setListeners() {
-        binding.edtTxtSearch.addTextChangedListener(object : TextWatcher {
+        binding.searchViewInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(keyword: Editable?) {
                 binding.emptySearch.visibility = View.GONE
                 binding.animationEmptySearch.visibility = View.GONE
