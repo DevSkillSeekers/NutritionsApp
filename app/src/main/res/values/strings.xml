@@ -78,5 +78,8 @@
     <string name="age_error">Incorrect Age</string>
     <string name="height_error">Incorrect Height</string>
     <string name="weight_error">Incorrect Weight</string>
+    <string name="proteins_tv">%s proteins</string>
+    <string name="carbs_tv">%s carbs</string>
+    <string name="fats_tv">%s fats</string>
 
 </resources>
