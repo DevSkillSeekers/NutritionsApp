@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
 import com.thechance.nutritionsapp.ui.home.HomeFragment
+import com.thechance.nutritionsapp.util.getUserSharedPreferences
 
 
 class HomeActivity : AppCompatActivity() {
@@ -21,7 +22,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        changeFragment(LoginFragment())
+        if(this.getUserSharedPreferences().userName == null){
+            changeFragment(LoginFragment())
+        }
         setListeners()
     }
 
