@@ -41,7 +41,7 @@
     <string name="protein_gram">%s gram</string>
     <string name="fat_gram">%s gram</string>
     <string name="servings_number">%s Servings</string>
-    <string name="calories_number">%s Kcal</string>
+    <string name="calories_number"> (%s Kcal) </string>
     <string name="reminder_number">Reminder \n %s</string>
     <string name="preparation">Preparation</string>
     <string name="meal_details">Meal Details</string>

@@ -54,16 +54,19 @@ object Constants {
         const val MAX_PROTEINS_PER_DAY = 65
         const val MAX_FATS_PER_DAY = 65
     }
+
     object KetoDiet {
         const val MAX_CARBS_PER_DAY = 40
         const val MAX_PROTEINS_PER_DAY = 75
         const val MAX_FATS_PER_DAY = 165
     }
+
     object HighProteinDiet {
         const val MAX_CARBS_PER_DAY = 202
         const val MAX_PROTEINS_PER_DAY = 65
         const val MAX_FATS_PER_DAY = 173
     }
+
     object MediterraneanDiet {
         const val MAX_CARBS_PER_DAY = 167
         const val MAX_PROTEINS_PER_DAY = 50
@@ -73,4 +76,11 @@ object Constants {
     const val ACTION_OPEN = 11
     const val ACTION_DELETE = 12
 
+    // Shared preferences
+    const val LOGIN_STATUS = "LOGIN_STATUS"
+    const val TABLE_NAME = "MySharedPrefs"
+    const val USER_NAME = "USER_NAME"
+    const val USER_WEIGHT = "Weight"
+    const val USER_HEIGHT = "height"
+    const val USER_AGE = "age"
 }
