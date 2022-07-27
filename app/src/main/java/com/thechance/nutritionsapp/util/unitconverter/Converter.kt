@@ -26,4 +26,22 @@ class Converter {
     fun feetToCm(feet : Double) : Double {
         return feet * 30.48
     }
+    fun miligramToGram(miligram: Double) : Double{
+        return miligram * 0.001
+    }
+    fun progressLenght(value: Double, unit: String): Int{
+
+        var result : Double = 0.0
+        when {
+            unit.equals("g") ->
+                result = value
+            (unit.equals("kg")) ->
+                result = kiloToGram(value)
+            (unit.equals("mg")) ->
+                result = 1.0
+            (unit.equals("lb")) ->
+                result = poundToGram(value)
+        }
+        return result.toInt()
+    }
 }
