@@ -34,7 +34,11 @@
     <color name="bleu">#4E5F7D</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bottom_nav_bg_night">#363636</color>
-
+    <color name="gray_bg">#F6F6F6</color>
+    <color name="hint">#A2A3A3</color>
+    <color name="login_card_stroke">#C4C6BB</color>
+    <color name="login_card_bg">#FFF9E4</color>
+    <color name="login_card_text">#767676</color>
 
     <!--Duplicate Colors-->
 <!--    <color name="dark_teal">#00696E</color>darkGreenTheme-->
