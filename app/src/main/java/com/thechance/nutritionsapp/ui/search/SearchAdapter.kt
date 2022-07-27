@@ -43,10 +43,10 @@ class SearchAdapter(
         }
         holder.binding.apply {
             titleTextView.text = nutritionItem.name
-            caloriesTextView.text =
-                holder.itemView.context.resources.getString(R.string.calories_tv).format(
-                    Locale.US, nutritionItem.calories
-                )
+            proteinsTextView.text = holder.itemView.context.resources.getString(R.string.proteins_tv).format(Locale.US, nutritionItem.proteins)
+            carbsTextView.text = holder.itemView.context.resources.getString(R.string.carbs_tv).format(Locale.US, nutritionItem.carbs)
+            fatsTextView.text = holder.itemView.context.resources.getString(R.string.fats_tv).format(Locale.US, nutritionItem.fats)
+
         }
     }
 
