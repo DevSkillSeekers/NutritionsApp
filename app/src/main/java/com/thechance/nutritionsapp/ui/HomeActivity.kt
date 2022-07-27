@@ -1,9 +1,13 @@
 package com.thechance.nutritionsapp.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.databinding.ActivityHomeBinding
 import com.thechance.nutritionsapp.ui.home.HomeFragment
@@ -17,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        changeFragment(LoginFragment())
         setListeners()
     }
 
