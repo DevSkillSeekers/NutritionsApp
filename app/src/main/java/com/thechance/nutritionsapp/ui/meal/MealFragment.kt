@@ -5,14 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.ui.state.ToggleableState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.thechance.nutritionsapp.ui.BaseFragment
 import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.data.User
 import com.thechance.nutritionsapp.data.domain.NutritionItem
 import com.thechance.nutritionsapp.databinding.FragmentMealBinding
 import com.thechance.nutritionsapp.ui.ItemDetailsFragment
 import com.thechance.nutritionsapp.ui.search.SearchFragment
 import com.thechance.nutritionsapp.util.Constants
+import com.thechance.nutritionsapp.util.getUserSharedPreferences
+import com.thechance.nutritionsapp.util.saveUserSharedPreferences
 
 class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickListener {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMealBinding =
@@ -22,6 +26,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>(), MealAdapter.OnClickLis
     private var mealAdapter: MealAdapter? = null
 
     override fun setup() {
+
         var title = ""
         when (mealType) {
             Constants.BREAKFAST -> {

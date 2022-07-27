@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thechance.nutritionsapp.R
+import com.thechance.nutritionsapp.data.User
 import com.thechance.nutritionsapp.data.domain.DietValues
 import com.thechance.nutritionsapp.data.domain.HealthyFood
 import com.thechance.nutritionsapp.data.domain.NutritionItem
@@ -18,8 +20,10 @@ import com.thechance.nutritionsapp.ui.DetailMealFragment
 import com.thechance.nutritionsapp.ui.meal.MealAdapter
 import com.thechance.nutritionsapp.ui.meal.MealFragment
 import com.thechance.nutritionsapp.util.Constants
+import com.thechance.nutritionsapp.util.getUserSharedPreferences
+import com.thechance.nutritionsapp.util.saveUserSharedPreferences
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnClickListener {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), HealthyFoodAdapter.OnClickListener {
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding =
         FragmentHomeBinding::inflate
@@ -63,7 +67,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
     private fun setSuggestionFood() {
         binding.listHealthyRecipes.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        healthyFoodAdapter = HealthyFoodAdapter(healthySuggestionMeal,this)
+        healthyFoodAdapter = HealthyFoodAdapter(healthySuggestionMeal, this)
         binding.listHealthyRecipes.adapter = healthyFoodAdapter
     }
 
@@ -83,10 +87,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
                     updateView()
                 }
             }
-        }
-
-        binding.cardMealItem.setOnClickListener{
-            goToMealItemsView()
         }
 
         binding.addToMealBtn.setOnClickListener {
@@ -115,7 +115,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
         if (listMealItem.isNotEmpty()) {
             binding.group.visibility = View.GONE
             binding.cardMealItem.visibility = View.VISIBLE
-            binding.textTotalCalories.visibility = View.VISIBLE
             binding.textTotalCaloriesAmount.visibility = View.VISIBLE
             binding.listMealItems.visibility = View.VISIBLE
 
@@ -124,13 +123,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),HealthyFoodAdapter.OnCl
                 totalCaloriesPerMeal.toString()
             )
 
+            if (listMealItem.count() > 2) {
+                binding.animationSeeMore.visibility = View.VISIBLE
+            } else {
+                binding.animationSeeMore.visibility = View.GONE
+            }
+
             binding.listMealItems.layoutManager = GridLayoutManager(context, 1)
             mealAdapter = MealItemAdapter(listMealItem)
             binding.listMealItems.adapter = mealAdapter
         } else {
             binding.group.visibility = View.VISIBLE
             binding.cardMealItem.visibility = View.GONE
-            binding.textTotalCalories.visibility = View.GONE
             binding.textTotalCaloriesAmount.visibility = View.GONE
             binding.listMealItems.visibility = View.INVISIBLE
         }

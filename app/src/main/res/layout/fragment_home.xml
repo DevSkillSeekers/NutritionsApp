@@ -273,8 +273,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/no_items"
         app:lottie_autoPlay="true"
         app:lottie_fileName="empty_list.json"
@@ -321,45 +321,35 @@
                 style="@style/subTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_margin"
                 android:text="@string/breakfast"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list_meal_items"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@id/text_totalCalories"
-                app:layout_constraintTop_toBottomOf="@+id/text_meal" />
-
-            <TextView
-                android:id="@+id/text_totalCalories"
-                style="@style/bodyText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/default_padding"
-                android:text="@string/total_calories"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/list_meal_items" />
 
             <TextView
                 android:id="@+id/text_totalCaloriesAmount"
                 style="@style/subBodyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBaseline_toBaselineOf="@+id/text_totalCalories"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="gone"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_meal"
+                app:layout_constraintStart_toEndOf="@+id/text_meal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_meal_items"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/animation_see_more"
+                app:layout_constraintTop_toBottomOf="@+id/text_meal" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animation_see_more"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_totalCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list_meal_items"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="button_see_more.json"
                 app:lottie_loop="true" />
