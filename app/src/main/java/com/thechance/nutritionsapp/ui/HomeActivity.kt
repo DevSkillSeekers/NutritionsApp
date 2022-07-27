@@ -36,6 +36,10 @@ class HomeActivity : AppCompatActivity() {
                     changeFragment(DietTypeFragment())
                     true
                 }
+                com.thechance.nutritionsapp.R.id.profile_menu -> {
+                    changeFragment(ProfileFragment())
+                    true
+                }
                 else -> {
                     false
                 }
