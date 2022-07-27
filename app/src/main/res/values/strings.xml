@@ -69,8 +69,14 @@
     <string name="toast_calculate_bmi">Please enter your  weight:between(40-132)  and  height:between(140-210)</string>
     <string name="toast_make_sure">\"Please make sure that you enter the correct values \"</string>
     <string name="meal_name_text">Meal Item Name</string>
-    <string name="proteins_tv">%s proteins</string>
-    <string name="carbs_tv">%s carbs</string>
-    <string name="fats_tv">%s fats</string>
+    <string name="user_name_hint">Enter your name</string>
+    <string name="name_label">User Name</string>
+    <string name="age">Age</string>
+    <string name="user_height">Height(cm)</string>
+    <string name="user_weight">Weight(kg)</string>
+    <string name="name_error">Incorrect Name</string>
+    <string name="age_error">Incorrect Age</string>
+    <string name="height_error">Incorrect Height</string>
+    <string name="weight_error">Incorrect Weight</string>
 
 </resources>
