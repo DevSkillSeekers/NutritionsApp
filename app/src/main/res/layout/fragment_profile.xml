@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/fragment_bg" tools:context=".ui.ProfileFragment">
+
+    <include
+        android:id="@+id/ProfileToolbar"
+        layout="@layout/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iconProfile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="@dimen/xx_larg_margin" android:padding="16dp"
+        android:src="@drawable/ic_profile" android:alpha="0.7"
+        android:background="@drawable/profile_icon_style"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't worry about your meal \n and your can update your profile infotmation"
+        android:textSize="@dimen/large_body_size" android:textColor="@color/light_gray"
+        android:fontFamily="sans-serif-condensed-medium"  android:gravity="center"
+        android:layout_marginVertical="@dimen/large_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iconProfile" />
+
+    <!--/////////////////////////Text View Card/////////////////////////-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardProfileInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/default_margin"
+            android:paddingTop="260dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tip">
+
+            <TextView
+                android:id="@+id/textUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Name" android:textSize="@dimen/large_text_size"
+                android:textColor="@color/text_color"
+                android:background="@drawable/profile_items_style"  android:gravity="center"
+                android:paddingVertical="@dimen/large_padding"
+                android:paddingStart="@dimen/large_padding"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:drawableStart="@drawable/ic_baseline_circle_24_of_item_details"
+                android:fontFamily="sans-serif-condensed-medium"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/textUserAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Age" android:textSize="@dimen/large_text_size" android:textColor="@color/text_color"
+                android:background="@drawable/profile_items_style"  android:gravity="center"
+                android:paddingVertical="@dimen/large_padding"
+                android:paddingStart="@dimen/large_padding"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:drawableStart="@drawable/ic_baseline_circle_24_of_item_details"
+                android:fontFamily="sans-serif-condensed-medium"
+                app:layout_constraintTop_toBottomOf="@id/textUserName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <TextView
+                android:id="@+id/textUserHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Height" android:textSize="@dimen/large_text_size" android:textColor="@color/text_color"
+                android:background="@drawable/profile_items_style"  android:gravity="center"
+                android:paddingVertical="@dimen/large_padding"
+                android:paddingStart="@dimen/large_padding"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:drawableStart="@drawable/ic_baseline_circle_24_of_item_details"
+                android:fontFamily="sans-serif-condensed-medium"
+                app:layout_constraintTop_toBottomOf="@id/textUserAge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/textUserWight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Wight" android:textSize="@dimen/large_text_size" android:textColor="@color/text_color"
+                android:background="@drawable/profile_items_style"  android:gravity="center"
+                android:paddingVertical="@dimen/large_padding"
+                android:paddingStart="@dimen/large_padding"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:drawableStart="@drawable/ic_baseline_circle_24_of_item_details"
+                android:fontFamily="sans-serif-condensed-medium"
+                app:layout_constraintTop_toBottomOf="@id/textUserHeight"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginVertical="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            app:backgroundTint="@color/yello_heavy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_baseline_edit_24"
+            app:tint="@null"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--/////////////////////////Edit View Card/////////////////////////-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardProfileEdit"
+            android:layout_width="match_parent"  android:layout_height="wrap_content"
+            android:padding="8dp" android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:background="@drawable/profile_card_style"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tip">
+
+            <!--    TextInputLayout Name-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tileName"
+                style="@style/stroke_color"
+                android:layout_width="300dp" android:layout_height="56dp"
+                android:hint="Name"
+                app:counterEnabled="true"  app:counterMaxLength="20"
+                android:layout_marginTop="@dimen/default_margin"
+                app:endIconMode="clear_text"  app:helperTextEnabled="true"
+                app:boxBackgroundMode="outline"  app:placeholderTextColor="@color/yellow_medium"
+                app:counterOverflowTextColor="@color/yellow_medium"  app:counterTextColor="@color/yello_heavy"
+                app:helperTextTextColor="@color/yello_heavy"  app:helperTextTextAppearance="@color/yello_heavy"  app:suffixTextColor="@color/yello_heavy"
+                app:hintTextAppearance="@color/yello_heavy"  app:hintTextColor="@color/yello_heavy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <!--    TextInputEditText Name-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEditUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="20" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    TextInputLayout Age-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tileAge"
+                style="@style/stroke_color"
+                android:layout_width="300dp" android:layout_height="56dp"
+                android:hint="Age"
+                app:counterEnabled="true"  app:counterMaxLength="9"
+                android:layout_marginTop="@dimen/default_margin"
+                app:endIconMode="clear_text"  app:helperTextEnabled="true"
+                app:boxBackgroundMode="outline"  app:placeholderTextColor="@color/yellow_medium"
+                app:counterOverflowTextColor="@color/yellow_medium"  app:counterTextColor="@color/yello_heavy"
+                app:helperTextTextColor="@color/yello_heavy"  app:helperTextTextAppearance="@color/yello_heavy"  app:suffixTextColor="@color/yello_heavy"
+                app:hintTextAppearance="@color/yello_heavy"  app:hintTextColor="@color/yello_heavy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tileName">
+                <!--    TextInputEditText Age-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEditUserAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="2"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    TextInputLayout Height-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tileHeight"
+                style="@style/stroke_color"
+                android:layout_width="300dp" android:layout_height="56dp"
+                android:hint="Height"
+                app:counterEnabled="true"  app:counterMaxLength="9"
+                android:layout_marginTop="@dimen/default_margin"
+                app:endIconMode="clear_text"  app:helperTextEnabled="true"
+                app:boxBackgroundMode="outline"  app:placeholderTextColor="@color/yellow_medium"
+                app:counterOverflowTextColor="@color/yellow_medium"  app:counterTextColor="@color/yello_heavy"
+                app:helperTextTextColor="@color/yello_heavy"  app:helperTextTextAppearance="@color/yello_heavy"  app:suffixTextColor="@color/yello_heavy"
+                app:hintTextAppearance="@color/yello_heavy"  app:hintTextColor="@color/yello_heavy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tileAge">
+                <!--    TextInputEditText Height-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEditUserHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="3"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    TextInputLayout Wight-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tileWight"
+                style="@style/stroke_color"
+                android:layout_width="300dp" android:layout_height="56dp"
+                android:hint="Wight"
+                app:counterEnabled="true"  app:counterMaxLength="9"
+                android:layout_marginTop="@dimen/default_margin"
+                app:endIconMode="clear_text"  app:helperTextEnabled="true"
+                app:boxBackgroundMode="outline"  app:placeholderTextColor="@color/yellow_medium"
+                app:counterOverflowTextColor="@color/yellow_medium"  app:counterTextColor="@color/yello_heavy"
+                app:helperTextTextColor="@color/yello_heavy"  app:helperTextTextAppearance="@color/yello_heavy"  app:suffixTextColor="@color/yello_heavy"
+                app:hintTextAppearance="@color/yello_heavy"  app:hintTextColor="@color/yello_heavy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tileHeight">
+                <!--    TextInputEditText Wight-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEditUserWight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="3"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+                      <!-- Button Cancel & Save Edit Change -->
+            <Button
+                android:id="@+id/btnCancelEdit"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:layout_marginStart="@dimen/xx_larg_margin"
+                android:text="Cancel" android:textSize="@dimen/small_text_size"
+                android:textColor="@color/yello_heavy" android:elevation="0dp"
+                android:background="@drawable/cancel_btn_style"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tileWight" />
+
+            <Button
+                android:id="@+id/btnUpdateEdit"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/x_larg_margin"
+                android:text="Update" android:textSize="@dimen/small_text_size" android:textStyle="bold"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/yello_heavy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnCancelEdit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tileWight"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintVertical_bias="0.483" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
