@@ -33,9 +33,10 @@
     -->
 
     <dimen name="meal_name_max_width">170dp</dimen>
+    <dimen name="x_larg_margin">32dp</dimen>
+    <dimen name="xx_larg_margin">64dp</dimen>
 
-
-<!--    <dimen name="margin_4dp">4dp</dimen>-->
+    <!--    <dimen name="margin_4dp">4dp</dimen>-->
 <!--    <dimen name="margin_8dp">8dp</dimen>-->
 <!--    <dimen name="text_size_16sp">16sp</dimen>-->
 <!--    <dimen name="margin_16dp">16dp</dimen>-->
