@@ -17,4 +17,9 @@
         android:icon="@drawable/ic_apple"
         android:title="@string/dietType" />
 
+    <item
+        android:id="@+id/profile_menu"
+        android:icon="@drawable/ic_person"
+        android:title="@string/profile" />
+
 </menu>
