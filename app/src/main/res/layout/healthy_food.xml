@@ -37,7 +37,7 @@
 
             <TextView
                 android:id="@+id/text_healthyFood"
-                style="@style/subTitle"
+                style="@style/subTitleInHome"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"

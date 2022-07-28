@@ -38,7 +38,7 @@
                     android:id="@+id/dietIcon"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/ic_diet_symbol"
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/dietTypeHeadline"
