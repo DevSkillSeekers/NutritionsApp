@@ -16,4 +16,5 @@
         android:id="@+id/diet_menu"
         android:icon="@drawable/ic_apple"
         android:title="@string/dietType" />
+
 </menu>

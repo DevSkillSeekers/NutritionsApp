@@ -5,9 +5,10 @@
             android:innerRadiusRatio="2.7"
             android:shape="ring"
             android:thicknessRatio="15.0"
-            android:useLevel="false">
+            android:useLevel="true">
 
-            <solid android:color="@color/white"/>
+            <solid android:color="@color/yello_heavy" />
+
         </shape>
     </item>
 </layer-list>
