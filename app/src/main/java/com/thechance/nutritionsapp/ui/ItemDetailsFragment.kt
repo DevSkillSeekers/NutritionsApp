@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.DietValues
@@ -22,14 +21,14 @@ import com.thechance.nutritionsapp.util.unitconverter.NutrationFacts
 
 class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
     private lateinit var mNutritionDetails: NutritionItem
-    var servingNumber: Double = 100.0
-    var DropDownUnit = "g"
+    var servingNumbers: Double = 100.0
+    var dropDownUnits = "g"
     var totalKcal = 0
     var nutritionItems = hashMapOf<String, String>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentItemDetailsBinding =
         FragmentItemDetailsBinding::inflate
 
-     override fun setup() {
+    override fun setup() {
         mNutritionDetails = arguments?.getParcelable(Constants.EXTRA_NUTRITION_DETAILS)!!
         setupActionBar(binding.toolbarItemDetails.toolbar, mNutritionDetails.name)
 
@@ -97,9 +96,11 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
         binding.rvRecycler.adapter = RecyclerAdapter(nutritionItems)
     }
 
-     private fun setNutritionFacts() {
+    private fun setNutritionFacts() {
         val servingNumber: Double = binding.servingsNumber.text.toString().toDouble()
+        servingNumbers = servingNumber
         val DropDownUnit = binding.autoCompleteTextView.text.toString()
+        dropDownUnits = DropDownUnit
         var itemUnit = mNutritionDetails.fiber.replace("[^A-Za-z]".toRegex(), "")
         val nutritional = NutrationFacts()
 
@@ -187,7 +188,7 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
     }
 
     private fun addItem() {
-        mNutritionDetails.servingSize = "$servingNumber $DropDownUnit"
+        mNutritionDetails.servingSize = "$servingNumbers $dropDownUnits"
         mNutritionDetails.calories = if (totalKcal != 0) totalKcal else mNutritionDetails.calories
         var msg = ""
         when (mealType) {
@@ -209,7 +210,9 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
                         msg = "Oops, you don`t have enough remained fat"
                         Snackbar.make(binding.root, "${msg}", Snackbar.LENGTH_LONG).show()
                     }
-                    else -> breakfast.add(mNutritionDetails)
+                    else -> {
+                        breakfast.add(mNutritionDetails)
+                    }
                 }
             }
             Constants.LUNCH -> {
@@ -256,6 +259,7 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             }
         }
         this.hideKeyboard()
+
         val fragment = HomeFragment()
         changeFragmentWithData(
             fragment,
