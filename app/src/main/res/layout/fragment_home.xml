@@ -12,10 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/large_margin"
-        app:cardBackgroundColor="@color/yello_heavy"
-        app:cardCornerRadius="@dimen/corner_radius_12dp"
-        app:cardElevation="0dp"
-        app:contentPadding="@dimen/default_padding"
+        style="@style/cardViewInHome"
         app:layout_constraintBottom_toBottomOf="@+id/cardGuide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,11 +101,10 @@
                 android:layout_height="4dp"
                 android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="@color/progress_color"
+                style="@style/progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
-                app:layout_constraintTop_toBottomOf="@+id/Text_carbs"
-                app:trackColor="@color/chip_teal" />
+                app:layout_constraintTop_toBottomOf="@+id/Text_carbs" />
 
             <TextView
                 android:id="@+id/trackCarb"
@@ -137,11 +133,10 @@
                 android:layout_height="4dp"
                 android:layout_marginEnd="@dimen/small_margin"
                 android:progress="10"
-                app:indicatorColor="@color/progress_color"
+                style="@style/progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
-                app:layout_constraintTop_toBottomOf="@+id/text_proteins"
-                app:trackColor="@color/chip_teal" />
+                app:layout_constraintTop_toBottomOf="@+id/text_proteins" />
 
             <TextView
                 android:id="@+id/text_trackProtein"
@@ -170,11 +165,11 @@
                 android:layout_marginEnd="@dimen/small_margin"
                 android:layout_marginBottom="@dimen/large_margin"
                 android:progress="10"
-                app:indicatorColor="@color/progress_color"
                 app:layout_constraintBottom_toBottomOf="@id/progressBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/centerGuide"
-                app:trackColor="@color/chip_teal" />
+                style="@style/progress"
+                 />
 
             <TextView
                 android:id="@+id/text_trackFat"

@@ -21,6 +21,46 @@
         <item name="chipStrokeWidth">1dp</item>
     </style>
 
+    <!--Here I Started-->
+    <style name="cardViewInHome" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/yello_heavy</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">@dimen/default_padding</item>
+    </style>
+
+    <style name="progress">
+        <item name="indicatorColor">@color/progress_color</item>
+        <item name="trackColor">@color/chip_teal</item>
+    </style>
+
+    <style name="progreeInHome">
+        <item name="android:solidColor">@color/progress_color</item>
+    </style>
+
+    <style name="bgInBMi">
+        <item name="backgroundTint">@color/yello_light</item>
+    </style>
+    <!--Diet Fragment-->
+    <style name="bgdiet" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/yello_heavy</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="titleTextInDiet">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textSize">@dimen/medium_text_size_18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="bodyTextInDiet">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/large_body_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="alpha">.4</item>
+    </style>
+
+    <!--The End-->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
@@ -38,7 +78,7 @@
         <item name="android:textSize">@dimen/large_body_size</item>
         <item name="android:textColor">@color/black</item>
         <item name="alpha">.4</item>
-        <item name="android:drawableTint">@color/black</item>
+        <item name="android:drawableTint" tools:targetApi="m">@color/black</item>
     </style>
 
     <style name="subBodyText">
@@ -56,7 +96,7 @@
     </style>
 
     <style name="cardView" parent="Widget.Material3.CardView.Outlined">
-        <item name="cardBackgroundColor">@android:color/white</item>
+        <item name="cardBackgroundColor">@color/yello_light</item>
         <item name="backgroundTint">@color/white</item>
         <item name="backgroundColor">@color/white</item>
         <item name="cardElevation">0dp</item>
