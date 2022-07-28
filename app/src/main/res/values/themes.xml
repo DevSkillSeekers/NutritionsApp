@@ -96,6 +96,21 @@
         <item name="android:src">@drawable/ic_diet_symbol</item>
     </style>
 
+    <!--fragment item details-->
+    <style name="bgItemDetails">
+        <item name="android:background">@drawable/rounded_corners</item>
+    </style>
+
+    <style name="servingStyle">
+        <item name="android:background">@drawable/rounded_corners2</item>
+    </style>
+    <style name="circle">
+        <item name="android:src">@drawable/ic_baseline_circle_24_of_item_details</item>
+    </style>
+
+    <style name="bgDetailMeal">
+        <item name="android:background">@drawable/meal_shape</item>
+    </style>
     <!--The End-->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>

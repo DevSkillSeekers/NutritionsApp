@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_margin"
             android:layout_marginTop="@dimen/default_margin"
-            android:background="@drawable/meal_shape"
+            style="@style/bgDetailMeal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mealTitleTv">
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin"
                 android:text="@string/carbs"
-                android:textColor="@color/text_color"
+                style="@style/darkColorInBmi"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin"
                 android:text="@string/carb_gram"
-                android:textColor="@color/black"
+                style="@style/darkColorInBmi"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
                 android:text="@string/protein"
-                android:textColor="@color/text_color"
+                style="@style/darkColorInBmi"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/carbTv"
                 app:layout_constraintTop_toBottomOf="@id/carbProgressBar" />
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/protein_gram"
-                android:textColor="@color/black"
+                style="@style/darkColorInBmi"
                 app:layout_constraintEnd_toEndOf="@+id/carbGramTv"
                 app:layout_constraintTop_toTopOf="@+id/proteinTv" />
 
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
                 android:text="@string/fat"
-                android:textColor="@color/text_color"
+                style="@style/darkColorInBmi"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/carbTv"
                 app:layout_constraintTop_toBottomOf="@id/proteinProgressBar" />
@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fat_gram"
-                android:textColor="@color/black"
+                style="@style/darkColorInBmi"
                 app:layout_constraintEnd_toEndOf="@+id/carbGramTv"
                 app:layout_constraintTop_toTopOf="@+id/text_fat" />
 
@@ -157,7 +157,7 @@
             android:layout_marginHorizontal="@dimen/default_margin"
             android:layout_marginTop="@dimen/default_margin"
             android:layout_marginBottom="@dimen/default_margin"
-            android:background="@drawable/meal_shape"
+            style="@style/bgDetailMeal"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -170,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin"
                 android:text="@string/ingredients"
-                android:textColor="@color/text_color"
+                style="@style/darkColorInBmi"
                 android:textStyle="bold" />
 
             <View
@@ -185,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin"
                 android:text="@string/servings_number"
-                android:textColor="@color/text_color" />
+                style="@style/darkColorInBmi" />
 
             <View
                 android:id="@+id/view2"
@@ -202,7 +202,7 @@
                 android:layout_marginEnd="@dimen/default_margin"
                 android:lineHeight="22dp"
                 android:text="@string/app_name"
-                android:textColor="@color/text_color" />
+                style="@style/darkColorInBmi" />
 
             <View
                 android:id="@+id/view4"
@@ -216,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin"
                 android:text="@string/preparation"
-                android:textColor="@color/text_color"
+                style="@style/darkColorInBmi"
                 android:textStyle="bold" />
 
             <View
@@ -234,7 +234,7 @@
                 android:layout_marginEnd="@dimen/default_margin"
                 android:lineHeight="22dp"
                 android:text="@string/app_name"
-                android:textColor="@color/text_color" />
+                style="@style/darkColorInBmi" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -88,6 +88,23 @@
     <style name="iconDiet">
         <item name="android:src">@drawable/diet</item>
     </style>
+
+    <!--fragment item details-->
+    <style name="bgItemDetails">
+        <item name="android:background">@drawable/rounded_corners_dark</item>
+    </style>
+
+
+    <style name="servingStyle">
+        <item name="android:background">@drawable/rounded_corners2_dark</item>
+    </style>
+
+    <style name="bgDetailMeal">
+        <item name="android:background">@drawable/meal_shape_dark</item>
+    </style>
+    <style name="circle">
+        <item name="android:src">@drawable/circle_dark</item>
+    </style>
     <!--The End-->
     <style name="chip" parent="Widget.Material3.Chip.Filter">
         <item name="chipStrokeColor">@color/light_gray</item>
