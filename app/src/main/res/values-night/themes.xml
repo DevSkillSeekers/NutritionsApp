@@ -54,7 +54,15 @@
     </style>
     <!--BMI Fragment-->
     <style name="bgInBMi">
-        <item name="backgroundColor">#40FFD858</item>
+        <item name="cardBackgroundColor">#40FFD858</item>
+    </style>
+
+    <style name="darkColorInBmi">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="text_color_progress">
+        <item name="arc_text_color">@color/white</item>
     </style>
 
     <!--Diet Fragment-->
@@ -78,7 +86,7 @@
     </style>
 
     <style name="iconDiet">
-        <item name="android:drawable">@drawable/diet</item>
+        <item name="android:src">@drawable/diet</item>
     </style>
     <!--The End-->
     <style name="chip" parent="Widget.Material3.Chip.Filter">

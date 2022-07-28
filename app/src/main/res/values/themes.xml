@@ -62,8 +62,17 @@
     </style>
     <!--Bmi Fragment-->
     <style name="bgInBMi">
-        <item name="backgroundTint">#DAE4E5</item>
+        <item name="cardBackgroundColor">@color/yello_light</item>
     </style>
+
+    <style name="darkColorInBmi">
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="text_color_progress">
+        <item name="arc_text_color">@color/text_color</item>
+    </style>
+
     <!--Diet Fragment-->
     <style name="bgdiet" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/yello_heavy</item>
@@ -84,7 +93,7 @@
     </style>
 
     <style name="iconDiet">
-        <item name="android:drawable">@drawable/ic_diet_symbol</item>
+        <item name="android:src">@drawable/ic_diet_symbol</item>
     </style>
 
     <!--The End-->
