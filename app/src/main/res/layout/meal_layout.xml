@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingVertical="@dimen/small_padding">
@@ -21,18 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <ImageButton
-            android:id="@+id/addIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/large_margin"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="0dp"
@@ -41,26 +30,52 @@
             android:layout_marginTop="@dimen/default_margin"
             android:layout_marginEnd="@dimen/default_margin"
             android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
             android:singleLine="true"
             android:text="Pizza"
-            android:fontFamily="sans-serif-medium"
-            android:textStyle="normal"
             android:textColor="@color/text_color"
             android:textSize="@dimen/small_text_size"
-            app:layout_constraintEnd_toStartOf="@+id/addIcon"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgMeal"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/caloriesTextView"
+            android:id="@+id/proteinsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
-            android:text="200 Cal"
+            android:drawableStart="@drawable/small_circle_for_item_search"
+            android:gravity="center_vertical"
+            android:text=" 200 proteins"
             android:textColor="#767676"
-            app:layout_constraintStart_toEndOf="@+id/imgMeal"
+            app:layout_constraintStart_toStartOf="@+id/titleTextView"
             app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+        <TextView
+            android:id="@+id/carbsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 200 carbs"
+            android:textColor="#767676"
+            android:drawableStart="@drawable/small_circle_for_item_search"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/proteinsTextView"
+            app:layout_constraintEnd_toStartOf="@+id/fatsTextView"
+            app:layout_constraintStart_toEndOf="@+id/proteinsTextView"
+            app:layout_constraintTop_toTopOf="@+id/proteinsTextView" />
+
+        <TextView
+            android:id="@+id/fatsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 200 fats"
+            android:layout_marginEnd="8dp"
+            android:textColor="#767676"
+            android:drawableStart="@drawable/small_circle_for_item_search"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/proteinsTextView"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

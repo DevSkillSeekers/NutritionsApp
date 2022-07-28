@@ -5,14 +5,18 @@
     android:layout_height="match_parent"
     style="@style/fragment_bg">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
+
         android:id="@+id/searchViewInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginEnd="@dimen/default_margin"
         android:hint="@string/search_hint"
+        android:singleLine="true"
+        android:drawableStart="@drawable/ic_outline_search_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,16 +31,16 @@
         app:hintTextAppearance="@color/yello_heavy"
         app:hintTextColor="@color/yello_heavy"
         app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/ic_outline_search_24">
+        app:startIconDrawable="@drawable/ic_outline_search_24"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtTxtSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1" />
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/edtTxtSearch"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLines="1" />-->
 
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
 
     <androidx.recyclerview.widget.RecyclerView

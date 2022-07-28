@@ -6,9 +6,8 @@ import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
-import android.widget.ProgressBar
-import android.widget.Toast
-import androidx.core.text.set
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.domain.DietValues
@@ -17,33 +16,35 @@ import com.thechance.nutritionsapp.databinding.FragmentItemDetailsBinding
 import com.thechance.nutritionsapp.ui.home.HomeFragment
 import com.thechance.nutritionsapp.util.Constants
 import com.thechance.nutritionsapp.util.hideKeyboard
+import com.thechance.nutritionsapp.util.unitconverter.Converter
 import com.thechance.nutritionsapp.util.unitconverter.NutrationFacts
 
 
 class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
     private lateinit var mNutritionDetails: NutritionItem
-    var servingNumber: Double=100.0
-    var DropDownUnit="g"
-    var totalKcal =0
+    var servingNumber: Double = 100.0
+    var DropDownUnit = "g"
+    var totalKcal = 0
+    var nutritionItems = hashMapOf<String, String>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentItemDetailsBinding =
         FragmentItemDetailsBinding::inflate
 
-    override fun setup() {
+     override fun setup() {
         mNutritionDetails = arguments?.getParcelable(Constants.EXTRA_NUTRITION_DETAILS)!!
         setupActionBar(binding.toolbarItemDetails.toolbar, mNutritionDetails.name)
 
         val items = listOf("kg", "g", "mg", "lb")
         val adapter = ArrayAdapter(requireActivity(), R.layout.dropdown_item, items)
-        binding.autoCompleteTextView.setText(items[1])
         binding.autoCompleteTextView.setAdapter(adapter)
         setData()
+        addtolist()
+        setupRecyclerView()
         binding.autoCompleteTextView.onItemClickListener =
             OnItemClickListener { parent, view, position, id ->
                 if (binding.servingsNumber.text.toString().isNotEmpty()) {
                     setNutritionFacts()
                 }
             }
-        binding.servingsNumber.setText("100")
         binding.servingsNumber.onFocusChangeListener =
             OnFocusChangeListener { v, hasFocus ->
                 if (!hasFocus && binding.servingsNumber.text.toString()
@@ -51,6 +52,7 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
                 )
                     setNutritionFacts()
             }
+
         binding.buttonAddMeal.setOnClickListener {
             addItem()
         }
@@ -75,8 +77,27 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             (mNutritionDetails.fats).toString() + "g"
     }
 
+    private fun addtolist() {
+        var amountOfNutritionItem: String = mNutritionDetails.fiber
+        nutritionItems["Fiber"] = amountOfNutritionItem
 
-    private fun setNutritionFacts() {
+        amountOfNutritionItem = mNutritionDetails.iron
+        nutritionItems["Iron"] = amountOfNutritionItem
+
+        amountOfNutritionItem = mNutritionDetails.vitamin_c
+        nutritionItems["Vitamin-C"] = amountOfNutritionItem
+
+        amountOfNutritionItem = mNutritionDetails.cholesterol
+        nutritionItems["Cholesterol"] = amountOfNutritionItem
+
+    }
+
+    private fun setupRecyclerView() {
+        binding.rvRecycler.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvRecycler.adapter = RecyclerAdapter(nutritionItems)
+    }
+
+     private fun setNutritionFacts() {
         val servingNumber: Double = binding.servingsNumber.text.toString().toDouble()
         val DropDownUnit = binding.autoCompleteTextView.text.toString()
         var itemUnit = mNutritionDetails.fiber.replace("[^A-Za-z]".toRegex(), "")
@@ -88,7 +109,8 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             servingNumber,
             DropDownUnit
         )
-        binding.fiberAmount.text = String.format("%.02f", result) + itemUnit
+        var value = String.format("%.02f", result) + itemUnit
+        nutritionItems["Fiber"] = value
 
         itemUnit = mNutritionDetails.iron.replace("[^A-Za-z]".toRegex(), "")
         amountOfNutritionItem = mNutritionDetails.iron.replace("mg", "").toDouble()
@@ -97,7 +119,8 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             servingNumber,
             DropDownUnit
         )
-        binding.ironAmount.text = String.format("%.02f", result) + itemUnit
+        value = String.format("%.02f", result) + itemUnit
+        nutritionItems["Iron"] = value
 
         itemUnit = mNutritionDetails.vitamin_c.replace("[^A-Za-z]".toRegex(), "")
         amountOfNutritionItem = mNutritionDetails.vitamin_c.replace("mg", "").toDouble()
@@ -106,7 +129,8 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             servingNumber,
             DropDownUnit
         )
-        binding.vitaminCAmount.text = String.format("%.02f", result) + itemUnit
+        value = String.format("%.02f", result) + itemUnit
+        nutritionItems["Vitamin-C"] = value
 
         amountOfNutritionItem = mNutritionDetails.cholesterol.replace("mg", "").toDouble()
         result = nutritional.calcultionOfNuTritionFacts(
@@ -114,7 +138,10 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             servingNumber,
             DropDownUnit
         )
-        binding.cholesterolAmount.text = String.format("%.02f", result) + "mg"
+        value = String.format("%.02f", result) + "mg"
+        nutritionItems["Cholesterol"] = value
+
+        var maximumLength = Converter()
 
         amountOfNutritionItem = mNutritionDetails.carbs
         result = nutritional.calcultionOfNuTritionFacts(
@@ -122,17 +149,16 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             servingNumber,
             DropDownUnit
         )
-        binding.progressBarOfCarb.max = servingNumber.toInt()
+        binding.progressBarOfCarb.max = maximumLength.progressLenght(servingNumber, DropDownUnit)
         binding.progressBarOfCarb.progress = result.toInt()
         binding.carbAmount.text = String.format("%.02f", result) + "g"
-
         amountOfNutritionItem = mNutritionDetails.proteins
         result = nutritional.calcultionOfNuTritionFacts(
             amountOfNutritionItem,
             servingNumber,
             DropDownUnit
         )
-        binding.progressBarOfProtein.max = servingNumber.toInt()
+        binding.progressBarOfProtein.max = maximumLength.progressLenght(servingNumber, DropDownUnit)
         binding.progressBarOfProtein.progress = result.toInt()
         binding.proteinAmount.text = String.format("%.02f", result) + "g"
 
@@ -142,7 +168,7 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
             servingNumber,
             DropDownUnit
         )
-        binding.fatProgressBarOfFats.max = servingNumber.toInt()
+        binding.fatProgressBarOfFats.max = maximumLength.progressLenght(servingNumber, DropDownUnit)
         binding.fatProgressBarOfFats.progress = result.toInt()
         binding.fatsAmount.text = String.format("%.02f", result) + "g"
 
@@ -155,12 +181,14 @@ class ItemDetailsFragment : BaseFragment<FragmentItemDetailsBinding>() {
 
         binding.circularProgressBar.progress = result.toInt()
         binding.KcalAmount.text = result.toInt().toString()
-        totalKcal =result.toInt()
+        totalKcal = result.toInt()
+
+        setupRecyclerView()
     }
 
     private fun addItem() {
-        mNutritionDetails.servingSize= "$servingNumber $DropDownUnit"
-        mNutritionDetails.calories = if( totalKcal!=0)totalKcal else mNutritionDetails.calories
+        mNutritionDetails.servingSize = "$servingNumber $DropDownUnit"
+        mNutritionDetails.calories = if (totalKcal != 0) totalKcal else mNutritionDetails.calories
         var msg = ""
         when (mealType) {
             Constants.BREAKFAST -> {
