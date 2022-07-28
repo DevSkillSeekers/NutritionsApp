@@ -17,17 +17,16 @@
 
     <TextView
         android:id="@+id/text_mealName"
-        style="@style/subTitle"
+        style="@style/subBodyTextInHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
-        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/mealIcon1"
         app:layout_constraintBottom_toTopOf="@id/guide_center_vertical"/>
 
     <TextView
         android:id="@+id/text_amount"
-        style="@style/subBodyText"
+        style="@style/subBodyTextInHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1g"
@@ -40,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/calories"
-        style="@style/bodyText"
+        style="@style/bodyTextInDiet"
         app:layout_constraintBaseline_toBaselineOf="@id/text_mealName"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -49,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
-        style="@style/subBodyText"
+        style="@style/subBodyTextInHome"
         android:textColor="@color/color_red"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_amount"
         app:layout_constraintEnd_toEndOf="@+id/text_cals" />

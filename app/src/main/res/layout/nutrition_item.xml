@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/small_margin"
     android:padding="@dimen/small_padding"
-    android:background="@drawable/rounded_corners2">
+    style="@style/servingStyle">
 
     <ImageView
         android:id="@+id/imageView1"
@@ -18,7 +18,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="todo"
-        android:src="@drawable/ic_baseline_circle_24_of_item_details"
+        style="@style/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Fiber"
-        android:textColor="@color/bottom_item_color"
+        style="@style/darkColorInBmi"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView1"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text=""
-        android:textColor="@color/bottom_item_color"
+        style="@style/darkColorInBmi"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
