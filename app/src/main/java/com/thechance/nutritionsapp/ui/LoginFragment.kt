@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.thechance.nutritionsapp.R
 import com.thechance.nutritionsapp.data.User
-import com.thechance.nutritionsapp.databinding.FragmentDietTypeBinding
 import com.thechance.nutritionsapp.databinding.FragmentLoginBinding
 import com.thechance.nutritionsapp.ui.home.HomeFragment
 import com.thechance.nutritionsapp.util.saveUserSharedPreferences
